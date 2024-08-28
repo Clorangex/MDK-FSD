@@ -36,12 +36,11 @@ public:
 };
 
 /// Enum /Script/StreamlineRHI.EStreamlineSettingOverride
-/// Size: 0x04
-enum EStreamlineSettingOverride : uint8_t
+/// Size: 0x03
+enum class EStreamlineSettingOverride : uint8_t
 {
-	EStreamlineSettingOverride__Enabled0                                             = 0,
-	EStreamlineSettingOverride__Disabled1                                            = 1,
-	EStreamlineSettingOverride__UseProjectSettings2                                  = 2,
-	EStreamlineSettingOverride__EStreamlineSettingOverride_MAX3                      = 3
+	EStreamlineSettingOverride__Enabled                                              = 0,
+	EStreamlineSettingOverride__Disabled                                             = 1,
+	EStreamlineSettingOverride__UseProjectSettings                                   = 2
 };
 

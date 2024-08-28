@@ -8,13 +8,13 @@
 /// dependency: CoreUObject
 
 /// Class /Script/SignificanceManager.SignificanceManager
-/// Size: 0x0110 (0x000028 - 0x000138)
+/// Size: 0x00F8 (0x000028 - 0x000120)
 class USignificanceManager : public UObject
 { 
 	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 312;
+	static inline constexpr uint64_t __MDKClassSize = 288;
 
 public:
-	SMember(FSoftClassPath)                            SignificanceManagerClassName                                OFFSET(getStruct<T>, {0x120, 24, 0, 0})
+	SMember(FSoftClassPath)                            SignificanceManagerClassName                                OFFSET(getStruct<T>, {0x108, 24, 0, 0})
 };
 

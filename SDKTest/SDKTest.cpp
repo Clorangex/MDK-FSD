@@ -12,7 +12,7 @@ int main()
 {
     Memory::Memory();
 
-    Memory::load("FortniteClient-Win64-Shipping.exe");
+    Memory::load("FSD-Win64-Shipping.exe");
 
     printf("base: 0x%llX\n", Memory::getBaseAddress());
 
@@ -33,7 +33,7 @@ int main()
         //also its your job to set a good lowerbound, if you try to read something from uobject, its 0
         //its no problem rereading somewhere in the loop the pointer again with a lower lowerbound, it will read those bytes then
         //e.g now you choose uobject as lowerbound but later you need uobject, you reread and specify MDKBase as lowerbound, or leave empty
-        UWorld world = MDKHandler::get<UWorld, UObject>(Memory::read<DWORD64>(Memory::getBaseAddress() + 0xE938D58));
+        UWorld world = MDKHandler::get<UWorld, UObject>(Memory::read<DWORD64>(Memory::getBaseAddress() + 0x6497370));
 
         if (!world)
         {
@@ -43,6 +43,12 @@ int main()
         //DO NOT write anything into the function parameters, they are there for other purposes
         //(check write logic if you really wanna know)
         printf("VTable: %p\n", world.vtable());
+
+        ULevel* levelPtr = world.PersistentLevel<ULevel*>();
+
+        TArray<AActor*> actors = MDKHandler::readSingle<ULevel, TArray<AActor*>>(levelPtr, &ULevel::Actors);
+
+        printf("AAS count:%d Data:%p\n", actors.Count, actors.Data);
 
         //follow the function to see the type the sdk defined
         //the type in these CMember or DMember or SMember
@@ -72,9 +78,7 @@ int main()
         //first specify the base class where the member is in, in our case its the playerController
         //and then specify the type you wanna read, in our case its AFortPlayerControllerAthena*
         //in the params specify the pointer to the ULocalPlayer class and then the member
-        AFortPlayerControllerAthena* playerControllerPtr =
-            MDKHandler::readSingle<ULocalPlayer, AFortPlayerControllerAthena*>(player, &ULocalPlayer::PlayerController);
-
+        APlayerController* playerControllerPtr = MDKHandler::readSingle<ULocalPlayer, APlayerController*>(player, &ULocalPlayer::PlayerController);
 
 
         printf("playerControllerPtr: %p\n", playerControllerPtr);
@@ -87,7 +91,7 @@ int main()
         //APlayerController
         auto playerController = MDKHandler::get<APlayerController, UObject>(playerControllerPtr);
 
-        const auto acknowledgedPawnPtr = playerController.AcknowledgedPawn<APlayerPawn_Athena_C*>();
+        const auto acknowledgedPawnPtr = playerController.AcknowledgedPawn<ACharacter*>();
 
         printf("acknowledgedPawnPtr: %p\n", acknowledgedPawnPtr);
 
@@ -95,26 +99,25 @@ int main()
             continue;
 
         //get the acknowledged pawn
-        auto acknowlededPawn = MDKHandler::get<APlayerPawn_Athena_Generic_C>(acknowledgedPawnPtr);
+        auto acknowlededPawn = MDKHandler::get<AActor>(acknowledgedPawnPtr);
 
         auto rootComp = acknowlededPawn.RootComponent<USceneComponent*>();
 
         struct _FVectorCopy
         {
-            double x;
-            double y;
-            double z;
+            float x;
+            float y;
+            float z;
         };
 
         //types of reading single items of a class that you used readsingle on:
 
         //use the classic readSingle
-        const auto locationSingleMDKClass = MDKHandler::readSingle<USceneComponent, FVector>(rootComp, &USceneComponent::RelativeLocation);
-        printf("loc: %.f %.f %.f\n", locationSingleMDKClass.X(), locationSingleMDKClass.Y(), locationSingleMDKClass.Z());
+        const auto locationSingleMDKClass = MDKHandler::readSingle<USceneComponent, _FVectorCopy>(rootComp, &USceneComponent::RelativeLocation);
+        printf("loc: %.f %.f %.f\n", locationSingleMDKClass.x, locationSingleMDKClass.y, locationSingleMDKClass.z);
 
-        //or dont use a SDK struct
-        const _FVectorCopy locationSingleCustomClass = MDKHandler::readSingle<USceneComponent, _FVectorCopy>(rootComp, &USceneComponent::RelativeLocation);
-        printf("loc: %.f %.f %.f\n", locationSingleCustomClass.x, locationSingleCustomClass.y, locationSingleCustomClass.z);
+        const auto locationSingleMDKClass1 = MDKHandler::readSingle<USceneComponent, FVector>(rootComp, &USceneComponent::RelativeLocation);
+        printf("loc: %.f %.f %.f\n", locationSingleMDKClass1.X(), locationSingleMDKClass1.Y(), locationSingleMDKClass1.Z());
 
         //works on all datatypes
         const auto componentToWorldUpdated = MDKHandler::readSingle<USceneComponent, bool>(rootComp, &USceneComponent::bComponentToWorldUpdated);
@@ -133,31 +136,30 @@ int main()
         printf("componentToWorldUpdatedOffset: %.d\n", componentToWorldUpdatedOffset.offset);
 
 
-        const auto weaponPtr = acknowlededPawn.CurrentWeapon<AFortWeapon*>();
+        //const auto weaponPtr = acknowlededPawn.CurrentWeapon<AFortWeapon*>();
+        auto character = acknowledgedPawnPtr;
 
-        auto character = (ACharacter*)rootComp;
+        //if (!weaponPtr)
+        //    continue;
 
-        if (!weaponPtr)
-            continue;
-
-        //and the weapon
-        auto weapon = MDKHandler::get<AFortWeapon, AActor>(weaponPtr);
-
-
-        // example of casting to a regular struct
-        // wanna cast it to your own struct or any struct that is not from MDK?
+        ////and the weapon
+        //auto weapon = MDKHandler::get<AFortWeapon, AActor>(weaponPtr);
 
 
+        //// example of casting to a regular struct
+        //// wanna cast it to your own struct or any struct that is not from MDK?
 
-        //get the MDKClass 
-        const auto _velocity = acknowlededPawn.PreviousVelocityXY<FVector>();
 
-        //now cast it using dataCast
-        const auto velocity = MDKHandler::dataCast<_FVectorCopy>(_velocity);
 
-        printf("velocity: x: %.f y: %.f z: %.f\n", velocity.x, velocity.y, velocity.z);
+        ////get the MDKClass 
+        //const auto _velocity = acknowlededPawn.PreviousVelocityXY<FVector>();
 
-        printf("velocity: x: %.f y: %.f z: %.f\n", _velocity.X(), _velocity.X(), _velocity.X());
+        ////now cast it using dataCast
+        //const auto velocity = MDKHandler::dataCast<_FVectorCopy>(_velocity);
+
+        //printf("velocity: x: %.f y: %.f z: %.f\n", velocity.x, velocity.y, velocity.z);
+
+        //printf("velocity: x: %.f y: %.f z: %.f\n", _velocity.X(), _velocity.X(), _velocity.X());
 
 
         // example of writing
@@ -174,8 +176,8 @@ int main()
 
         auto CharacterMovement = MDKHandler::get<UCharacterMovementComponent, UObject>(pCharacterMovement);
 
-        MDKHandler::write<UCharacterMovementComponent, float>(CharacterMovement, &UCharacterMovementComponent::GravityScale, 0.0f);
-
+        MDKHandler::write<UCharacterMovementComponent, float>(CharacterMovement, &UCharacterMovementComponent::GravityScale, 0.4f);
+        MDKHandler::write<UCharacterMovementComponent, float>(CharacterMovement, &UCharacterMovementComponent::MaxWalkSpeed, 1000.f);
         //or
 
         //use writesilent so it will just write in the cache to queue many small writes

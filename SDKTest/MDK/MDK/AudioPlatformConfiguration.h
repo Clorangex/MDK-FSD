@@ -23,13 +23,13 @@ public:
 
 /// Enum /Script/AudioPlatformConfiguration.ESoundwaveSampleRateSettings
 /// Size: 0x06
-enum ESoundwaveSampleRateSettings : uint8_t
+enum class ESoundwaveSampleRateSettings : uint8_t
 {
-	ESoundwaveSampleRateSettings__Max0                                               = 0,
-	ESoundwaveSampleRateSettings__High1                                              = 1,
-	ESoundwaveSampleRateSettings__Medium2                                            = 2,
-	ESoundwaveSampleRateSettings__Low3                                               = 3,
-	ESoundwaveSampleRateSettings__Min4                                               = 4,
-	ESoundwaveSampleRateSettings__MatchDevice_DEPRECATED5                            = 5
+	ESoundwaveSampleRateSettings__Max                                                = 0,
+	ESoundwaveSampleRateSettings__High                                               = 1,
+	ESoundwaveSampleRateSettings__Medium                                             = 2,
+	ESoundwaveSampleRateSettings__Low                                                = 3,
+	ESoundwaveSampleRateSettings__Min                                                = 4,
+	ESoundwaveSampleRateSettings__MatchDevice                                        = 5
 };
 

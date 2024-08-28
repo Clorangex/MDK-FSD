@@ -5,6 +5,7 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: CoreUObject
 
 /// Struct /Script/MediaUtils.MediaPlayerTrackOptions
 /// Size: 0x001C (0x000000 - 0x00001C)
@@ -40,12 +41,11 @@ public:
 };
 
 /// Enum /Script/MediaUtils.EMediaPlayerOptionBooleanOverride
-/// Size: 0x04
-enum EMediaPlayerOptionBooleanOverride : uint8_t
+/// Size: 0x03
+enum class EMediaPlayerOptionBooleanOverride : uint8_t
 {
-	EMediaPlayerOptionBooleanOverride__UseMediaPlayerSetting0                        = 0,
-	EMediaPlayerOptionBooleanOverride__Enabled1                                      = 1,
-	EMediaPlayerOptionBooleanOverride__Disabled2                                     = 2,
-	EMediaPlayerOptionBooleanOverride__EMediaPlayerOptionBooleanOverride_MAX3        = 3
+	EMediaPlayerOptionBooleanOverride__UseMediaPlayerSetting                         = 0,
+	EMediaPlayerOptionBooleanOverride__Enabled                                       = 1,
+	EMediaPlayerOptionBooleanOverride__Disabled                                      = 2
 };
 

@@ -16,51 +16,59 @@ class UEyeTrackerFunctionLibrary : public UBlueprintFunctionLibrary
 	static inline constexpr uint64_t __MDKClassSize = 40;
 
 public:
-};
 
-/// Struct /Script/EyeTracker.EyeTrackerGazeData
-/// Size: 0x0058 (0x000000 - 0x000058)
-class FEyeTrackerGazeData : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 88;
 
-public:
-	SMember(FVector)                                   GazeOrigin                                                  OFFSET(getStruct<T>, {0x0, 24, 0, 0})
-	SMember(FVector)                                   GazeDirection                                               OFFSET(getStruct<T>, {0x18, 24, 0, 0})
-	SMember(FVector)                                   FixationPoint                                               OFFSET(getStruct<T>, {0x30, 24, 0, 0})
-	DMember(float)                                     ConfidenceValue                                             OFFSET(get<float>, {0x48, 4, 0, 0})
-	DMember(bool)                                      bIsLeftEyeBlink                                             OFFSET(get<bool>, {0x4C, 1, 0, 0})
-	DMember(bool)                                      bIsRightEyeBlink                                            OFFSET(get<bool>, {0x4D, 1, 0, 0})
-	DMember(float)                                     LeftPupilDiameter                                           OFFSET(get<float>, {0x50, 4, 0, 0})
-	DMember(float)                                     RightPupilDiameter                                          OFFSET(get<float>, {0x54, 4, 0, 0})
+	/// Functions
+	// Function /Script/EyeTracker.EyeTrackerFunctionLibrary.SetEyeTrackedPlayer
+	// void SetEyeTrackedPlayer(class APlayerController* PlayerController);                                                     // [0x20b6fa0] Final|Native|Static|Public|BlueprintCallable 
+	// Function /Script/EyeTracker.EyeTrackerFunctionLibrary.IsStereoGazeDataAvailable
+	// bool IsStereoGazeDataAvailable();                                                                                        // [0x20b6f70] Final|Native|Static|Public|BlueprintCallable|BlueprintPure 
+	// Function /Script/EyeTracker.EyeTrackerFunctionLibrary.IsEyeTrackerConnected
+	// bool IsEyeTrackerConnected();                                                                                            // [0x20b6f40] Final|Native|Static|Public|BlueprintCallable|BlueprintPure 
+	// Function /Script/EyeTracker.EyeTrackerFunctionLibrary.GetStereoGazeData
+	// bool GetStereoGazeData(FEyeTrackerStereoGazeData& OutGazeData);                                                          // [0x20b6ea0] Final|Native|Static|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/EyeTracker.EyeTrackerFunctionLibrary.GetGazeData
+	// bool GetGazeData(FEyeTrackerGazeData& OutGazeData);                                                                      // [0x20b6df0] Final|Native|Static|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/EyeTracker.EyeTrackerStereoGazeData
-/// Size: 0x0080 (0x000000 - 0x000080)
+/// Size: 0x0040 (0x000000 - 0x000040)
 class FEyeTrackerStereoGazeData : public MDKBase
 { 
 	friend MDKHandler;
 	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 128;
+	static inline constexpr uint64_t __MDKClassSize = 64;
 
 public:
-	SMember(FVector)                                   LeftEyeOrigin                                               OFFSET(getStruct<T>, {0x0, 24, 0, 0})
-	SMember(FVector)                                   LeftEyeDirection                                            OFFSET(getStruct<T>, {0x18, 24, 0, 0})
-	SMember(FVector)                                   RightEyeOrigin                                              OFFSET(getStruct<T>, {0x30, 24, 0, 0})
-	SMember(FVector)                                   RightEyeDirection                                           OFFSET(getStruct<T>, {0x48, 24, 0, 0})
-	SMember(FVector)                                   FixationPoint                                               OFFSET(getStruct<T>, {0x60, 24, 0, 0})
-	DMember(float)                                     ConfidenceValue                                             OFFSET(get<float>, {0x78, 4, 0, 0})
+	SMember(FVector)                                   LeftEyeOrigin                                               OFFSET(getStruct<T>, {0x0, 12, 0, 0})
+	SMember(FVector)                                   LeftEyeDirection                                            OFFSET(getStruct<T>, {0xC, 12, 0, 0})
+	SMember(FVector)                                   RightEyeOrigin                                              OFFSET(getStruct<T>, {0x18, 12, 0, 0})
+	SMember(FVector)                                   RightEyeDirection                                           OFFSET(getStruct<T>, {0x24, 12, 0, 0})
+	SMember(FVector)                                   FixationPoint                                               OFFSET(getStruct<T>, {0x30, 12, 0, 0})
+	DMember(float)                                     ConfidenceValue                                             OFFSET(get<float>, {0x3C, 4, 0, 0})
+};
+
+/// Struct /Script/EyeTracker.EyeTrackerGazeData
+/// Size: 0x0028 (0x000000 - 0x000028)
+class FEyeTrackerGazeData : public MDKBase
+{ 
+	friend MDKHandler;
+	friend MDKBase;
+	static inline constexpr uint64_t __MDKClassSize = 40;
+
+public:
+	SMember(FVector)                                   GazeOrigin                                                  OFFSET(getStruct<T>, {0x0, 12, 0, 0})
+	SMember(FVector)                                   GazeDirection                                               OFFSET(getStruct<T>, {0xC, 12, 0, 0})
+	SMember(FVector)                                   FixationPoint                                               OFFSET(getStruct<T>, {0x18, 12, 0, 0})
+	DMember(float)                                     ConfidenceValue                                             OFFSET(get<float>, {0x24, 4, 0, 0})
 };
 
 /// Enum /Script/EyeTracker.EEyeTrackerStatus
-/// Size: 0x04
-enum EEyeTrackerStatus : uint8_t
+/// Size: 0x03
+enum class EEyeTrackerStatus : uint8_t
 {
-	EEyeTrackerStatus__NotConnected0                                                 = 0,
-	EEyeTrackerStatus__NotTracking1                                                  = 1,
-	EEyeTrackerStatus__Tracking2                                                     = 2,
-	EEyeTrackerStatus__EEyeTrackerStatus_MAX3                                        = 3
+	EEyeTrackerStatus__NotConnected                                                  = 0,
+	EEyeTrackerStatus__NotTracking                                                   = 1,
+	EEyeTrackerStatus__Tracking                                                      = 2
 };
 

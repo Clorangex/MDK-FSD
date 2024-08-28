@@ -17,7 +17,6 @@ class UOodleNetworkTrainerCommandlet : public UCommandlet
 
 public:
 	DMember(bool)                                      bCompressionTest                                            OFFSET(get<bool>, {0x80, 1, 0, 0})
-	DMember(bool)                                      bWriteV5Dictionaries                                        OFFSET(get<bool>, {0x81, 1, 0, 0})
 	DMember(int32_t)                                   HashTableSize                                               OFFSET(get<int32_t>, {0x84, 4, 0, 0})
 	DMember(int32_t)                                   DictionarySize                                              OFFSET(get<int32_t>, {0x88, 4, 0, 0})
 	DMember(int32_t)                                   DictionaryTrials                                            OFFSET(get<int32_t>, {0x8C, 4, 0, 0})
@@ -26,25 +25,11 @@ public:
 	DMember(bool)                                      bNoTrials                                                   OFFSET(get<bool>, {0x98, 1, 0, 0})
 };
 
-/// Enum /Script/OodleNetworkHandlerComponent.EOodleNetworkEnableMode
-/// Size: 0x03
-enum EOodleNetworkEnableMode : uint8_t
+/// Enum /Script/OodleNetworkHandlerComponent.EOodleEnableMode
+/// Size: 0x02
+enum class EOodleEnableMode : uint8_t
 {
-	EOodleNetworkEnableMode__AlwaysEnabled0                                          = 0,
-	EOodleNetworkEnableMode__WhenCompressedPacketReceived1                           = 1,
-	EOodleNetworkEnableMode__EOodleNetworkEnableMode_MAX2                            = 2
-};
-
-/// Enum /Script/OodleNetworkHandlerComponent.EOodleNetResult
-/// Size: 0x07
-enum EOodleNetResult : uint8_t
-{
-	EOodleNetResult__Unknown0                                                        = 0,
-	EOodleNetResult__Success1                                                        = 1,
-	EOodleNetResult__OodleDecodeFailed2                                              = 2,
-	EOodleNetResult__OodleSerializePayloadFail3                                      = 3,
-	EOodleNetResult__OodleBadDecompressedLength4                                     = 4,
-	EOodleNetResult__OodleNoDictionary5                                              = 5,
-	EOodleNetResult__EOodleNetResult_MAX6                                            = 6
+	EOodleEnableMode__AlwaysEnabled                                                  = 0,
+	EOodleEnableMode__WhenCompressedPacketReceived                                   = 1
 };
 

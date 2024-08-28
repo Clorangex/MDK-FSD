@@ -5,6 +5,7 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: AudioMixer
 /// dependency: CoreUObject
 /// dependency: Engine
@@ -17,6 +18,17 @@ class UAudioCapture : public UAudioGenerator
 	static inline constexpr uint64_t __MDKClassSize = 176;
 
 public:
+
+
+	/// Functions
+	// Function /Script/AudioCapture.AudioCapture.StopCapturingAudio
+	// void StopCapturingAudio();                                                                                               // [0x125def0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/AudioCapture.AudioCapture.StartCapturingAudio
+	// void StartCapturingAudio();                                                                                              // [0x125ded0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/AudioCapture.AudioCapture.IsCapturingAudio
+	// bool IsCapturingAudio();                                                                                                 // [0x125dea0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/AudioCapture.AudioCapture.GetAudioCaptureDeviceInfo
+	// bool GetAudioCaptureDeviceInfo(FAudioCaptureDeviceInfo& OutInfo);                                                        // [0x125ddf0] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Class /Script/AudioCapture.AudioCaptureFunctionLibrary
@@ -27,56 +39,35 @@ class UAudioCaptureFunctionLibrary : public UBlueprintFunctionLibrary
 	static inline constexpr uint64_t __MDKClassSize = 40;
 
 public:
-};
 
-/// Class /Script/AudioCapture.AudioCaptureBlueprintLibrary
-/// Size: 0x0000 (0x000028 - 0x000028)
-class UAudioCaptureBlueprintLibrary : public UBlueprintFunctionLibrary
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 40;
 
-public:
+	/// Functions
+	// Function /Script/AudioCapture.AudioCaptureFunctionLibrary.CreateAudioCapture
+	// class UAudioCapture* CreateAudioCapture();                                                                               // [0x125ddc0] Final|Native|Static|Public|BlueprintCallable 
 };
 
 /// Class /Script/AudioCapture.AudioCaptureComponent
-/// Size: 0x00C0 (0x000900 - 0x0009C0)
+/// Size: 0x00C0 (0x0006C0 - 0x000780)
 class UAudioCaptureComponent : public USynthComponent
 { 
 	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 2496;
+	static inline constexpr uint64_t __MDKClassSize = 1920;
 
 public:
-	DMember(int32_t)                                   JitterLatencyFrames                                         OFFSET(get<int32_t>, {0x900, 4, 0, 0})
-};
-
-/// Struct /Script/AudioCapture.AudioInputDeviceInfo
-/// Size: 0x0030 (0x000000 - 0x000030)
-class FAudioInputDeviceInfo : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 48;
-
-public:
-	SMember(FString)                                   DeviceName                                                  OFFSET(getStruct<T>, {0x0, 16, 0, 0})
-	SMember(FString)                                   DeviceID                                                    OFFSET(getStruct<T>, {0x10, 16, 0, 0})
-	DMember(int32_t)                                   InputChannels                                               OFFSET(get<int32_t>, {0x20, 4, 0, 0})
-	DMember(int32_t)                                   PreferredSampleRate                                         OFFSET(get<int32_t>, {0x24, 4, 0, 0})
-	DMember(bool)                                      bSupportsHardwareAEC                                        OFFSET(get<bool>, {0x28, 1, 1, 0})
+	DMember(int32_t)                                   JitterLatencyFrames                                         OFFSET(get<int32_t>, {0x6C0, 4, 0, 0})
 };
 
 /// Struct /Script/AudioCapture.AudioCaptureDeviceInfo
-/// Size: 0x000C (0x000000 - 0x00000C)
+/// Size: 0x0010 (0x000000 - 0x000010)
 class FAudioCaptureDeviceInfo : public MDKBase
 { 
 	friend MDKHandler;
 	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 12;
+	static inline constexpr uint64_t __MDKClassSize = 16;
 
 public:
-	SMember(FName)                                     DeviceName                                                  OFFSET(getStruct<T>, {0x0, 4, 0, 0})
-	DMember(int32_t)                                   NumInputChannels                                            OFFSET(get<int32_t>, {0x4, 4, 0, 0})
-	DMember(int32_t)                                   SampleRate                                                  OFFSET(get<int32_t>, {0x8, 4, 0, 0})
+	SMember(FName)                                     DeviceName                                                  OFFSET(getStruct<T>, {0x0, 8, 0, 0})
+	DMember(int32_t)                                   NumInputChannels                                            OFFSET(get<int32_t>, {0x8, 4, 0, 0})
+	DMember(int32_t)                                   SampleRate                                                  OFFSET(get<int32_t>, {0xC, 4, 0, 0})
 };
 

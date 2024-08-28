@@ -125,7 +125,7 @@ public:
 	std::enable_if_t<!std::is_class_v<T>|| !std::is_base_of_v<MDKBase, T>, T>
 	getStruct(__MDKMemberInfo b) const
 	{
-		T res; // Default constructed
+		T res = { 0 }; // Default constructed
 		return res;
 	}
 
@@ -405,7 +405,7 @@ public:
 		if (info.size <= 0)
 			return T();
 
-		if (sizeof(T) != info.size)
+		if (T::__MDKClassSize != info.size)
 			return T();
 
 

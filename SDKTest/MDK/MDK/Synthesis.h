@@ -5,1010 +5,13 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
+/// dependency: AudioExtensions
 /// dependency: AudioMixer
 /// dependency: CoreUObject
 /// dependency: Engine
 /// dependency: SlateCore
 /// dependency: UMG
-
-/// Class /Script/Synthesis.AudioImpulseResponse
-/// Size: 0x0030 (0x000028 - 0x000058)
-class UAudioImpulseResponse : public UObject
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 88;
-
-public:
-	CMember(TArray<float>)                             ImpulseResponse                                             OFFSET(get<T>, {0x28, 16, 0, 0})
-	DMember(int32_t)                                   NumChannels                                                 OFFSET(get<int32_t>, {0x38, 4, 0, 0})
-	DMember(int32_t)                                   SampleRate                                                  OFFSET(get<int32_t>, {0x3C, 4, 0, 0})
-	DMember(float)                                     NormalizationVolumeDb                                       OFFSET(get<float>, {0x40, 4, 0, 0})
-	DMember(bool)                                      bTrueStereo                                                 OFFSET(get<bool>, {0x44, 1, 0, 0})
-	CMember(TArray<float>)                             IRData                                                      OFFSET(get<T>, {0x48, 16, 0, 0})
-};
-
-/// Class /Script/Synthesis.ModularSynthPresetBank
-/// Size: 0x0010 (0x000028 - 0x000038)
-class UModularSynthPresetBank : public UObject
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 56;
-
-public:
-	CMember(TArray<FModularSynthPresetBankEntry>)      Presets                                                     OFFSET(get<T>, {0x28, 16, 0, 0})
-};
-
-/// Class /Script/Synthesis.ModularSynthLibrary
-/// Size: 0x0000 (0x000028 - 0x000028)
-class UModularSynthLibrary : public UBlueprintFunctionLibrary
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 40;
-
-public:
-};
-
-/// Class /Script/Synthesis.ModularSynthComponent
-/// Size: 0x06D0 (0x000900 - 0x000FD0)
-class UModularSynthComponent : public USynthComponent
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 4048;
-
-public:
-	DMember(int32_t)                                   VoiceCount                                                  OFFSET(get<int32_t>, {0x900, 4, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.ModularSynthComponent.SetSynthPreset
-	// void SetSynthPreset(FModularSynthPreset& SynthPreset);                                                                   // [0x6d0def4] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetSustainGain
-	// void SetSustainGain(float SustainGain);                                                                                  // [0x6d0ddb8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayWetlevel
-	// void SetStereoDelayWetlevel(float DelayWetlevel);                                                                        // [0x6d0dcb8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayTime
-	// void SetStereoDelayTime(float DelayTimeMsec);                                                                            // [0x6d0dc38] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayRatio
-	// void SetStereoDelayRatio(float DelayRatio);                                                                              // [0x6d0dbb8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayMode
-	// void SetStereoDelayMode(ESynthStereoDelayMode StereoDelayMode);                                                          // [0x6d0db38] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayIsEnabled
-	// void SetStereoDelayIsEnabled(bool StereoDelayEnabled);                                                                   // [0x6d0dab8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayFeedback
-	// void SetStereoDelayFeedback(float DelayFeedback);                                                                        // [0x6d0da38] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetSpread
-	// void SetSpread(float Spread);                                                                                            // [0x6d0d6ac] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetReleaseTime
-	// void SetReleaseTime(float ReleaseTimeMsec);                                                                              // [0x6d0af70] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetPortamento
-	// void SetPortamento(float Portamento);                                                                                    // [0x6d0a8c0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetPitchBend
-	// void SetPitchBend(float PitchBend);                                                                                      // [0x6d0a6c4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetPan
-	// void SetPan(float Pan);                                                                                                  // [0x6d0a580] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetOscType
-	// void SetOscType(int32_t OscIndex, ESynth1OscType OscType);                                                               // [0x6d0a4bc] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetOscSync
-	// void SetOscSync(bool bIsSynced);                                                                                         // [0x6d0a400] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetOscSemitones
-	// void SetOscSemitones(int32_t OscIndex, float Semitones);                                                                 // [0x6d0a33c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetOscPulsewidth
-	// void SetOscPulsewidth(int32_t OscIndex, float Pulsewidth);                                                               // [0x6d0a278] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetOscOctave
-	// void SetOscOctave(int32_t OscIndex, float Octave);                                                                       // [0x6d0a1b4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetOscGainMod
-	// void SetOscGainMod(int32_t OscIndex, float OscGainMod);                                                                  // [0x6d0a0f0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetOscGain
-	// void SetOscGain(int32_t OscIndex, float OscGain);                                                                        // [0x6d0a02c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetOscFrequencyMod
-	// void SetOscFrequencyMod(int32_t OscIndex, float OscFreqMod);                                                             // [0x6d09f68] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetOscCents
-	// void SetOscCents(int32_t OscIndex, float Cents);                                                                         // [0x6d09ea4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvSustainGain
-	// void SetModEnvSustainGain(float SustainGain);                                                                            // [0x6d09c3c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvReleaseTime
-	// void SetModEnvReleaseTime(float Release);                                                                                // [0x6d09bbc] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvPatch
-	// void SetModEnvPatch(ESynthModEnvPatch InPatchType);                                                                      // [0x6d09b04] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvInvert
-	// void SetModEnvInvert(bool bInvert);                                                                                      // [0x6d09a48] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvDepth
-	// void SetModEnvDepth(float Depth);                                                                                        // [0x6d099c8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvDecayTime
-	// void SetModEnvDecayTime(float DecayTimeMsec);                                                                            // [0x6d09948] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvBiasPatch
-	// void SetModEnvBiasPatch(ESynthModEnvBiasPatch InPatchType);                                                              // [0x6d09890] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvBiasInvert
-	// void SetModEnvBiasInvert(bool bInvert);                                                                                  // [0x6d097d4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvAttackTime
-	// void SetModEnvAttackTime(float AttackTimeMsec);                                                                          // [0x6d09754] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetLFOType
-	// void SetLFOType(int32_t LFOIndex, ESynthLFOType LFOType);                                                                // [0x6d092a4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetLFOPatch
-	// void SetLFOPatch(int32_t LFOIndex, ESynthLFOPatchType LFOPatchType);                                                     // [0x6d091b0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetLFOMode
-	// void SetLFOMode(int32_t LFOIndex, ESynthLFOMode LFOMode);                                                                // [0x6d090bc] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetLFOGainMod
-	// void SetLFOGainMod(int32_t LFOIndex, float GainMod);                                                                     // [0x6d08ff8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetLFOGain
-	// void SetLFOGain(int32_t LFOIndex, float Gain);                                                                           // [0x6d08f34] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetLFOFrequencyMod
-	// void SetLFOFrequencyMod(int32_t LFOIndex, float FrequencyModHz);                                                         // [0x6d08e70] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetLFOFrequency
-	// void SetLFOFrequency(int32_t LFOIndex, float FrequencyHz);                                                               // [0x6d08dac] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetGainDb
-	// void SetGainDb(float GainDb);                                                                                            // [0x6d0808c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetFilterType
-	// void SetFilterType(ESynthFilterType FilterType);                                                                         // [0x6d07b2c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetFilterQMod
-	// void SetFilterQMod(float FilterQ);                                                                                       // [0x6d07a2c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetFilterQ
-	// void SetFilterQ(float FilterQ);                                                                                          // [0x6d0792c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetFilterFrequencyMod
-	// void SetFilterFrequencyMod(float FilterFrequencyHz);                                                                     // [0x6d078ac] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetFilterFrequency
-	// void SetFilterFrequency(float FilterFrequencyHz);                                                                        // [0x6d0782c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetFilterAlgorithm
-	// void SetFilterAlgorithm(ESynthFilterAlgorithm FilterAlgorithm);                                                          // [0x6d07198] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetEnableUnison
-	// void SetEnableUnison(bool EnableUnison);                                                                                 // [0x6d06e3c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetEnableRetrigger
-	// void SetEnableRetrigger(bool RetriggerEnabled);                                                                          // [0x6d06dbc] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetEnablePolyphony
-	// void SetEnablePolyphony(bool bEnablePolyphony);                                                                          // [0x6d06d3c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetEnablePatch
-	// bool SetEnablePatch(FPatchId PatchId, bool bIsEnabled);                                                                  // [0x6d06b04] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetEnableLegato
-	// void SetEnableLegato(bool LegatoEnabled);                                                                                // [0x6d06a84] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetDecayTime
-	// void SetDecayTime(float DecayTimeMsec);                                                                                  // [0x6d0631c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetChorusFrequency
-	// void SetChorusFrequency(float Frequency);                                                                                // [0x6d06024] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetChorusFeedback
-	// void SetChorusFeedback(float Feedback);                                                                                  // [0x6d05fa4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetChorusEnabled
-	// void SetChorusEnabled(bool EnableChorus);                                                                                // [0x6d05f24] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetChorusDepth
-	// void SetChorusDepth(float Depth);                                                                                        // [0x6d05ea4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.SetAttackTime
-	// void SetAttackTime(float AttackTimeMsec);                                                                                // [0x6d05b40] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.NoteOn
-	// void NoteOn(float Note, int32_t Velocity, float duration);                                                               // [0x6d051d8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.NoteOff
-	// void NoteOff(float Note, bool bAllNotesOff, bool bKillAllNotes);                                                         // [0x6d04f54] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.ModularSynthComponent.CreatePatch
-	// FPatchId CreatePatch(ESynth1PatchSource PatchSource, TArray<FSynth1PatchCable>& PatchCables, bool bEnableByDefault);     // [0x6d03f6c] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectBitCrusherPreset
-/// Size: 0x01A8 (0x000068 - 0x000210)
-class USourceEffectBitCrusherPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 528;
-
-public:
-	SMember(FSourceEffectBitCrusherSettings)           Settings                                                    OFFSET(getStruct<T>, {0x150, 192, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetSettings
-	// void SetSettings(FSourceEffectBitCrusherBaseSettings& Settings);                                                         // [0x6d0b46c] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetSampleRateModulators
-	// void SetSampleRateModulators(TSet<USoundModulatorBase*>& InModulators);                                                  // [0x6d0b190] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetSampleRateModulator
-	// void SetSampleRateModulator(USoundModulatorBase* Modulator);                                                             // [0x6d0b0f0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetSampleRate
-	// void SetSampleRate(float SampleRate);                                                                                    // [0x6d0b070] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetModulationSettings
-	// void SetModulationSettings(FSourceEffectBitCrusherSettings& ModulationSettings);                                         // [0x6d09cbc] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetBits
-	// void SetBits(float Bits);                                                                                                // [0x6d05e24] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetBitModulators
-	// void SetBitModulators(TSet<USoundModulatorBase*>& InModulators);                                                         // [0x6d05d40] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetBitModulator
-	// void SetBitModulator(USoundModulatorBase* Modulator);                                                                    // [0x6d05ca0] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectChorusPreset
-/// Size: 0x0478 (0x000068 - 0x0004E0)
-class USourceEffectChorusPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 1248;
-
-public:
-	SMember(FSourceEffectChorusSettings)               Settings                                                    OFFSET(getStruct<T>, {0x2B8, 552, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetWetModulators
-	// void SetWetModulators(TSet<USoundModulatorBase*>& Modulators);                                                           // [0x6d0e47c] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetWetModulator
-	// void SetWetModulator(USoundModulatorBase* Modulator);                                                                    // [0x6d0e3dc] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetWet
-	// void SetWet(float WetAmount);                                                                                            // [0x6d0e35c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetSpreadModulators
-	// void SetSpreadModulators(TSet<USoundModulatorBase*>& Modulators);                                                        // [0x6d0d84c] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetSpreadModulator
-	// void SetSpreadModulator(USoundModulatorBase* Modulator);                                                                 // [0x6d0d7ac] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetSpread
-	// void SetSpread(float Spread);                                                                                            // [0x6d0d72c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetSettings
-	// void SetSettings(FSourceEffectChorusBaseSettings& Settings);                                                             // [0x6d0b500] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetModulationSettings
-	// void SetModulationSettings(FSourceEffectChorusSettings& ModulationSettings);                                             // [0x6d09db0] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFrequencyModulators
-	// void SetFrequencyModulators(TSet<USoundModulatorBase*>& Modulators);                                                     // [0x6d07ea8] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFrequencyModulator
-	// void SetFrequencyModulator(USoundModulatorBase* Modulator);                                                              // [0x6d07e08] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFrequency
-	// void SetFrequency(float Frequency);                                                                                      // [0x6d07c80] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFeedbackModulators
-	// void SetFeedbackModulators(TSet<USoundModulatorBase*>& Modulators);                                                      // [0x6d070b4] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFeedbackModulator
-	// void SetFeedbackModulator(USoundModulatorBase* Modulator);                                                               // [0x6d07014] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFeedback
-	// void SetFeedback(float Feedback);                                                                                        // [0x6d06f94] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDryModulators
-	// void SetDryModulators(TSet<USoundModulatorBase*>& Modulators);                                                           // [0x6d069a0] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDryModulator
-	// void SetDryModulator(USoundModulatorBase* Modulator);                                                                    // [0x6d06900] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDry
-	// void SetDry(float DryAmount);                                                                                            // [0x6d06880] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDepthModulators
-	// void SetDepthModulators(TSet<USoundModulatorBase*>& Modulators);                                                         // [0x6d0679c] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDepthModulator
-	// void SetDepthModulator(USoundModulatorBase* Modulator);                                                                  // [0x6d066fc] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDepth
-	// void SetDepth(float Depth);                                                                                              // [0x6d0667c] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectConvolutionReverbPreset
-/// Size: 0x0058 (0x000068 - 0x0000C0)
-class USourceEffectConvolutionReverbPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 192;
-
-public:
-	CMember(UAudioImpulseResponse*)                    ImpulseResponse                                             OFFSET(get<T>, {0x68, 8, 0, 0})
-	SMember(FSourceEffectConvolutionReverbSettings)    Settings                                                    OFFSET(getStruct<T>, {0x70, 16, 0, 0})
-	CMember(ESubmixEffectConvolutionReverbBlockSize)   BlockSize                                                   OFFSET(get<T>, {0x80, 1, 0, 0})
-	DMember(bool)                                      bEnableHardwareAcceleration                                 OFFSET(get<bool>, {0x81, 1, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectConvolutionReverbPreset.SetSettings
-	// void SetSettings(FSourceEffectConvolutionReverbSettings& InSettings);                                                    // [0x6d0b59c] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectConvolutionReverbPreset.SetImpulseResponse
-	// void SetImpulseResponse(UAudioImpulseResponse* InImpulseResponse);                                                       // [0x6d08904] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectDynamicsProcessorPreset
-/// Size: 0x0078 (0x000068 - 0x0000E0)
-class USourceEffectDynamicsProcessorPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 224;
-
-public:
-	SMember(FSourceEffectDynamicsProcessorSettings)    Settings                                                    OFFSET(getStruct<T>, {0xB8, 40, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectDynamicsProcessorPreset.SetSettings
-	// void SetSettings(FSourceEffectDynamicsProcessorSettings& InSettings);                                                    // [0x6d0b64c] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.EnvelopeFollowerListener
-/// Size: 0x0020 (0x0000A0 - 0x0000C0)
-class UEnvelopeFollowerListener : public UActorComponent
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 192;
-
-public:
-	SMember(FMulticastInlineDelegate)                  OnEnvelopeFollowerUpdate                                    OFFSET(getStruct<T>, {0xA0, 16, 0, 0})
-};
-
-/// Class /Script/Synthesis.SourceEffectEnvelopeFollowerPreset
-/// Size: 0x0040 (0x000068 - 0x0000A8)
-class USourceEffectEnvelopeFollowerPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 168;
-
-public:
-	SMember(FSourceEffectEnvelopeFollowerSettings)     Settings                                                    OFFSET(getStruct<T>, {0x9C, 12, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectEnvelopeFollowerPreset.UnregisterEnvelopeFollowerListener
-	// void UnregisterEnvelopeFollowerListener(UEnvelopeFollowerListener* EnvelopeFollowerListener);                            // [0x6d0e560] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectEnvelopeFollowerPreset.SetSettings
-	// void SetSettings(FSourceEffectEnvelopeFollowerSettings& InSettings);                                                     // [0x6d0b7ec] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SourceEffectEnvelopeFollowerPreset.RegisterEnvelopeFollowerListener
-	// void RegisterEnvelopeFollowerListener(UEnvelopeFollowerListener* EnvelopeFollowerListener);                              // [0x6d05428] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectEQPreset
-/// Size: 0x0048 (0x000068 - 0x0000B0)
-class USourceEffectEQPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 176;
-
-public:
-	SMember(FSourceEffectEQSettings)                   Settings                                                    OFFSET(getStruct<T>, {0xA0, 16, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectEQPreset.SetSettings
-	// void SetSettings(FSourceEffectEQSettings& InSettings);                                                                   // [0x6d0b720] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectFilterPreset
-/// Size: 0x0068 (0x000068 - 0x0000D0)
-class USourceEffectFilterPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 208;
-
-public:
-	SMember(FSourceEffectFilterSettings)               Settings                                                    OFFSET(getStruct<T>, {0xB0, 32, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectFilterPreset.SetSettings
-	// void SetSettings(FSourceEffectFilterSettings& InSettings);                                                               // [0x6d0b888] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectFoldbackDistortionPreset
-/// Size: 0x0040 (0x000068 - 0x0000A8)
-class USourceEffectFoldbackDistortionPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 168;
-
-public:
-	SMember(FSourceEffectFoldbackDistortionSettings)   Settings                                                    OFFSET(getStruct<T>, {0x9C, 12, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectFoldbackDistortionPreset.SetSettings
-	// void SetSettings(FSourceEffectFoldbackDistortionSettings& InSettings);                                                   // [0x6d0bea8] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectMidSideSpreaderPreset
-/// Size: 0x0038 (0x000068 - 0x0000A0)
-class USourceEffectMidSideSpreaderPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 160;
-
-public:
-	SMember(FSourceEffectMidSideSpreaderSettings)      Settings                                                    OFFSET(getStruct<T>, {0x98, 8, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectMidSideSpreaderPreset.SetSettings
-	// void SetSettings(FSourceEffectMidSideSpreaderSettings& InSettings);                                                      // [0x6d0bf40] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectMotionFilterPreset
-/// Size: 0x0118 (0x000068 - 0x000180)
-class USourceEffectMotionFilterPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 384;
-
-public:
-	SMember(FSourceEffectMotionFilterSettings)         Settings                                                    OFFSET(getStruct<T>, {0x108, 120, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectMotionFilterPreset.SetSettings
-	// void SetSettings(FSourceEffectMotionFilterSettings& InSettings);                                                         // [0x6d0bfd8] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectPannerPreset
-/// Size: 0x0038 (0x000068 - 0x0000A0)
-class USourceEffectPannerPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 160;
-
-public:
-	SMember(FSourceEffectPannerSettings)               Settings                                                    OFFSET(getStruct<T>, {0x98, 8, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectPannerPreset.SetSettings
-	// void SetSettings(FSourceEffectPannerSettings& InSettings);                                                               // [0x6d0c0c0] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectPhaserPreset
-/// Size: 0x0048 (0x000068 - 0x0000B0)
-class USourceEffectPhaserPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 176;
-
-public:
-	SMember(FSourceEffectPhaserSettings)               Settings                                                    OFFSET(getStruct<T>, {0xA0, 16, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectPhaserPreset.SetSettings
-	// void SetSettings(FSourceEffectPhaserSettings& InSettings);                                                               // [0x6d0c154] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectRingModulationPreset
-/// Size: 0x0068 (0x000068 - 0x0000D0)
-class USourceEffectRingModulationPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 208;
-
-public:
-	SMember(FSourceEffectRingModulationSettings)       Settings                                                    OFFSET(getStruct<T>, {0xB0, 32, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectRingModulationPreset.SetSettings
-	// void SetSettings(FSourceEffectRingModulationSettings& InSettings);                                                       // [0x6d0c1f4] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectSimpleDelayPreset
-/// Size: 0x0058 (0x000068 - 0x0000C0)
-class USourceEffectSimpleDelayPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 192;
-
-public:
-	SMember(FSourceEffectSimpleDelaySettings)          Settings                                                    OFFSET(getStruct<T>, {0xA8, 24, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectSimpleDelayPreset.SetSettings
-	// void SetSettings(FSourceEffectSimpleDelaySettings& InSettings);                                                          // [0x6d0c290] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectStereoDelayPreset
-/// Size: 0x0070 (0x000068 - 0x0000D8)
-class USourceEffectStereoDelayPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 216;
-
-public:
-	SMember(FSourceEffectStereoDelaySettings)          Settings                                                    OFFSET(getStruct<T>, {0xB4, 36, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectStereoDelayPreset.SetSettings
-	// void SetSettings(FSourceEffectStereoDelaySettings& InSettings);                                                          // [0x6d0c358] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SourceEffectWaveShaperPreset
-/// Size: 0x0038 (0x000068 - 0x0000A0)
-class USourceEffectWaveShaperPreset : public USoundEffectSourcePreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 160;
-
-public:
-	SMember(FSourceEffectWaveShaperSettings)           Settings                                                    OFFSET(getStruct<T>, {0x98, 8, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SourceEffectWaveShaperPreset.SetSettings
-	// void SetSettings(FSourceEffectWaveShaperSettings& InSettings);                                                           // [0x6d0c0c0] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SubmixEffectConvolutionReverbPreset
-/// Size: 0x0098 (0x000068 - 0x000100)
-class USubmixEffectConvolutionReverbPreset : public USoundEffectSubmixPreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 256;
-
-public:
-	CMember(UAudioImpulseResponse*)                    ImpulseResponse                                             OFFSET(get<T>, {0x68, 8, 0, 0})
-	SMember(FSubmixEffectConvolutionReverbSettings)    Settings                                                    OFFSET(getStruct<T>, {0x70, 48, 0, 0})
-	CMember(ESubmixEffectConvolutionReverbBlockSize)   BlockSize                                                   OFFSET(get<T>, {0xA0, 1, 0, 0})
-	DMember(bool)                                      bEnableHardwareAcceleration                                 OFFSET(get<bool>, {0xA1, 1, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SubmixEffectConvolutionReverbPreset.SetSettings
-	// void SetSettings(FSubmixEffectConvolutionReverbSettings& InSettings);                                                    // [0x6d0c3e8] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectConvolutionReverbPreset.SetImpulseResponse
-	// void SetImpulseResponse(UAudioImpulseResponse* InImpulseResponse);                                                       // [0x6d089a0] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SubmixEffectDelayStatics
-/// Size: 0x0000 (0x000028 - 0x000028)
-class USubmixEffectDelayStatics : public UBlueprintFunctionLibrary
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 40;
-
-public:
-};
-
-/// Class /Script/Synthesis.SubmixEffectDelayPreset
-/// Size: 0x0050 (0x000068 - 0x0000B8)
-class USubmixEffectDelayPreset : public USoundEffectSubmixPreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 184;
-
-public:
-	SMember(FSubmixEffectDelaySettings)                Settings                                                    OFFSET(getStruct<T>, {0x9C, 12, 0, 0})
-	SMember(FSubmixEffectDelaySettings)                DynamicSettings                                             OFFSET(getStruct<T>, {0xA8, 12, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SubmixEffectDelayPreset.SetSettings
-	// void SetSettings(FSubmixEffectDelaySettings& InSettings);                                                                // [0x6d0c4b8] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectDelayPreset.SetInterpolationTime
-	// void SetInterpolationTime(float Time);                                                                                   // [0x6d08af8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectDelayPreset.SetDelay
-	// void SetDelay(float Length);                                                                                             // [0x6d06438] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectDelayPreset.SetDefaultSettings
-	// void SetDefaultSettings(FSubmixEffectDelaySettings& InSettings);                                                         // [0x6d0639c] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectDelayPreset.GetMaxDelayInMilliseconds
-	// float GetMaxDelayInMilliseconds();                                                                                       // [0x556d590] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-};
-
-/// Class /Script/Synthesis.SubmixEffectFilterPreset
-/// Size: 0x0040 (0x000068 - 0x0000A8)
-class USubmixEffectFilterPreset : public USoundEffectSubmixPreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 168;
-
-public:
-	SMember(FSubmixEffectFilterSettings)               Settings                                                    OFFSET(getStruct<T>, {0x9C, 12, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetSettings
-	// void SetSettings(FSubmixEffectFilterSettings& InSettings);                                                               // [0x6d0c568] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterType
-	// void SetFilterType(ESubmixFilterType InType);                                                                            // [0x6d07be4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterQMod
-	// void SetFilterQMod(float InQ);                                                                                           // [0x6d07aac] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterQ
-	// void SetFilterQ(float InQ);                                                                                              // [0x6d079ac] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterCutoffFrequencyMod
-	// void SetFilterCutoffFrequencyMod(float InFrequency);                                                                     // [0x6d07334] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterCutoffFrequency
-	// void SetFilterCutoffFrequency(float InFrequency);                                                                        // [0x6d072b4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterAlgorithm
-	// void SetFilterAlgorithm(ESubmixFilterAlgorithm InAlgorithm);                                                             // [0x6d07218] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SubmixEffectFlexiverbPreset
-/// Size: 0x0048 (0x000068 - 0x0000B0)
-class USubmixEffectFlexiverbPreset : public USoundEffectSubmixPreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 176;
-
-public:
-	SMember(FSubmixEffectFlexiverbSettings)            Settings                                                    OFFSET(getStruct<T>, {0xA0, 16, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SubmixEffectFlexiverbPreset.SetSettings
-	// void SetSettings(FSubmixEffectFlexiverbSettings& InSettings);                                                            // [0x6d0c600] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SubmixEffectMultibandCompressorPreset
-/// Size: 0x0098 (0x000068 - 0x000100)
-class USubmixEffectMultibandCompressorPreset : public USoundEffectSubmixPreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 256;
-
-public:
-	SMember(FSubmixEffectMultibandCompressorSettings)  Settings                                                    OFFSET(getStruct<T>, {0xC8, 56, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SubmixEffectMultibandCompressorPreset.SetSettings
-	// void SetSettings(FSubmixEffectMultibandCompressorSettings& InSettings);                                                  // [0x6d0c6a4] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectMultibandCompressorPreset.SetExternalSubmix
-	// void SetExternalSubmix(USoundSubmix* Submix);                                                                            // [0x6d06ebc] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectMultibandCompressorPreset.SetAudioBus
-	// void SetAudioBus(UAudioBus* AudioBus);                                                                                   // [0x6d05bc0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectMultibandCompressorPreset.ResetKey
-	// void ResetKey();                                                                                                         // [0x6d05538] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SubmixEffectStereoDelayPreset
-/// Size: 0x0070 (0x000068 - 0x0000D8)
-class USubmixEffectStereoDelayPreset : public USoundEffectSubmixPreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 216;
-
-public:
-	SMember(FSubmixEffectStereoDelaySettings)          Settings                                                    OFFSET(getStruct<T>, {0xB4, 36, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SubmixEffectStereoDelayPreset.SetSettings
-	// void SetSettings(FSubmixEffectStereoDelaySettings& InSettings);                                                          // [0x6d0ccd8] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SubmixEffectStereoToQuadPreset
-/// Size: 0x0038 (0x000068 - 0x0000A0)
-class USubmixEffectStereoToQuadPreset : public USoundEffectSubmixPreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 160;
-
-public:
-	SMember(FSubmixEffectStereoToQuadSettings)         Settings                                                    OFFSET(getStruct<T>, {0x98, 8, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SubmixEffectStereoToQuadPreset.SetSettings
-	// void SetSettings(FSubmixEffectStereoToQuadSettings& InSettings);                                                         // [0x6d0cda8] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SubmixEffectTapDelayPreset
-/// Size: 0x0070 (0x000068 - 0x0000D8)
-class USubmixEffectTapDelayPreset : public USoundEffectSubmixPreset
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 216;
-
-public:
-	SMember(FSubmixEffectTapDelaySettings)             Settings                                                    OFFSET(getStruct<T>, {0xA8, 24, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.SetTap
-	// void SetTap(int32_t TapId, FTapDelayInfo& TapInfo);                                                                      // [0x6d0df98] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.SetSettings
-	// void SetSettings(FSubmixEffectTapDelaySettings& InSettings);                                                             // [0x6d0ce38] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.SetInterpolationTime
-	// void SetInterpolationTime(float Time);                                                                                   // [0x6d08d2c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.RemoveTap
-	// void RemoveTap(int32_t TapId);                                                                                           // [0x6d054b8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.GetTapIds
-	// void GetTapIds(TArray<int32_t>& TapIds);                                                                                 // [0x6d04cb4] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.GetTap
-	// void GetTap(int32_t TapId, FTapDelayInfo& TapInfo);                                                                      // [0x6d04bbc] Final|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.GetMaxDelayInMilliseconds
-	// float GetMaxDelayInMilliseconds();                                                                                       // [0x5782a24] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.AddTap
-	// void AddTap(int32_t& TapId);                                                                                             // [0x6d03ee0] Final|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.GranularSynth
-/// Size: 0x03F0 (0x000900 - 0x000CF0)
-class UGranularSynth : public USynthComponent
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 3312;
-
-public:
-	CMember(USoundWave*)                               GranulatedSoundWave                                         OFFSET(get<T>, {0x900, 8, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.GranularSynth.SetSustainGain
-	// void SetSustainGain(float SustainGain);                                                                                  // [0x6d0dd38] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetSoundWave
-	// void SetSoundWave(USoundWave* InSoundWave);                                                                              // [0x6d0d590] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetScrubMode
-	// void SetScrubMode(bool bScrubMode);                                                                                      // [0x6d0b274] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetReleaseTimeMsec
-	// void SetReleaseTimeMsec(float ReleaseTimeMsec);                                                                          // [0x6d0aff0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetPlayheadTime
-	// void SetPlayheadTime(float InPositionSec, float LerpTimeSec, EGranularSynthSeekType SeekType);                           // [0x6d0a7c4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetPlaybackSpeed
-	// void SetPlaybackSpeed(float InPlayheadRate);                                                                             // [0x6d0a744] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetGrainVolume
-	// void SetGrainVolume(float BaseVolume, FVector2D VolumeRange);                                                            // [0x6d086f4] Final|Native|Public|HasDefaults|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetGrainsPerSecond
-	// void SetGrainsPerSecond(float InGrainsPerSecond);                                                                        // [0x6d08884] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetGrainProbability
-	// void SetGrainProbability(float InGrainProbability);                                                                      // [0x6d08674] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetGrainPitch
-	// void SetGrainPitch(float BasePitch, FVector2D PitchRange);                                                               // [0x6d084e4] Final|Native|Public|HasDefaults|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetGrainPan
-	// void SetGrainPan(float BasePan, FVector2D PanRange);                                                                     // [0x6d08354] Final|Native|Public|HasDefaults|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetGrainEnvelopeType
-	// void SetGrainEnvelopeType(EGranularSynthEnvelopeType EnvelopeType);                                                      // [0x6d0829c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetGrainDuration
-	// void SetGrainDuration(float BaseDurationMsec, FVector2D DurationRange);                                                  // [0x6d0810c] Final|Native|Public|HasDefaults|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetDecayTime
-	// void SetDecayTime(float DecayTimeMsec);                                                                                  // [0x6d05ac0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.SetAttackTime
-	// void SetAttackTime(float AttackTimeMsec);                                                                                // [0x6d05ac0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.NoteOn
-	// void NoteOn(float Note, int32_t Velocity, float duration);                                                               // [0x6d050e0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.NoteOff
-	// void NoteOff(float Note, bool bKill);                                                                                    // [0x6d04e8c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.GranularSynth.IsLoaded
-	// bool IsLoaded();                                                                                                         // [0x6d04e5c] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-	// Function /Script/Synthesis.GranularSynth.GetSampleDuration
-	// float GetSampleDuration();                                                                                               // [0x6d04b8c] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-	// Function /Script/Synthesis.GranularSynth.GetCurrentPlayheadTime
-	// float GetCurrentPlayheadTime();                                                                                          // [0x6d046f8] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-};
-
-/// Class /Script/Synthesis.MonoWaveTableSynthPreset
-/// Size: 0x0148 (0x000028 - 0x000170)
-class UMonoWaveTableSynthPreset : public UObject
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 368;
-
-public:
-	SMember(FString)                                   PresetName                                                  OFFSET(getStruct<T>, {0x28, 16, 0, 0})
-	DMember(bool)                                      bLockKeyframesToGridBool                                    OFFSET(get<bool>, {0x38, 1, 1, 0})
-	DMember(int32_t)                                   LockKeyframesToGrid                                         OFFSET(get<int32_t>, {0x3C, 4, 0, 0})
-	DMember(int32_t)                                   WaveTableResolution                                         OFFSET(get<int32_t>, {0x40, 4, 0, 0})
-	CMember(TArray<FRuntimeFloatCurve>)                WaveTable                                                   OFFSET(get<T>, {0x48, 16, 0, 0})
-	DMember(bool)                                      bNormalizeWaveTables                                        OFFSET(get<bool>, {0x58, 1, 1, 0})
-};
-
-/// Class /Script/Synthesis.SynthComponentMonoWaveTable
-/// Size: 0x0750 (0x000900 - 0x001050)
-class USynthComponentMonoWaveTable : public USynthComponent
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 4176;
-
-public:
-	SMember(FMulticastInlineDelegate)                  OnTableAltered                                              OFFSET(getStruct<T>, {0x900, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnNumTablesChanged                                          OFFSET(getStruct<T>, {0x910, 16, 0, 0})
-	CMember(UMonoWaveTableSynthPreset*)                CurrentPreset                                               OFFSET(get<T>, {0x920, 8, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetWaveTablePosition
-	// void SetWaveTablePosition(float InPosition);                                                                             // [0x6d0e2dc] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetSustainPedalState
-	// void SetSustainPedalState(bool InSustainPedalState);                                                                     // [0x6d0de38] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPosLfoType
-	// void SetPosLfoType(ESynthLFOType InLfoType);                                                                             // [0x6d0aa40] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPosLfoFrequency
-	// void SetPosLfoFrequency(float InLfoFrequency);                                                                           // [0x6d0a9c0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPosLfoDepth
-	// void SetPosLfoDepth(float InLfoDepth);                                                                                   // [0x6d0a940] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeSustainGain
-	// void SetPositionEnvelopeSustainGain(float InSustainGain);                                                                // [0x6d0aef0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeReleaseTime
-	// void SetPositionEnvelopeReleaseTime(float InReleaseTimeMsec);                                                            // [0x6d0ae70] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeInvert
-	// void SetPositionEnvelopeInvert(bool bInInvert);                                                                          // [0x6d0adb4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeDepth
-	// void SetPositionEnvelopeDepth(float InDepth);                                                                            // [0x6d0ad34] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeDecayTime
-	// void SetPositionEnvelopeDecayTime(float InDecayTimeMsec);                                                                // [0x6d0acb4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeBiasInvert
-	// void SetPositionEnvelopeBiasInvert(bool bInBiasInvert);                                                                  // [0x6d0abf8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeBiasDepth
-	// void SetPositionEnvelopeBiasDepth(float InDepth);                                                                        // [0x6d0ab78] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeAttackTime
-	// void SetPositionEnvelopeAttackTime(float InAttackTimeMsec);                                                              // [0x6d0aaf8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetLowPassFilterResonance
-	// void SetLowPassFilterResonance(float InNewQ);                                                                            // [0x6d09510] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFrequencyWithMidiNote
-	// void SetFrequencyWithMidiNote(float InMidiNote);                                                                         // [0x6d0800c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFrequencyPitchBend
-	// void SetFrequencyPitchBend(float FrequencyOffsetCents);                                                                  // [0x6d07f8c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFrequency
-	// void SetFrequency(float FrequencyHz);                                                                                    // [0x6d07d00] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeSustainGain
-	// void SetFilterEnvelopeSustainGain(float InSustainGain);                                                                  // [0x6d0772c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeReleaseTime
-	// void SetFilterEnvelopeReleaseTime(float InReleaseTimeMsec);                                                              // [0x6d076ac] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopenDecayTime
-	// void SetFilterEnvelopenDecayTime(float InDecayTimeMsec);                                                                 // [0x6d077ac] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeInvert
-	// void SetFilterEnvelopeInvert(bool bInInvert);                                                                            // [0x6d075f0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeDepth
-	// void SetFilterEnvelopeDepth(float InDepth);                                                                              // [0x6d07570] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeBiasInvert
-	// void SetFilterEnvelopeBiasInvert(bool bInBiasInvert);                                                                    // [0x6d074b4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeBiasDepth
-	// void SetFilterEnvelopeBiasDepth(float InDepth);                                                                          // [0x6d07434] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeAttackTime
-	// void SetFilterEnvelopeAttackTime(float InAttackTimeMsec);                                                                // [0x6d073b4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetCurveValue
-	// bool SetCurveValue(int32_t TableIndex, int32_t KeyframeIndex, float NewValue);                                           // [0x6d06224] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetCurveTangent
-	// bool SetCurveTangent(int32_t TableIndex, float InNewTangent);                                                            // [0x6d06164] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetCurveInterpolationType
-	// bool SetCurveInterpolationType(CurveInterpolationType InterpolationType, int32_t TableIndex);                            // [0x6d060a4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeSustainGain
-	// void SetAmpEnvelopeSustainGain(float InSustainGain);                                                                     // [0x6d05a40] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeReleaseTime
-	// void SetAmpEnvelopeReleaseTime(float InReleaseTimeMsec);                                                                 // [0x6d059c0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeInvert
-	// void SetAmpEnvelopeInvert(bool bInInvert);                                                                               // [0x6d05904] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeDepth
-	// void SetAmpEnvelopeDepth(float InDepth);                                                                                 // [0x6d05884] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeDecayTime
-	// void SetAmpEnvelopeDecayTime(float InDecayTimeMsec);                                                                     // [0x6d05804] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeBiasInvert
-	// void SetAmpEnvelopeBiasInvert(bool bInBiasInvert);                                                                       // [0x6d05748] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeBiasDepth
-	// void SetAmpEnvelopeBiasDepth(float InDepth);                                                                             // [0x6d056c8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeAttackTime
-	// void SetAmpEnvelopeAttackTime(float InAttackTimeMsec);                                                                   // [0x6d05648] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.RefreshWaveTable
-	// void RefreshWaveTable(int32_t Index);                                                                                    // [0x6d053a8] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.RefreshAllWaveTables
-	// void RefreshAllWaveTables();                                                                                             // [0x6d05394] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.NoteOn
-	// void NoteOn(float InMidiNote, float InVelocity);                                                                         // [0x6d052d0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.NoteOff
-	// void NoteOff(float InMidiNote);                                                                                          // [0x6d05060] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.GetNumTableEntries
-	// int32_t GetNumTableEntries();                                                                                            // [0x6d04b6c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.GetMaxTableIndex
-	// int32_t GetMaxTableIndex();                                                                                              // [0x6d04b44] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.GetKeyFrameValuesForTable
-	// TArray<float> GetKeyFrameValuesForTable(float TableIndex);                                                               // [0x6d047a0] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-	// Function /Script/Synthesis.SynthComponentMonoWaveTable.GetCurveTangent
-	// float GetCurveTangent(int32_t TableIndex);                                                                               // [0x6d04710] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SynthComponentToneGenerator
-/// Size: 0x00F0 (0x000900 - 0x0009F0)
-class USynthComponentToneGenerator : public USynthComponent
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 2544;
-
-public:
-	DMember(float)                                     Frequency                                                   OFFSET(get<float>, {0x900, 4, 0, 0})
-	DMember(float)                                     Volume                                                      OFFSET(get<float>, {0x904, 4, 0, 0})
-	SMember(FRuntimeFloatCurve)                        DistanceAttenuationCurve                                    OFFSET(getStruct<T>, {0x908, 136, 0, 0})
-	SMember(FVector2D)                                 DistanceRange                                               OFFSET(getStruct<T>, {0x990, 16, 0, 0})
-	DMember(float)                                     AttenuationDbAtMaxRange                                     OFFSET(get<float>, {0x9A0, 4, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SynthComponentToneGenerator.SetVolume
-	// void SetVolume(float InVolume);                                                                                          // [0x6d0e254] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthComponentToneGenerator.SetFrequency
-	// void SetFrequency(float InFrequency);                                                                                    // [0x6d07d80] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/Synthesis.SynthSamplePlayer
-/// Size: 0x0130 (0x000900 - 0x000A30)
-class USynthSamplePlayer : public USynthComponent
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 2608;
-
-public:
-	CMember(USoundWave*)                               SoundWave                                                   OFFSET(get<T>, {0x900, 8, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnSampleLoaded                                              OFFSET(getStruct<T>, {0x908, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnSamplePlaybackProgress                                    OFFSET(getStruct<T>, {0x918, 16, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SynthSamplePlayer.SetSoundWave
-	// void SetSoundWave(USoundWave* InSoundWave);                                                                              // [0x6d0d610] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthSamplePlayer.SetScrubTimeWidth
-	// void SetScrubTimeWidth(float InScrubTimeWidthSec);                                                                       // [0x6d0b3ec] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthSamplePlayer.SetScrubMode
-	// void SetScrubMode(bool bScrubMode);                                                                                      // [0x6d0b330] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthSamplePlayer.SetPitch
-	// void SetPitch(float InPitch, float TimeSec);                                                                             // [0x6d0a600] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthSamplePlayer.SeekToTime
-	// void SeekToTime(float TimeSec, ESamplePlayerSeekType SeekType, bool bWrap);                                              // [0x6d0554c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthSamplePlayer.IsLoaded
-	// bool IsLoaded();                                                                                                         // [0x6d04e74] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-	// Function /Script/Synthesis.SynthSamplePlayer.GetSampleDuration
-	// float GetSampleDuration();                                                                                               // [0x6d04ba4] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-	// Function /Script/Synthesis.SynthSamplePlayer.GetCurrentPlaybackProgressTime
-	// float GetCurrentPlaybackProgressTime();                                                                                  // [0x6d046e0] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-	// Function /Script/Synthesis.SynthSamplePlayer.GetCurrentPlaybackProgressPercent
-	// float GetCurrentPlaybackProgressPercent();                                                                               // [0x6d046c0] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-};
-
-/// Class /Script/Synthesis.SynthesisUtilitiesBlueprintFunctionLibrary
-/// Size: 0x0000 (0x000028 - 0x000028)
-class USynthesisUtilitiesBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 40;
-
-public:
-};
-
-/// Class /Script/Synthesis.Synth2DSlider
-/// Size: 0x0498 (0x000178 - 0x000610)
-class USynth2DSlider : public UWidget
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 1552;
-
-public:
-	DMember(float)                                     ValueX                                                      OFFSET(get<float>, {0x178, 4, 0, 0})
-	DMember(float)                                     ValueY                                                      OFFSET(get<float>, {0x17C, 4, 0, 0})
-	SMember(FDelegateProperty)                         ValueXDelegate                                              OFFSET(getStruct<T>, {0x180, 12, 0, 0})
-	SMember(FDelegateProperty)                         ValueYDelegate                                              OFFSET(getStruct<T>, {0x18C, 12, 0, 0})
-	SMember(FSynth2DSliderStyle)                       WidgetStyle                                                 OFFSET(getStruct<T>, {0x1A0, 992, 0, 0})
-	SMember(FLinearColor)                              SliderHandleColor                                           OFFSET(getStruct<T>, {0x580, 16, 0, 0})
-	DMember(bool)                                      IndentHandle                                                OFFSET(get<bool>, {0x590, 1, 0, 0})
-	DMember(bool)                                      Locked                                                      OFFSET(get<bool>, {0x591, 1, 0, 0})
-	DMember(float)                                     StepSize                                                    OFFSET(get<float>, {0x594, 4, 0, 0})
-	DMember(bool)                                      IsFocusable                                                 OFFSET(get<bool>, {0x598, 1, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnMouseCaptureBegin                                         OFFSET(getStruct<T>, {0x5A0, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnMouseCaptureEnd                                           OFFSET(getStruct<T>, {0x5B0, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnControllerCaptureBegin                                    OFFSET(getStruct<T>, {0x5C0, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnControllerCaptureEnd                                      OFFSET(getStruct<T>, {0x5D0, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnValueChangedX                                             OFFSET(getStruct<T>, {0x5E0, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnValueChangedY                                             OFFSET(getStruct<T>, {0x5F0, 16, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.Synth2DSlider.SetValue
-	// void SetValue(FVector2D InValue);                                                                                        // [0x6d0e090] Final|Native|Public|HasDefaults|BlueprintCallable 
-	// Function /Script/Synthesis.Synth2DSlider.SetStepSize
-	// void SetStepSize(float InValue);                                                                                         // [0x6d0d930] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.Synth2DSlider.SetSliderHandleColor
-	// void SetSliderHandleColor(FLinearColor InValue);                                                                         // [0x6d0d44c] Final|Native|Public|HasDefaults|BlueprintCallable 
-	// Function /Script/Synthesis.Synth2DSlider.SetLocked
-	// void SetLocked(bool InValue);                                                                                            // [0x6d09398] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.Synth2DSlider.SetIndentHandle
-	// void SetIndentHandle(bool InValue);                                                                                      // [0x6d08a3c] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.Synth2DSlider.GetValue
-	// FVector2D GetValue();                                                                                                    // [0x6d04da0] Final|Native|Public|HasDefaults|BlueprintCallable|BlueprintPure|Const 
-};
-
-/// Class /Script/Synthesis.SynthKnob
-/// Size: 0x03E8 (0x000178 - 0x000560)
-class USynthKnob : public UWidget
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 1376;
-
-public:
-	DMember(float)                                     Value                                                       OFFSET(get<float>, {0x178, 4, 0, 0})
-	DMember(float)                                     StepSize                                                    OFFSET(get<float>, {0x17C, 4, 0, 0})
-	DMember(float)                                     MouseSpeed                                                  OFFSET(get<float>, {0x180, 4, 0, 0})
-	DMember(float)                                     MouseFineTuneSpeed                                          OFFSET(get<float>, {0x184, 4, 0, 0})
-	DMember(bool)                                      ShowTooltipInfo                                             OFFSET(get<bool>, {0x188, 1, 1, 0})
-	SMember(FText)                                     ParameterName                                               OFFSET(getStruct<T>, {0x190, 24, 0, 0})
-	SMember(FText)                                     ParameterUnits                                              OFFSET(getStruct<T>, {0x1A8, 24, 0, 0})
-	SMember(FDelegateProperty)                         ValueDelegate                                               OFFSET(getStruct<T>, {0x1C0, 12, 0, 0})
-	SMember(FSynthKnobStyle)                           WidgetStyle                                                 OFFSET(getStruct<T>, {0x1D0, 800, 0, 0})
-	DMember(bool)                                      Locked                                                      OFFSET(get<bool>, {0x4F0, 1, 0, 0})
-	DMember(bool)                                      IsFocusable                                                 OFFSET(get<bool>, {0x4F1, 1, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnMouseCaptureBegin                                         OFFSET(getStruct<T>, {0x4F8, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnMouseCaptureEnd                                           OFFSET(getStruct<T>, {0x508, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnControllerCaptureBegin                                    OFFSET(getStruct<T>, {0x518, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnControllerCaptureEnd                                      OFFSET(getStruct<T>, {0x528, 16, 0, 0})
-	SMember(FMulticastInlineDelegate)                  OnValueChanged                                              OFFSET(getStruct<T>, {0x538, 16, 0, 0})
-
-
-	/// Functions
-	// Function /Script/Synthesis.SynthKnob.SetValue
-	// void SetValue(float InValue);                                                                                            // [0x6d0e1d4] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthKnob.SetStepSize
-	// void SetStepSize(float InValue);                                                                                         // [0x6d0d9b0] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthKnob.SetLocked
-	// void SetLocked(bool InValue);                                                                                            // [0x6d09454] Final|Native|Public|BlueprintCallable 
-	// Function /Script/Synthesis.SynthKnob.GetValue
-	// float GetValue();                                                                                                        // [0x6d04e1c] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-};
 
 /// Struct /Script/Synthesis.Synth1PatchCable
 /// Size: 0x0008 (0x000000 - 0x000008)
@@ -1021,18 +24,6 @@ class FSynth1PatchCable : public MDKBase
 public:
 	DMember(float)                                     Depth                                                       OFFSET(get<float>, {0x0, 4, 0, 0})
 	CMember(ESynth1PatchDestination)                   Destination                                                 OFFSET(get<T>, {0x4, 1, 0, 0})
-};
-
-/// Struct /Script/Synthesis.PatchId
-/// Size: 0x0004 (0x000000 - 0x000004)
-class FPatchId : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 4;
-
-public:
-	DMember(int32_t)                                   ID                                                          OFFSET(get<int32_t>, {0x0, 4, 0, 0})
 };
 
 /// Struct /Script/Synthesis.EpicSynth1Patch
@@ -1131,58 +122,212 @@ public:
 	SMember(FModularSynthPreset)                       Preset                                                      OFFSET(getStruct<T>, {0x10, 224, 0, 0})
 };
 
-/// Struct /Script/Synthesis.SourceEffectBitCrusherBaseSettings
-/// Size: 0x0008 (0x000000 - 0x000008)
-class FSourceEffectBitCrusherBaseSettings : public MDKBase
+/// Class /Script/Synthesis.ModularSynthPresetBank
+/// Size: 0x0010 (0x000028 - 0x000038)
+class UModularSynthPresetBank : public UObject
 { 
 	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 8;
+	static inline constexpr uint64_t __MDKClassSize = 56;
 
 public:
-	DMember(float)                                     SampleRate                                                  OFFSET(get<float>, {0x0, 4, 0, 0})
-	DMember(float)                                     BitDepth                                                    OFFSET(get<float>, {0x4, 4, 0, 0})
+	CMember(TArray<FModularSynthPresetBankEntry>)      Presets                                                     OFFSET(get<T>, {0x28, 16, 0, 0})
+};
+
+/// Class /Script/Synthesis.ModularSynthLibrary
+/// Size: 0x0000 (0x000028 - 0x000028)
+class UModularSynthLibrary : public UBlueprintFunctionLibrary
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 40;
+
+public:
+
+
+	/// Functions
+	// Function /Script/Synthesis.ModularSynthLibrary.AddModularSynthPresetToBankAsset
+	// void AddModularSynthPresetToBankAsset(class UModularSynthPresetBank* InBank, FModularSynthPreset& Preset, FString PresetName); // [0x984010] Final|Native|Static|Private|HasOutParms|BlueprintCallable 
+};
+
+/// Class /Script/Synthesis.ModularSynthComponent
+/// Size: 0x06C0 (0x0006C0 - 0x000D80)
+class UModularSynthComponent : public USynthComponent
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 3456;
+
+public:
+	DMember(int32_t)                                   VoiceCount                                                  OFFSET(get<int32_t>, {0x6C0, 4, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.ModularSynthComponent.SetSynthPreset
+	// void SetSynthPreset(FModularSynthPreset& SynthPreset);                                                                   // [0x986600] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetSustainGain
+	// void SetSustainGain(float SustainGain);                                                                                  // [0x986580] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayWetlevel
+	// void SetStereoDelayWetlevel(float DelayWetlevel);                                                                        // [0x986500] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayTime
+	// void SetStereoDelayTime(float DelayTimeMsec);                                                                            // [0x986480] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayRatio
+	// void SetStereoDelayRatio(float DelayRatio);                                                                              // [0x986400] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayMode
+	// void SetStereoDelayMode(ESynthStereoDelayMode StereoDelayMode);                                                          // [0x986380] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayIsEnabled
+	// void SetStereoDelayIsEnabled(bool StereoDelayEnabled);                                                                   // [0x9862f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetStereoDelayFeedback
+	// void SetStereoDelayFeedback(float DelayFeedback);                                                                        // [0x986270] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetSpread
+	// void SetSpread(float Spread);                                                                                            // [0x9861f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetReleaseTime
+	// void SetReleaseTime(float ReleaseTimeMsec);                                                                              // [0x986170] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetPortamento
+	// void SetPortamento(float Portamento);                                                                                    // [0x9860f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetPitchBend
+	// void SetPitchBend(float PitchBend);                                                                                      // [0x986070] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetPan
+	// void SetPan(float Pan);                                                                                                  // [0x985ff0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetOscType
+	// void SetOscType(int32_t OscIndex, ESynth1OscType OscType);                                                               // [0x985f20] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetOscSync
+	// void SetOscSync(bool bIsSynced);                                                                                         // [0x985e90] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetOscSemitones
+	// void SetOscSemitones(int32_t OscIndex, float Semitones);                                                                 // [0x985dc0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetOscPulsewidth
+	// void SetOscPulsewidth(int32_t OscIndex, float Pulsewidth);                                                               // [0x985cf0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetOscOctave
+	// void SetOscOctave(int32_t OscIndex, float Octave);                                                                       // [0x985c20] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetOscGainMod
+	// void SetOscGainMod(int32_t OscIndex, float OscGainMod);                                                                  // [0x985b50] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetOscGain
+	// void SetOscGain(int32_t OscIndex, float OscGain);                                                                        // [0x985a80] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetOscFrequencyMod
+	// void SetOscFrequencyMod(int32_t OscIndex, float OscFreqMod);                                                             // [0x9859b0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetOscCents
+	// void SetOscCents(int32_t OscIndex, float Cents);                                                                         // [0x9858e0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvSustainGain
+	// void SetModEnvSustainGain(float SustainGain);                                                                            // [0x985860] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvReleaseTime
+	// void SetModEnvReleaseTime(float Release);                                                                                // [0x9857e0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvPatch
+	// void SetModEnvPatch(ESynthModEnvPatch InPatchType);                                                                      // [0x985760] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvInvert
+	// void SetModEnvInvert(bool bInvert);                                                                                      // [0x9856d0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvDepth
+	// void SetModEnvDepth(float Depth);                                                                                        // [0x985650] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvDecayTime
+	// void SetModEnvDecayTime(float DecayTimeMsec);                                                                            // [0x9855d0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvBiasPatch
+	// void SetModEnvBiasPatch(ESynthModEnvBiasPatch InPatchType);                                                              // [0x985550] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvBiasInvert
+	// void SetModEnvBiasInvert(bool bInvert);                                                                                  // [0x9854c0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetModEnvAttackTime
+	// void SetModEnvAttackTime(float AttackTimeMsec);                                                                          // [0x985440] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetLFOType
+	// void SetLFOType(int32_t LFOIndex, ESynthLFOType LFOType);                                                                // [0x985370] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetLFOPatch
+	// void SetLFOPatch(int32_t LFOIndex, ESynthLFOPatchType LFOPatchType);                                                     // [0x9852a0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetLFOMode
+	// void SetLFOMode(int32_t LFOIndex, ESynthLFOMode LFOMode);                                                                // [0x9851d0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetLFOGainMod
+	// void SetLFOGainMod(int32_t LFOIndex, float GainMod);                                                                     // [0x985100] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetLFOGain
+	// void SetLFOGain(int32_t LFOIndex, float Gain);                                                                           // [0x985030] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetLFOFrequencyMod
+	// void SetLFOFrequencyMod(int32_t LFOIndex, float FrequencyModHz);                                                         // [0x984f60] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetLFOFrequency
+	// void SetLFOFrequency(int32_t LFOIndex, float FrequencyHz);                                                               // [0x984e90] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetGainDb
+	// void SetGainDb(float GainDb);                                                                                            // [0x984e10] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetFilterType
+	// void SetFilterType(ESynthFilterType FilterType);                                                                         // [0x984d90] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetFilterQMod
+	// void SetFilterQMod(float FilterQ);                                                                                       // [0x984d10] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetFilterQ
+	// void SetFilterQ(float FilterQ);                                                                                          // [0x984c90] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetFilterFrequencyMod
+	// void SetFilterFrequencyMod(float FilterFrequencyHz);                                                                     // [0x984c10] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetFilterFrequency
+	// void SetFilterFrequency(float FilterFrequencyHz);                                                                        // [0x984b90] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetFilterAlgorithm
+	// void SetFilterAlgorithm(ESynthFilterAlgorithm FilterAlgorithm);                                                          // [0x984b10] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetEnableUnison
+	// void SetEnableUnison(bool EnableUnison);                                                                                 // [0x984a80] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetEnableRetrigger
+	// void SetEnableRetrigger(bool RetriggerEnabled);                                                                          // [0x9849f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetEnablePolyphony
+	// void SetEnablePolyphony(bool bEnablePolyphony);                                                                          // [0x984960] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetEnablePatch
+	// bool SetEnablePatch(FPatchId PatchId, bool bIsEnabled);                                                                  // [0x984890] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetEnableLegato
+	// void SetEnableLegato(bool LegatoEnabled);                                                                                // [0x984800] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetDecayTime
+	// void SetDecayTime(float DecayTimeMsec);                                                                                  // [0x984780] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetChorusFrequency
+	// void SetChorusFrequency(float Frequency);                                                                                // [0x984700] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetChorusFeedback
+	// void SetChorusFeedback(float Feedback);                                                                                  // [0x984680] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetChorusEnabled
+	// void SetChorusEnabled(bool EnableChorus);                                                                                // [0x9845f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetChorusDepth
+	// void SetChorusDepth(float Depth);                                                                                        // [0x984570] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.SetAttackTime
+	// void SetAttackTime(float AttackTimeMsec);                                                                                // [0x9844f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.NoteOn
+	// void NoteOn(float Note, int32_t Velocity, float Duration);                                                               // [0x9843d0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.NoteOff
+	// void NoteOff(float Note, bool bAllNotesOff, bool bKillAllNotes);                                                         // [0x9842b0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.ModularSynthComponent.CreatePatch
+	// FPatchId CreatePatch(ESynth1PatchSource PatchSource, TArray<FSynth1PatchCable>& PatchCables, bool bEnableByDefault);     // [0x984160] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectBitCrusherSettings
-/// Size: 0x00C0 (0x000000 - 0x0000C0)
+/// Size: 0x0030 (0x000000 - 0x000030)
 class FSourceEffectBitCrusherSettings : public MDKBase
 { 
 	friend MDKHandler;
 	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 192;
+	static inline constexpr uint64_t __MDKClassSize = 48;
 
 public:
 	DMember(float)                                     CrushedSampleRate                                           OFFSET(get<float>, {0x0, 4, 0, 0})
-	SMember(FSoundModulationDestinationSettings)       SampleRateModulation                                        OFFSET(getStruct<T>, {0x8, 88, 0, 0})
-	DMember(float)                                     CrushedBits                                                 OFFSET(get<float>, {0x60, 4, 0, 0})
-	SMember(FSoundModulationDestinationSettings)       BitModulation                                               OFFSET(getStruct<T>, {0x68, 88, 0, 0})
+	SMember(FSoundModulationDestinationSettings)       SampleRateModulation                                        OFFSET(getStruct<T>, {0x8, 16, 0, 0})
+	DMember(float)                                     CrushedBits                                                 OFFSET(get<float>, {0x18, 4, 0, 0})
+	SMember(FSoundModulationDestinationSettings)       BitModulation                                               OFFSET(getStruct<T>, {0x20, 16, 0, 0})
 };
 
-/// Struct /Script/Synthesis.SourceEffectChorusBaseSettings
-/// Size: 0x0018 (0x000000 - 0x000018)
-class FSourceEffectChorusBaseSettings : public MDKBase
+/// Class /Script/Synthesis.SourceEffectBitCrusherPreset
+/// Size: 0x0088 (0x000068 - 0x0000F0)
+class USourceEffectBitCrusherPreset : public USoundEffectSourcePreset
 { 
 	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 24;
+	static inline constexpr uint64_t __MDKClassSize = 240;
 
 public:
-	DMember(float)                                     Depth                                                       OFFSET(get<float>, {0x0, 4, 0, 0})
-	DMember(float)                                     Frequency                                                   OFFSET(get<float>, {0x4, 4, 0, 0})
-	DMember(float)                                     Feedback                                                    OFFSET(get<float>, {0x8, 4, 0, 0})
-	DMember(float)                                     WetLevel                                                    OFFSET(get<float>, {0xC, 4, 0, 0})
-	DMember(float)                                     DryLevel                                                    OFFSET(get<float>, {0x10, 4, 0, 0})
-	DMember(float)                                     Spread                                                      OFFSET(get<float>, {0x14, 4, 0, 0})
+	SMember(FSourceEffectBitCrusherSettings)           Settings                                                    OFFSET(getStruct<T>, {0xC0, 48, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetSettings
+	// void SetSettings(FSourceEffectBitCrusherBaseSettings& Settings);                                                         // [0x98bc90] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetSampleRateModulator
+	// void SetSampleRateModulator(class USoundModulatorBase* Modulator);                                                       // [0x98bc00] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetSampleRate
+	// void SetSampleRate(float SampleRate);                                                                                    // [0x98bb80] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetModulationSettings
+	// void SetModulationSettings(FSourceEffectBitCrusherSettings& ModulationSettings);                                         // [0x98b9d0] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetBits
+	// void SetBits(float Bits);                                                                                                // [0x98b510] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectBitCrusherPreset.SetBitModulator
+	// void SetBitModulator(class USoundModulatorBase* Modulator);                                                              // [0x98b480] Final|Native|Public|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectChorusSettings
-/// Size: 0x0228 (0x000000 - 0x000228)
+/// Size: 0x0078 (0x000000 - 0x000078)
 class FSourceEffectChorusSettings : public MDKBase
 { 
 	friend MDKHandler;
 	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 552;
+	static inline constexpr uint64_t __MDKClassSize = 120;
 
 public:
 	DMember(float)                                     Depth                                                       OFFSET(get<float>, {0x0, 4, 0, 0})
@@ -1191,27 +336,54 @@ public:
 	DMember(float)                                     WetLevel                                                    OFFSET(get<float>, {0xC, 4, 0, 0})
 	DMember(float)                                     DryLevel                                                    OFFSET(get<float>, {0x10, 4, 0, 0})
 	DMember(float)                                     Spread                                                      OFFSET(get<float>, {0x14, 4, 0, 0})
-	SMember(FSoundModulationDestinationSettings)       DepthModulation                                             OFFSET(getStruct<T>, {0x18, 88, 0, 0})
-	SMember(FSoundModulationDestinationSettings)       FrequencyModulation                                         OFFSET(getStruct<T>, {0x70, 88, 0, 0})
-	SMember(FSoundModulationDestinationSettings)       FeedbackModulation                                          OFFSET(getStruct<T>, {0xC8, 88, 0, 0})
-	SMember(FSoundModulationDestinationSettings)       WetModulation                                               OFFSET(getStruct<T>, {0x120, 88, 0, 0})
-	SMember(FSoundModulationDestinationSettings)       DryModulation                                               OFFSET(getStruct<T>, {0x178, 88, 0, 0})
-	SMember(FSoundModulationDestinationSettings)       SpreadModulation                                            OFFSET(getStruct<T>, {0x1D0, 88, 0, 0})
+	SMember(FSoundModulationDestinationSettings)       DepthModulation                                             OFFSET(getStruct<T>, {0x18, 16, 0, 0})
+	SMember(FSoundModulationDestinationSettings)       FrequencyModulation                                         OFFSET(getStruct<T>, {0x28, 16, 0, 0})
+	SMember(FSoundModulationDestinationSettings)       FeedbackModulation                                          OFFSET(getStruct<T>, {0x38, 16, 0, 0})
+	SMember(FSoundModulationDestinationSettings)       WetModulation                                               OFFSET(getStruct<T>, {0x48, 16, 0, 0})
+	SMember(FSoundModulationDestinationSettings)       DryModulation                                               OFFSET(getStruct<T>, {0x58, 16, 0, 0})
+	SMember(FSoundModulationDestinationSettings)       SpreadModulation                                            OFFSET(getStruct<T>, {0x68, 16, 0, 0})
 };
 
-/// Struct /Script/Synthesis.SourceEffectConvolutionReverbSettings
-/// Size: 0x0010 (0x000000 - 0x000010)
-class FSourceEffectConvolutionReverbSettings : public MDKBase
+/// Class /Script/Synthesis.SourceEffectChorusPreset
+/// Size: 0x0118 (0x000068 - 0x000180)
+class USourceEffectChorusPreset : public USoundEffectSourcePreset
 { 
 	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 16;
+	static inline constexpr uint64_t __MDKClassSize = 384;
 
 public:
-	DMember(float)                                     NormalizationVolumeDb                                       OFFSET(get<float>, {0x0, 4, 0, 0})
-	DMember(float)                                     WetVolumeDb                                                 OFFSET(get<float>, {0x4, 4, 0, 0})
-	DMember(float)                                     DryVolumeDb                                                 OFFSET(get<float>, {0x8, 4, 0, 0})
-	DMember(bool)                                      bBypass                                                     OFFSET(get<bool>, {0xC, 1, 0, 0})
+	SMember(FSourceEffectChorusSettings)               Settings                                                    OFFSET(getStruct<T>, {0x108, 120, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetWetModulator
+	// void SetWetModulator(class USoundModulatorBase* Modulator);                                                              // [0x98c5d0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetWet
+	// void SetWet(float WetAmount);                                                                                            // [0x98c550] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetSpreadModulator
+	// void SetSpreadModulator(class USoundModulatorBase* Modulator);                                                           // [0x98c4c0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetSpread
+	// void SetSpread(float Spread);                                                                                            // [0x98c440] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetSettings
+	// void SetSettings(FSourceEffectChorusBaseSettings& Settings);                                                             // [0x98bd40] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetModulationSettings
+	// void SetModulationSettings(FSourceEffectChorusSettings& ModulationSettings);                                             // [0x98ba80] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFrequencyModulator
+	// void SetFrequencyModulator(class USoundModulatorBase* Modulator);                                                        // [0x98b940] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFrequency
+	// void SetFrequency(float Frequency);                                                                                      // [0x98b8c0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFeedbackModulator
+	// void SetFeedbackModulator(class USoundModulatorBase* Modulator);                                                         // [0x98b830] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetFeedback
+	// void SetFeedback(float Feedback);                                                                                        // [0x98b7b0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDryModulator
+	// void SetDryModulator(class USoundModulatorBase* Modulator);                                                              // [0x98b720] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDry
+	// void SetDry(float DryAmount);                                                                                            // [0x98b6a0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDepthModulator
+	// void SetDepthModulator(class USoundModulatorBase* Modulator);                                                            // [0x98b610] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectChorusPreset.SetDepth
+	// void SetDepth(float Depth);                                                                                              // [0x98b590] Final|Native|Public|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectDynamicsProcessorSettings
@@ -1237,6 +409,33 @@ public:
 	DMember(bool)                                      bAnalogMode                                                 OFFSET(get<bool>, {0x24, 1, 1, 1})
 };
 
+/// Class /Script/Synthesis.SourceEffectDynamicsProcessorPreset
+/// Size: 0x0078 (0x000068 - 0x0000E0)
+class USourceEffectDynamicsProcessorPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 224;
+
+public:
+	SMember(FSourceEffectDynamicsProcessorSettings)    Settings                                                    OFFSET(getStruct<T>, {0xB8, 40, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectDynamicsProcessorPreset.SetSettings
+	// void SetSettings(FSourceEffectDynamicsProcessorSettings& InSettings);                                                    // [0x98bdf0] Final|Native|Public|HasOutParms|BlueprintCallable 
+};
+
+/// Class /Script/Synthesis.EnvelopeFollowerListener
+/// Size: 0x0020 (0x0000B0 - 0x0000D0)
+class UEnvelopeFollowerListener : public UActorComponent
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 208;
+
+public:
+	SMember(FMulticastInlineDelegate)                  OnEnvelopeFollowerUpdate                                    OFFSET(getStruct<T>, {0xB0, 16, 0, 0})
+};
+
 /// Struct /Script/Synthesis.SourceEffectEnvelopeFollowerSettings
 /// Size: 0x000C (0x000000 - 0x00000C)
 class FSourceEffectEnvelopeFollowerSettings : public MDKBase
@@ -1250,6 +449,26 @@ public:
 	DMember(float)                                     ReleaseTime                                                 OFFSET(get<float>, {0x4, 4, 0, 0})
 	CMember(EEnvelopeFollowerPeakMode)                 PeakMode                                                    OFFSET(get<T>, {0x8, 1, 0, 0})
 	DMember(bool)                                      bIsAnalogMode                                               OFFSET(get<bool>, {0x9, 1, 0, 0})
+};
+
+/// Class /Script/Synthesis.SourceEffectEnvelopeFollowerPreset
+/// Size: 0x0040 (0x000068 - 0x0000A8)
+class USourceEffectEnvelopeFollowerPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 168;
+
+public:
+	SMember(FSourceEffectEnvelopeFollowerSettings)     Settings                                                    OFFSET(getStruct<T>, {0x9C, 12, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectEnvelopeFollowerPreset.UnregisterEnvelopeFollowerListener
+	// void UnregisterEnvelopeFollowerListener(class UEnvelopeFollowerListener* EnvelopeFollowerListener);                      // [0x98c660] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectEnvelopeFollowerPreset.SetSettings
+	// void SetSettings(FSourceEffectEnvelopeFollowerSettings& InSettings);                                                     // [0x98bf50] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SourceEffectEnvelopeFollowerPreset.RegisterEnvelopeFollowerListener
+	// void RegisterEnvelopeFollowerListener(class UEnvelopeFollowerListener* EnvelopeFollowerListener);                        // [0x98b3f0] Final|Native|Public|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectEQBand
@@ -1276,7 +495,23 @@ class FSourceEffectEQSettings : public MDKBase
 	static inline constexpr uint64_t __MDKClassSize = 16;
 
 public:
-	CMember(TArray<FSourceEffectEQBand>)               EqBands                                                     OFFSET(get<T>, {0x0, 16, 0, 0})
+	CMember(TArray<FSourceEffectEQBand>)               EQBands                                                     OFFSET(get<T>, {0x0, 16, 0, 0})
+};
+
+/// Class /Script/Synthesis.SourceEffectEQPreset
+/// Size: 0x0048 (0x000068 - 0x0000B0)
+class USourceEffectEQPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 176;
+
+public:
+	SMember(FSourceEffectEQSettings)                   Settings                                                    OFFSET(getStruct<T>, {0xA0, 16, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectEQPreset.SetSettings
+	// void SetSettings(FSourceEffectEQSettings& InSettings);                                                                   // [0x98bea0] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectFilterAudioBusModulationSettings
@@ -1288,7 +523,7 @@ class FSourceEffectFilterAudioBusModulationSettings : public MDKBase
 	static inline constexpr uint64_t __MDKClassSize = 40;
 
 public:
-	CMember(UAudioBus*)                                AudioBus                                                    OFFSET(get<T>, {0x0, 8, 0, 0})
+	CMember(class UAudioBus*)                          AudioBus                                                    OFFSET(get<T>, {0x0, 8, 0, 0})
 	DMember(int32_t)                                   EnvelopeFollowerAttackTimeMsec                              OFFSET(get<int32_t>, {0x8, 4, 0, 0})
 	DMember(int32_t)                                   EnvelopeFollowerReleaseTimeMsec                             OFFSET(get<int32_t>, {0xC, 4, 0, 0})
 	DMember(float)                                     EnvelopeGainMultiplier                                      OFFSET(get<float>, {0x10, 4, 0, 0})
@@ -1315,6 +550,22 @@ public:
 	CMember(TArray<FSourceEffectFilterAudioBusModulationSettings>) AudioBusModulation                              OFFSET(get<T>, {0x10, 16, 0, 0})
 };
 
+/// Class /Script/Synthesis.SourceEffectFilterPreset
+/// Size: 0x0068 (0x000068 - 0x0000D0)
+class USourceEffectFilterPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 208;
+
+public:
+	SMember(FSourceEffectFilterSettings)               Settings                                                    OFFSET(getStruct<T>, {0xB0, 32, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectFilterPreset.SetSettings
+	// void SetSettings(FSourceEffectFilterSettings& InSettings);                                                               // [0x98c000] Final|Native|Public|HasOutParms|BlueprintCallable 
+};
+
 /// Struct /Script/Synthesis.SourceEffectFoldbackDistortionSettings
 /// Size: 0x000C (0x000000 - 0x00000C)
 class FSourceEffectFoldbackDistortionSettings : public MDKBase
@@ -1327,6 +578,22 @@ public:
 	DMember(float)                                     InputGainDb                                                 OFFSET(get<float>, {0x0, 4, 0, 0})
 	DMember(float)                                     ThresholdDb                                                 OFFSET(get<float>, {0x4, 4, 0, 0})
 	DMember(float)                                     OutputGainDb                                                OFFSET(get<float>, {0x8, 4, 0, 0})
+};
+
+/// Class /Script/Synthesis.SourceEffectFoldbackDistortionPreset
+/// Size: 0x0040 (0x000068 - 0x0000A8)
+class USourceEffectFoldbackDistortionPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 168;
+
+public:
+	SMember(FSourceEffectFoldbackDistortionSettings)   Settings                                                    OFFSET(getStruct<T>, {0x9C, 12, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectFoldbackDistortionPreset.SetSettings
+	// void SetSettings(FSourceEffectFoldbackDistortionSettings& InSettings);                                                   // [0x98c0d0] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectMidSideSpreaderSettings
@@ -1344,52 +611,20 @@ public:
 	DMember(bool)                                      bEqualPower                                                 OFFSET(get<bool>, {0x6, 1, 0, 0})
 };
 
-/// Struct /Script/Synthesis.SourceEffectIndividualFilterSettings
-/// Size: 0x000C (0x000000 - 0x00000C)
-class FSourceEffectIndividualFilterSettings : public MDKBase
+/// Class /Script/Synthesis.SourceEffectMidSideSpreaderPreset
+/// Size: 0x0038 (0x000068 - 0x0000A0)
+class USourceEffectMidSideSpreaderPreset : public USoundEffectSourcePreset
 { 
 	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 12;
+	static inline constexpr uint64_t __MDKClassSize = 160;
 
 public:
-	CMember(ESourceEffectMotionFilterCircuit)          FilterCircuit                                               OFFSET(get<T>, {0x0, 1, 0, 0})
-	CMember(ESourceEffectMotionFilterType)             FilterType                                                  OFFSET(get<T>, {0x1, 1, 0, 0})
-	DMember(float)                                     CutoffFrequency                                             OFFSET(get<float>, {0x4, 4, 0, 0})
-	DMember(float)                                     FilterQ                                                     OFFSET(get<float>, {0x8, 4, 0, 0})
-};
+	SMember(FSourceEffectMidSideSpreaderSettings)      Settings                                                    OFFSET(getStruct<T>, {0x98, 8, 0, 0})
 
-/// Struct /Script/Synthesis.SourceEffectMotionFilterModulationSettings
-/// Size: 0x0040 (0x000000 - 0x000040)
-class FSourceEffectMotionFilterModulationSettings : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 64;
 
-public:
-	CMember(ESourceEffectMotionFilterModSource)        ModulationSource                                            OFFSET(get<T>, {0x0, 1, 0, 0})
-	SMember(FVector2D)                                 ModulationInputRange                                        OFFSET(getStruct<T>, {0x8, 16, 0, 0})
-	SMember(FVector2D)                                 ModulationOutputMinimumRange                                OFFSET(getStruct<T>, {0x18, 16, 0, 0})
-	SMember(FVector2D)                                 ModulationOutputMaximumRange                                OFFSET(getStruct<T>, {0x28, 16, 0, 0})
-	DMember(float)                                     UpdateEaseMS                                                OFFSET(get<float>, {0x38, 4, 0, 0})
-};
-
-/// Struct /Script/Synthesis.SourceEffectMotionFilterSettings
-/// Size: 0x0078 (0x000000 - 0x000078)
-class FSourceEffectMotionFilterSettings : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 120;
-
-public:
-	CMember(ESourceEffectMotionFilterTopology)         MotionFilterTopology                                        OFFSET(get<T>, {0x0, 1, 0, 0})
-	DMember(float)                                     MotionFilterMix                                             OFFSET(get<float>, {0x4, 4, 0, 0})
-	SMember(FSourceEffectIndividualFilterSettings)     FilterASettings                                             OFFSET(getStruct<T>, {0x8, 12, 0, 0})
-	SMember(FSourceEffectIndividualFilterSettings)     FilterBSettings                                             OFFSET(getStruct<T>, {0x14, 12, 0, 0})
-	CMember(TMap<ESourceEffectMotionFilterModDestination, FSourceEffectMotionFilterModulationSettings>) ModulationMappings OFFSET(get<T>, {0x20, 80, 0, 0})
-	DMember(float)                                     DryVolumeDb                                                 OFFSET(get<float>, {0x70, 4, 0, 0})
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectMidSideSpreaderPreset.SetSettings
+	// void SetSettings(FSourceEffectMidSideSpreaderSettings& InSettings);                                                      // [0x98c180] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectPannerSettings
@@ -1403,6 +638,22 @@ class FSourceEffectPannerSettings : public MDKBase
 public:
 	DMember(float)                                     Spread                                                      OFFSET(get<float>, {0x0, 4, 0, 0})
 	DMember(float)                                     Pan                                                         OFFSET(get<float>, {0x4, 4, 0, 0})
+};
+
+/// Class /Script/Synthesis.SourceEffectPannerPreset
+/// Size: 0x0038 (0x000068 - 0x0000A0)
+class USourceEffectPannerPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 160;
+
+public:
+	SMember(FSourceEffectPannerSettings)               Settings                                                    OFFSET(getStruct<T>, {0x98, 8, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectPannerPreset.SetSettings
+	// void SetSettings(FSourceEffectPannerSettings& InSettings);                                                               // [0x98c230] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectPhaserSettings
@@ -1421,6 +672,22 @@ public:
 	DMember(bool)                                      UseQuadraturePhase                                          OFFSET(get<bool>, {0xD, 1, 0, 0})
 };
 
+/// Class /Script/Synthesis.SourceEffectPhaserPreset
+/// Size: 0x0048 (0x000068 - 0x0000B0)
+class USourceEffectPhaserPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 176;
+
+public:
+	SMember(FSourceEffectPhaserSettings)               Settings                                                    OFFSET(getStruct<T>, {0xA0, 16, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectPhaserPreset.SetSettings
+	// void SetSettings(FSourceEffectPhaserSettings& InSettings);                                                               // [0x98c2e0] Final|Native|Public|HasOutParms|BlueprintCallable 
+};
+
 /// Struct /Script/Synthesis.SourceEffectRingModulationSettings
 /// Size: 0x0020 (0x000000 - 0x000020)
 class FSourceEffectRingModulationSettings : public MDKBase
@@ -1435,7 +702,23 @@ public:
 	DMember(float)                                     Depth                                                       OFFSET(get<float>, {0x8, 4, 0, 0})
 	DMember(float)                                     DryLevel                                                    OFFSET(get<float>, {0xC, 4, 0, 0})
 	DMember(float)                                     WetLevel                                                    OFFSET(get<float>, {0x10, 4, 0, 0})
-	CMember(UAudioBus*)                                AudioBusModulator                                           OFFSET(get<T>, {0x18, 8, 0, 0})
+	CMember(class UAudioBus*)                          AudioBusModulator                                           OFFSET(get<T>, {0x18, 8, 0, 0})
+};
+
+/// Class /Script/Synthesis.SourceEffectRingModulationPreset
+/// Size: 0x0068 (0x000068 - 0x0000D0)
+class USourceEffectRingModulationPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 208;
+
+public:
+	SMember(FSourceEffectRingModulationSettings)       Settings                                                    OFFSET(getStruct<T>, {0xB0, 32, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectRingModulationPreset.SetSettings
+	// void SetSettings(FSourceEffectRingModulationSettings& InSettings);                                                       // [0x98c3a0] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectSimpleDelaySettings
@@ -1453,7 +736,22 @@ public:
 	DMember(float)                                     WetAmount                                                   OFFSET(get<float>, {0xC, 4, 0, 0})
 	DMember(float)                                     Feedback                                                    OFFSET(get<float>, {0x10, 4, 0, 0})
 	DMember(bool)                                      bDelayBasedOnDistance                                       OFFSET(get<bool>, {0x14, 1, 1, 0})
-	DMember(bool)                                      bUseDistanceOverride                                        OFFSET(get<bool>, {0x14, 1, 1, 1})
+};
+
+/// Class /Script/Synthesis.SourceEffectSimpleDelayPreset
+/// Size: 0x0058 (0x000068 - 0x0000C0)
+class USourceEffectSimpleDelayPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 192;
+
+public:
+	SMember(FSourceEffectSimpleDelaySettings)          Settings                                                    OFFSET(getStruct<T>, {0xA8, 24, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectSimpleDelayPreset.SetSettings
+	// void SetSettings(FSourceEffectSimpleDelaySettings& InSettings);                                                          // [0x990c10] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SourceEffectStereoDelaySettings
@@ -1477,6 +775,22 @@ public:
 	DMember(float)                                     FilterQ                                                     OFFSET(get<float>, {0x20, 4, 0, 0})
 };
 
+/// Class /Script/Synthesis.SourceEffectStereoDelayPreset
+/// Size: 0x0070 (0x000068 - 0x0000D8)
+class USourceEffectStereoDelayPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 216;
+
+public:
+	SMember(FSourceEffectStereoDelaySettings)          Settings                                                    OFFSET(getStruct<T>, {0xB4, 36, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectStereoDelayPreset.SetSettings
+	// void SetSettings(FSourceEffectStereoDelaySettings& InSettings);                                                          // [0x990cc0] Final|Native|Public|HasOutParms|BlueprintCallable 
+};
+
 /// Struct /Script/Synthesis.SourceEffectWaveShaperSettings
 /// Size: 0x0008 (0x000000 - 0x000008)
 class FSourceEffectWaveShaperSettings : public MDKBase
@@ -1486,31 +800,82 @@ class FSourceEffectWaveShaperSettings : public MDKBase
 	static inline constexpr uint64_t __MDKClassSize = 8;
 
 public:
-	DMember(float)                                     Amount                                                      OFFSET(get<float>, {0x0, 4, 0, 0})
+	DMember(float)                                     amount                                                      OFFSET(get<float>, {0x0, 4, 0, 0})
 	DMember(float)                                     OutputGainDb                                                OFFSET(get<float>, {0x4, 4, 0, 0})
 };
 
+/// Class /Script/Synthesis.SourceEffectWaveShaperPreset
+/// Size: 0x0038 (0x000068 - 0x0000A0)
+class USourceEffectWaveShaperPreset : public USoundEffectSourcePreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 160;
+
+public:
+	SMember(FSourceEffectWaveShaperSettings)           Settings                                                    OFFSET(getStruct<T>, {0x98, 8, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SourceEffectWaveShaperPreset.SetSettings
+	// void SetSettings(FSourceEffectWaveShaperSettings& InSettings);                                                           // [0x98c230] Final|Native|Public|HasOutParms|BlueprintCallable 
+};
+
+/// Class /Script/Synthesis.AudioImpulseResponse
+/// Size: 0x0030 (0x000028 - 0x000058)
+class UAudioImpulseResponse : public UObject
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 88;
+
+public:
+	CMember(TArray<float>)                             ImpulseResponse                                             OFFSET(get<T>, {0x28, 16, 0, 0})
+	DMember(int32_t)                                   NumChannels                                                 OFFSET(get<int32_t>, {0x38, 4, 0, 0})
+	DMember(int32_t)                                   SampleRate                                                  OFFSET(get<int32_t>, {0x3C, 4, 0, 0})
+	DMember(float)                                     NormalizationVolumeDb                                       OFFSET(get<float>, {0x40, 4, 0, 0})
+	DMember(bool)                                      bTrueStereo                                                 OFFSET(get<bool>, {0x44, 1, 0, 0})
+	CMember(TArray<float>)                             IRData                                                      OFFSET(get<T>, {0x48, 16, 0, 0})
+};
+
 /// Struct /Script/Synthesis.SubmixEffectConvolutionReverbSettings
-/// Size: 0x0030 (0x000000 - 0x000030)
+/// Size: 0x0028 (0x000000 - 0x000028)
 class FSubmixEffectConvolutionReverbSettings : public MDKBase
 { 
 	friend MDKHandler;
 	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 48;
+	static inline constexpr uint64_t __MDKClassSize = 40;
 
 public:
 	DMember(float)                                     NormalizationVolumeDb                                       OFFSET(get<float>, {0x0, 4, 0, 0})
-	DMember(float)                                     WetVolumeDb                                                 OFFSET(get<float>, {0x4, 4, 0, 0})
-	DMember(float)                                     DryVolumeDb                                                 OFFSET(get<float>, {0x8, 4, 0, 0})
-	DMember(bool)                                      bBypass                                                     OFFSET(get<bool>, {0xC, 1, 0, 0})
-	DMember(bool)                                      bMixInputChannelFormatToImpulseResponseFormat               OFFSET(get<bool>, {0xD, 1, 0, 0})
-	DMember(bool)                                      bMixReverbOutputToOutputChannelFormat                       OFFSET(get<bool>, {0xE, 1, 0, 0})
-	DMember(float)                                     SurroundRearChannelBleedDb                                  OFFSET(get<float>, {0x10, 4, 0, 0})
-	DMember(bool)                                      bInvertRearChannelBleedPhase                                OFFSET(get<bool>, {0x14, 1, 0, 0})
-	DMember(bool)                                      bSurroundRearChannelFlip                                    OFFSET(get<bool>, {0x15, 1, 0, 0})
-	DMember(float)                                     SurroundRearChannelBleedAmount                              OFFSET(get<float>, {0x18, 4, 0, 0})
-	CMember(UAudioImpulseResponse*)                    ImpulseResponse                                             OFFSET(get<T>, {0x20, 8, 0, 0})
-	DMember(bool)                                      AllowHardwareAcceleration                                   OFFSET(get<bool>, {0x28, 1, 0, 0})
+	DMember(bool)                                      bBypass                                                     OFFSET(get<bool>, {0x4, 1, 0, 0})
+	DMember(bool)                                      bMixInputChannelFormatToImpulseResponseFormat               OFFSET(get<bool>, {0x5, 1, 0, 0})
+	DMember(bool)                                      bMixReverbOutputToOutputChannelFormat                       OFFSET(get<bool>, {0x6, 1, 0, 0})
+	DMember(float)                                     SurroundRearChannelBleedDb                                  OFFSET(get<float>, {0x8, 4, 0, 0})
+	DMember(bool)                                      bInvertRearChannelBleedPhase                                OFFSET(get<bool>, {0xC, 1, 0, 0})
+	DMember(bool)                                      bSurroundRearChannelFlip                                    OFFSET(get<bool>, {0xD, 1, 0, 0})
+	DMember(float)                                     SurroundRearChannelBleedAmount                              OFFSET(get<float>, {0x10, 4, 0, 0})
+	CMember(class UAudioImpulseResponse*)              ImpulseResponse                                             OFFSET(get<T>, {0x18, 8, 0, 0})
+	DMember(bool)                                      AllowHArdwareAcceleration                                   OFFSET(get<bool>, {0x20, 1, 0, 0})
+};
+
+/// Class /Script/Synthesis.SubmixEffectConvolutionReverbPreset
+/// Size: 0x0088 (0x000068 - 0x0000F0)
+class USubmixEffectConvolutionReverbPreset : public USoundEffectSubmixPreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 240;
+
+public:
+	CMember(class UAudioImpulseResponse*)              ImpulseResponse                                             OFFSET(get<T>, {0x68, 8, 0, 0})
+	SMember(FSubmixEffectConvolutionReverbSettings)    Settings                                                    OFFSET(getStruct<T>, {0x70, 40, 0, 0})
+	CMember(ESubmixEffectConvolutionReverbBlockSize)   BlockSize                                                   OFFSET(get<T>, {0x98, 1, 0, 0})
+	DMember(bool)                                      bEnableHardwareAcceleration                                 OFFSET(get<bool>, {0x99, 1, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SubmixEffectConvolutionReverbPreset.SetSettings
+	// void SetSettings(FSubmixEffectConvolutionReverbSettings& InSettings);                                                    // [0x990d90] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectConvolutionReverbPreset.SetImpulseResponse
+	// void SetImpulseResponse(class UAudioImpulseResponse* InImpulseResponse);                                                 // [0x990960] Final|Native|Public|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SubmixEffectDelaySettings
@@ -1525,6 +890,29 @@ public:
 	DMember(float)                                     MaximumDelayLength                                          OFFSET(get<float>, {0x0, 4, 0, 0})
 	DMember(float)                                     InterpolationTime                                           OFFSET(get<float>, {0x4, 4, 0, 0})
 	DMember(float)                                     DelayLength                                                 OFFSET(get<float>, {0x8, 4, 0, 0})
+};
+
+/// Class /Script/Synthesis.SubmixEffectDelayPreset
+/// Size: 0x0050 (0x000068 - 0x0000B8)
+class USubmixEffectDelayPreset : public USoundEffectSubmixPreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 184;
+
+public:
+	SMember(FSubmixEffectDelaySettings)                Settings                                                    OFFSET(getStruct<T>, {0x9C, 12, 0, 0})
+	SMember(FSubmixEffectDelaySettings)                DynamicSettings                                             OFFSET(getStruct<T>, {0xA8, 12, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SubmixEffectDelayPreset.SetSettings
+	// void SetSettings(FSubmixEffectDelaySettings& InSettings);                                                                // [0x990e30] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectDelayPreset.SetInterpolationTime
+	// void SetInterpolationTime(float Time);                                                                                   // [0x990a80] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectDelayPreset.SetDelay
+	// void SetDelay(float Length);                                                                                             // [0x9905e0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectDelayPreset.GetMaxDelayInMilliseconds
+	// float GetMaxDelayInMilliseconds();                                                                                       // [0x990340] Final|Native|Public|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SubmixEffectFilterSettings
@@ -1542,6 +930,34 @@ public:
 	DMember(float)                                     FilterQ                                                     OFFSET(get<float>, {0x8, 4, 0, 0})
 };
 
+/// Class /Script/Synthesis.SubmixEffectFilterPreset
+/// Size: 0x0040 (0x000068 - 0x0000A8)
+class USubmixEffectFilterPreset : public USoundEffectSubmixPreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 168;
+
+public:
+	SMember(FSubmixEffectFilterSettings)               Settings                                                    OFFSET(getStruct<T>, {0x9C, 12, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetSettings
+	// void SetSettings(FSubmixEffectFilterSettings& InSettings);                                                               // [0x990ef0] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterType
+	// void SetFilterType(ESubmixFilterType InType);                                                                            // [0x9908e0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterQMod
+	// void SetFilterQMod(float InQ);                                                                                           // [0x990860] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterQ
+	// void SetFilterQ(float InQ);                                                                                              // [0x9907e0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterCutoffFrequencyMod
+	// void SetFilterCutoffFrequencyMod(float InFrequency);                                                                     // [0x990760] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterCutoffFrequency
+	// void SetFilterCutoffFrequency(float InFrequency);                                                                        // [0x9906e0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectFilterPreset.SetFilterAlgorithm
+	// void SetFilterAlgorithm(ESubmixFilterAlgorithm InAlgorithm);                                                             // [0x990660] Final|Native|Public|BlueprintCallable 
+};
+
 /// Struct /Script/Synthesis.SubmixEffectFlexiverbSettings
 /// Size: 0x0010 (0x000000 - 0x000010)
 class FSubmixEffectFlexiverbSettings : public MDKBase
@@ -1555,6 +971,22 @@ public:
 	DMember(float)                                     DecayTime                                                   OFFSET(get<float>, {0x4, 4, 0, 0})
 	DMember(float)                                     RoomDampening                                               OFFSET(get<float>, {0x8, 4, 0, 0})
 	DMember(int32_t)                                   Complexity                                                  OFFSET(get<int32_t>, {0xC, 4, 0, 0})
+};
+
+/// Class /Script/Synthesis.SubmixEffectFlexiverbPreset
+/// Size: 0x0048 (0x000068 - 0x0000B0)
+class USubmixEffectFlexiverbPreset : public USoundEffectSubmixPreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 176;
+
+public:
+	SMember(FSubmixEffectFlexiverbSettings)            Settings                                                    OFFSET(getStruct<T>, {0xA0, 16, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SubmixEffectFlexiverbPreset.SetSettings
+	// void SetSettings(FSubmixEffectFlexiverbSettings& InSettings);                                                            // [0x990fa0] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.DynamicsBandSettings
@@ -1577,27 +1009,37 @@ public:
 };
 
 /// Struct /Script/Synthesis.SubmixEffectMultibandCompressorSettings
-/// Size: 0x0038 (0x000000 - 0x000038)
+/// Size: 0x0020 (0x000000 - 0x000020)
 class FSubmixEffectMultibandCompressorSettings : public MDKBase
 { 
 	friend MDKHandler;
 	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 56;
+	static inline constexpr uint64_t __MDKClassSize = 32;
 
 public:
 	CMember(ESubmixEffectDynamicsProcessorType)        DynamicsProcessorType                                       OFFSET(get<T>, {0x0, 1, 0, 0})
 	CMember(ESubmixEffectDynamicsPeakMode)             PeakMode                                                    OFFSET(get<T>, {0x1, 1, 0, 0})
-	CMember(ESubmixEffectDynamicsChannelLinkMode)      LinkMode                                                    OFFSET(get<T>, {0x2, 1, 0, 0})
 	DMember(float)                                     LookAheadMsec                                               OFFSET(get<float>, {0x4, 4, 0, 0})
-	DMember(bool)                                      bAnalogMode                                                 OFFSET(get<bool>, {0x8, 1, 0, 0})
-	DMember(bool)                                      bFourPole                                                   OFFSET(get<bool>, {0x9, 1, 0, 0})
-	DMember(bool)                                      bBypass                                                     OFFSET(get<bool>, {0xA, 1, 0, 0})
-	CMember(ESubmixEffectDynamicsKeySource)            KeySource                                                   OFFSET(get<T>, {0xB, 1, 0, 0})
-	CMember(UAudioBus*)                                ExternalAudioBus                                            OFFSET(get<T>, {0x10, 8, 0, 0})
-	CMember(USoundSubmix*)                             ExternalSubmix                                              OFFSET(get<T>, {0x18, 8, 0, 0})
-	DMember(float)                                     KeyGainDb                                                   OFFSET(get<float>, {0x20, 4, 0, 0})
-	DMember(bool)                                      bKeyAudition                                                OFFSET(get<bool>, {0x24, 1, 0, 0})
-	CMember(TArray<FDynamicsBandSettings>)             Bands                                                       OFFSET(get<T>, {0x28, 16, 0, 0})
+	DMember(bool)                                      bLinkChannels                                               OFFSET(get<bool>, {0x8, 1, 0, 0})
+	DMember(bool)                                      bAnalogMode                                                 OFFSET(get<bool>, {0x9, 1, 0, 0})
+	DMember(bool)                                      bFourPole                                                   OFFSET(get<bool>, {0xA, 1, 0, 0})
+	CMember(TArray<FDynamicsBandSettings>)             Bands                                                       OFFSET(get<T>, {0x10, 16, 0, 0})
+};
+
+/// Class /Script/Synthesis.SubmixEffectMultibandCompressorPreset
+/// Size: 0x0068 (0x000068 - 0x0000D0)
+class USubmixEffectMultibandCompressorPreset : public USoundEffectSubmixPreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 208;
+
+public:
+	SMember(FSubmixEffectMultibandCompressorSettings)  Settings                                                    OFFSET(getStruct<T>, {0xB0, 32, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SubmixEffectMultibandCompressorPreset.SetSettings
+	// void SetSettings(FSubmixEffectMultibandCompressorSettings& InSettings);                                                  // [0x991060] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SubmixEffectStereoDelaySettings
@@ -1621,17 +1063,20 @@ public:
 	DMember(float)                                     FilterQ                                                     OFFSET(get<float>, {0x20, 4, 0, 0})
 };
 
-/// Struct /Script/Synthesis.SubmixEffectStereoToQuadSettings
-/// Size: 0x0008 (0x000000 - 0x000008)
-class FSubmixEffectStereoToQuadSettings : public MDKBase
+/// Class /Script/Synthesis.SubmixEffectStereoDelayPreset
+/// Size: 0x0070 (0x000068 - 0x0000D8)
+class USubmixEffectStereoDelayPreset : public USoundEffectSubmixPreset
 { 
 	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 8;
+	static inline constexpr uint64_t __MDKClassSize = 216;
 
 public:
-	DMember(bool)                                      bFlipChannels                                               OFFSET(get<bool>, {0x0, 1, 0, 0})
-	DMember(float)                                     RearChannelGain                                             OFFSET(get<float>, {0x4, 4, 0, 0})
+	SMember(FSubmixEffectStereoDelaySettings)          Settings                                                    OFFSET(getStruct<T>, {0xB4, 36, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SubmixEffectStereoDelayPreset.SetSettings
+	// void SetSettings(FSubmixEffectStereoDelaySettings& InSettings);                                                          // [0x990cc0] Final|Native|Public|HasOutParms|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.TapDelayInfo
@@ -1665,39 +1110,433 @@ public:
 	CMember(TArray<FTapDelayInfo>)                     Taps                                                        OFFSET(get<T>, {0x8, 16, 0, 0})
 };
 
+/// Class /Script/Synthesis.SubmixEffectTapDelayPreset
+/// Size: 0x0070 (0x000068 - 0x0000D8)
+class USubmixEffectTapDelayPreset : public USoundEffectSubmixPreset
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 216;
+
+public:
+	SMember(FSubmixEffectTapDelaySettings)             Settings                                                    OFFSET(getStruct<T>, {0xA8, 24, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.SetTap
+	// void SetTap(int32_t TapId, FTapDelayInfo& TapInfo);                                                                      // [0x9912f0] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.SetSettings
+	// void SetSettings(FSubmixEffectTapDelaySettings& InSettings);                                                             // [0x991120] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.SetInterpolationTime
+	// void SetInterpolationTime(float Time);                                                                                   // [0x990b00] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.RemoveTap
+	// void RemoveTap(int32_t TapId);                                                                                           // [0x990550] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.GetTapIds
+	// void GetTapIds(TArray<int32_t>& TapIds);                                                                                 // [0x990460] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.GetTap
+	// void GetTap(int32_t TapId, FTapDelayInfo& TapInfo);                                                                      // [0x990380] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.GetMaxDelayInMilliseconds
+	// float GetMaxDelayInMilliseconds();                                                                                       // [0x990360] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SubmixEffectTapDelayPreset.AddTap
+	// void AddTap(int32_t& TapId);                                                                                             // [0x9902b0] Final|Native|Public|HasOutParms|BlueprintCallable 
+};
+
 /// Struct /Script/Synthesis.Synth2DSliderStyle
-/// Size: 0x03D8 (0x000008 - 0x0003E0)
+/// Size: 0x02B0 (0x000008 - 0x0002B8)
 class FSynth2DSliderStyle : public FSlateWidgetStyle
 { 
 	friend MDKHandler;
 	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 992;
+	static inline constexpr uint64_t __MDKClassSize = 696;
 
 public:
-	SMember(FSlateBrush)                               NormalThumbImage                                            OFFSET(getStruct<T>, {0x10, 192, 0, 0})
-	SMember(FSlateBrush)                               DisabledThumbImage                                          OFFSET(getStruct<T>, {0xD0, 192, 0, 0})
-	SMember(FSlateBrush)                               NormalBarImage                                              OFFSET(getStruct<T>, {0x190, 192, 0, 0})
-	SMember(FSlateBrush)                               DisabledBarImage                                            OFFSET(getStruct<T>, {0x250, 192, 0, 0})
-	SMember(FSlateBrush)                               BackgroundImage                                             OFFSET(getStruct<T>, {0x310, 192, 0, 0})
-	DMember(float)                                     BarThickness                                                OFFSET(get<float>, {0x3D0, 4, 0, 0})
+	SMember(FSlateBrush)                               NormalThumbImage                                            OFFSET(getStruct<T>, {0x8, 136, 0, 0})
+	SMember(FSlateBrush)                               DisabledThumbImage                                          OFFSET(getStruct<T>, {0x90, 136, 0, 0})
+	SMember(FSlateBrush)                               NormalBarImage                                              OFFSET(getStruct<T>, {0x118, 136, 0, 0})
+	SMember(FSlateBrush)                               DisabledBarImage                                            OFFSET(getStruct<T>, {0x1A0, 136, 0, 0})
+	SMember(FSlateBrush)                               BackgroundImage                                             OFFSET(getStruct<T>, {0x228, 136, 0, 0})
+	DMember(float)                                     BarThickness                                                OFFSET(get<float>, {0x2B0, 4, 0, 0})
+};
+
+/// Class /Script/Synthesis.Synth2DSlider
+/// Size: 0x0370 (0x000108 - 0x000478)
+class USynth2DSlider : public UWidget
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 1144;
+
+public:
+	DMember(float)                                     ValueX                                                      OFFSET(get<float>, {0x108, 4, 0, 0})
+	DMember(float)                                     ValueY                                                      OFFSET(get<float>, {0x10C, 4, 0, 0})
+	SMember(FDelegateProperty)                         ValueXDelegate                                              OFFSET(getStruct<T>, {0x110, 16, 0, 0})
+	SMember(FDelegateProperty)                         ValueYDelegate                                              OFFSET(getStruct<T>, {0x120, 16, 0, 0})
+	SMember(FSynth2DSliderStyle)                       WidgetStyle                                                 OFFSET(getStruct<T>, {0x130, 696, 0, 0})
+	SMember(FLinearColor)                              SliderHandleColor                                           OFFSET(getStruct<T>, {0x3E8, 16, 0, 0})
+	DMember(bool)                                      IndentHandle                                                OFFSET(get<bool>, {0x3F8, 1, 0, 0})
+	DMember(bool)                                      Locked                                                      OFFSET(get<bool>, {0x3F9, 1, 0, 0})
+	DMember(float)                                     StepSize                                                    OFFSET(get<float>, {0x3FC, 4, 0, 0})
+	DMember(bool)                                      IsFocusable                                                 OFFSET(get<bool>, {0x400, 1, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnMouseCaptureBegin                                         OFFSET(getStruct<T>, {0x408, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnMouseCaptureEnd                                           OFFSET(getStruct<T>, {0x418, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnControllerCaptureBegin                                    OFFSET(getStruct<T>, {0x428, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnControllerCaptureEnd                                      OFFSET(getStruct<T>, {0x438, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnValueChangedX                                             OFFSET(getStruct<T>, {0x448, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnValueChangedY                                             OFFSET(getStruct<T>, {0x458, 16, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.Synth2DSlider.SetValue
+	// void SetValue(FVector2D InValue);                                                                                        // [0x9913d0] Final|Native|Public|HasDefaults|BlueprintCallable 
+	// Function /Script/Synthesis.Synth2DSlider.SetStepSize
+	// void SetStepSize(float InValue);                                                                                         // [0x991270] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.Synth2DSlider.SetSliderHandleColor
+	// void SetSliderHandleColor(FLinearColor InValue);                                                                         // [0x9911e0] Final|Native|Public|HasDefaults|BlueprintCallable 
+	// Function /Script/Synthesis.Synth2DSlider.SetLocked
+	// void SetLocked(bool InValue);                                                                                            // [0x990b80] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.Synth2DSlider.SetIndentHandle
+	// void SetIndentHandle(bool InValue);                                                                                      // [0x9909f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.Synth2DSlider.GetValue
+	// FVector2D GetValue();                                                                                                    // [0x990510] Final|Native|Public|HasDefaults|BlueprintCallable|BlueprintPure|Const 
+};
+
+/// Class /Script/Synthesis.GranularSynth
+/// Size: 0x03C0 (0x0006C0 - 0x000A80)
+class UGranularSynth : public USynthComponent
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 2688;
+
+public:
+	CMember(class USoundWave*)                         GranulatedSoundWave                                         OFFSET(get<T>, {0x6C0, 8, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.GranularSynth.SetSustainGain
+	// void SetSustainGain(float SustainGain);                                                                                  // [0x9958c0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetSoundWave
+	// void SetSoundWave(class USoundWave* InSoundWave);                                                                        // [0x9957a0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetScrubMode
+	// void SetScrubMode(bool bScrubMode);                                                                                      // [0x995600] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetReleaseTimeMsec
+	// void SetReleaseTimeMsec(float ReleaseTimeMsec);                                                                          // [0x995580] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetPlayheadTime
+	// void SetPlayheadTime(float InPositionSec, float LerpTimeSec, EGranularSynthSeekType SeekType);                           // [0x994ed0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetPlaybackSpeed
+	// void SetPlaybackSpeed(float InPlayheadRate);                                                                             // [0x994e50] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetGrainVolume
+	// void SetGrainVolume(float BaseVolume, FVector2D VolumeRange);                                                            // [0x994bc0] Final|Native|Public|HasDefaults|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetGrainsPerSecond
+	// void SetGrainsPerSecond(float InGrainsPerSecond);                                                                        // [0x994c80] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetGrainProbability
+	// void SetGrainProbability(float InGrainProbability);                                                                      // [0x994b40] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetGrainPitch
+	// void SetGrainPitch(float BasePitch, FVector2D PitchRange);                                                               // [0x994a80] Final|Native|Public|HasDefaults|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetGrainPan
+	// void SetGrainPan(float BasePan, FVector2D PanRange);                                                                     // [0x9949c0] Final|Native|Public|HasDefaults|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetGrainEnvelopeType
+	// void SetGrainEnvelopeType(EGranularSynthEnvelopeType EnvelopeType);                                                      // [0x994940] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetGrainDuration
+	// void SetGrainDuration(float BaseDurationMsec, FVector2D DurationRange);                                                  // [0x994880] Final|Native|Public|HasDefaults|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetDecayTime
+	// void SetDecayTime(float DecayTimeMsec);                                                                                  // [0x993f30] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.SetAttackTime
+	// void SetAttackTime(float AttackTimeMsec);                                                                                // [0x993f30] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.NoteOn
+	// void NoteOn(float Note, int32_t Velocity, float Duration);                                                               // [0x993750] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.NoteOff
+	// void NoteOff(float Note, bool bKill);                                                                                    // [0x9935f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.GranularSynth.IsLoaded
+	// bool IsLoaded();                                                                                                         // [0x993590] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// Function /Script/Synthesis.GranularSynth.GetSampleDuration
+	// float GetSampleDuration();                                                                                               // [0x993530] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// Function /Script/Synthesis.GranularSynth.GetCurrentPlayheadTime
+	// float GetCurrentPlayheadTime();                                                                                          // [0x992fb0] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+};
+
+/// Class /Script/Synthesis.MonoWaveTableSynthPreset
+/// Size: 0x0148 (0x000028 - 0x000170)
+class UMonoWaveTableSynthPreset : public UObject
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 368;
+
+public:
+	SMember(FString)                                   PresetName                                                  OFFSET(getStruct<T>, {0x28, 16, 0, 0})
+	DMember(bool)                                      bLockKeyframesToGridBool                                    OFFSET(get<bool>, {0x38, 1, 1, 0})
+	DMember(int32_t)                                   LockKeyframesToGrid                                         OFFSET(get<int32_t>, {0x3C, 4, 0, 0})
+	DMember(int32_t)                                   WaveTableResolution                                         OFFSET(get<int32_t>, {0x40, 4, 0, 0})
+	CMember(TArray<FRuntimeFloatCurve>)                WaveTable                                                   OFFSET(get<T>, {0x48, 16, 0, 0})
+	DMember(bool)                                      bNormalizeWaveTables                                        OFFSET(get<bool>, {0x58, 1, 1, 0})
+};
+
+/// Class /Script/Synthesis.SynthComponentMonoWaveTable
+/// Size: 0x0740 (0x0006C0 - 0x000E00)
+class USynthComponentMonoWaveTable : public USynthComponent
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 3584;
+
+public:
+	SMember(FMulticastInlineDelegate)                  OnTableAltered                                              OFFSET(getStruct<T>, {0x6C0, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnNumTablesChanged                                          OFFSET(getStruct<T>, {0x6D0, 16, 0, 0})
+	CMember(class UMonoWaveTableSynthPreset*)          CurrentPreset                                               OFFSET(get<T>, {0x6E0, 8, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetWaveTablePosition
+	// void SetWaveTablePosition(float InPosition);                                                                             // [0x995a50] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetSustainPedalState
+	// void SetSustainPedalState(bool InSustainPedalState);                                                                     // [0x995940] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPosLfoType
+	// void SetPosLfoType(ESynthLFOType InLfoType);                                                                             // [0x9950e0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPosLfoFrequency
+	// void SetPosLfoFrequency(float InLfoFrequency);                                                                           // [0x995060] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPosLfoDepth
+	// void SetPosLfoDepth(float InLfoDepth);                                                                                   // [0x994fe0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeSustainGain
+	// void SetPositionEnvelopeSustainGain(float InSustainGain);                                                                // [0x995500] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeReleaseTime
+	// void SetPositionEnvelopeReleaseTime(float InReleaseTimeMsec);                                                            // [0x995480] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeInvert
+	// void SetPositionEnvelopeInvert(bool bInInvert);                                                                          // [0x9953f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeDepth
+	// void SetPositionEnvelopeDepth(float InDepth);                                                                            // [0x995370] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeDecayTime
+	// void SetPositionEnvelopeDecayTime(float InDecayTimeMsec);                                                                // [0x9952f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeBiasInvert
+	// void SetPositionEnvelopeBiasInvert(bool bInBiasInvert);                                                                  // [0x995260] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeBiasDepth
+	// void SetPositionEnvelopeBiasDepth(float InDepth);                                                                        // [0x9951e0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetPositionEnvelopeAttackTime
+	// void SetPositionEnvelopeAttackTime(float InAttackTimeMsec);                                                              // [0x995160] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetLowPassFilterResonance
+	// void SetLowPassFilterResonance(float InNewQ);                                                                            // [0x994d00] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFrequencyWithMidiNote
+	// void SetFrequencyWithMidiNote(float InMidiNote);                                                                         // [0x994800] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFrequencyPitchBend
+	// void SetFrequencyPitchBend(float FrequencyOffsetCents);                                                                  // [0x994780] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFrequency
+	// void SetFrequency(float FrequencyHz);                                                                                    // [0x994680] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeSustainGain
+	// void SetFilterEnvelopeSustainGain(float InSustainGain);                                                                  // [0x994580] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeReleaseTime
+	// void SetFilterEnvelopeReleaseTime(float InReleaseTimeMsec);                                                              // [0x994500] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopenDecayTime
+	// void SetFilterEnvelopenDecayTime(float InDecayTimeMsec);                                                                 // [0x994600] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeInvert
+	// void SetFilterEnvelopeInvert(bool bInInvert);                                                                            // [0x994470] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeDepth
+	// void SetFilterEnvelopeDepth(float InDepth);                                                                              // [0x9943f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeBiasInvert
+	// void SetFilterEnvelopeBiasInvert(bool bInBiasInvert);                                                                    // [0x994360] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeBiasDepth
+	// void SetFilterEnvelopeBiasDepth(float InDepth);                                                                          // [0x9942e0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetFilterEnvelopeAttackTime
+	// void SetFilterEnvelopeAttackTime(float InAttackTimeMsec);                                                                // [0x994260] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetCurveValue
+	// bool SetCurveValue(int32_t TableIndex, int32_t KeyframeIndex, float NewValue);                                           // [0x994150] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetCurveTangent
+	// bool SetCurveTangent(int32_t TableIndex, float InNewTangent);                                                            // [0x994080] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetCurveInterpolationType
+	// bool SetCurveInterpolationType(CurveInterpolationType InterpolationType, int32_t TableIndex);                            // [0x993fb0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeSustainGain
+	// void SetAmpEnvelopeSustainGain(float InSustainGain);                                                                     // [0x993eb0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeReleaseTime
+	// void SetAmpEnvelopeReleaseTime(float InReleaseTimeMsec);                                                                 // [0x993e30] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeInvert
+	// void SetAmpEnvelopeInvert(bool bInInvert);                                                                               // [0x993da0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeDepth
+	// void SetAmpEnvelopeDepth(float InDepth);                                                                                 // [0x993d20] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeDecayTime
+	// void SetAmpEnvelopeDecayTime(float InDecayTimeMsec);                                                                     // [0x993ca0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeBiasInvert
+	// void SetAmpEnvelopeBiasInvert(bool bInBiasInvert);                                                                       // [0x993c10] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeBiasDepth
+	// void SetAmpEnvelopeBiasDepth(float InDepth);                                                                             // [0x993b90] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.SetAmpEnvelopeAttackTime
+	// void SetAmpEnvelopeAttackTime(float InAttackTimeMsec);                                                                   // [0x993b10] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.RefreshWaveTable
+	// void RefreshWaveTable(int32_t Index);                                                                                    // [0x993960] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.RefreshAllWaveTables
+	// void RefreshAllWaveTables();                                                                                             // [0x993940] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.NoteOn
+	// void NoteOn(float InMidiNote, float InVelocity);                                                                         // [0x993870] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.NoteOff
+	// void NoteOff(float InMidiNote);                                                                                          // [0x9936d0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.GetNumTableEntries
+	// int32_t GetNumTableEntries();                                                                                            // [0x993500] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.GetMaxTableIndex
+	// int32_t GetMaxTableIndex();                                                                                              // [0x9934c0] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.GetKeyFrameValuesForTable
+	// TArray<float> GetKeyFrameValuesForTable(float TableIndex);                                                               // [0x993080] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// Function /Script/Synthesis.SynthComponentMonoWaveTable.GetCurveTangent
+	// float GetCurveTangent(int32_t TableIndex);                                                                               // [0x992fe0] Final|Native|Public|BlueprintCallable 
+};
+
+/// Class /Script/Synthesis.SynthComponentToneGenerator
+/// Size: 0x0020 (0x0006C0 - 0x0006E0)
+class USynthComponentToneGenerator : public USynthComponent
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 1760;
+
+public:
+	DMember(float)                                     Frequency                                                   OFFSET(get<float>, {0x6C0, 4, 0, 0})
+	DMember(float)                                     Volume                                                      OFFSET(get<float>, {0x6C4, 4, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SynthComponentToneGenerator.SetVolume
+	// void SetVolume(float InVolume);                                                                                          // [0x9959d0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthComponentToneGenerator.SetFrequency
+	// void SetFrequency(float InFrequency);                                                                                    // [0x994700] Final|Native|Public|BlueprintCallable 
+};
+
+/// Class /Script/Synthesis.SynthSamplePlayer
+/// Size: 0x0130 (0x0006C0 - 0x0007F0)
+class USynthSamplePlayer : public USynthComponent
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 2032;
+
+public:
+	CMember(class USoundWave*)                         SoundWave                                                   OFFSET(get<T>, {0x6C0, 8, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnSampleLoaded                                              OFFSET(getStruct<T>, {0x6C8, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnSamplePlaybackProgress                                    OFFSET(getStruct<T>, {0x6D8, 16, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SynthSamplePlayer.SetSoundWave
+	// void SetSoundWave(class USoundWave* InSoundWave);                                                                        // [0x995830] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthSamplePlayer.SetScrubTimeWidth
+	// void SetScrubTimeWidth(float InScrubTimeWidthSec);                                                                       // [0x995720] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthSamplePlayer.SetScrubMode
+	// void SetScrubMode(bool bScrubMode);                                                                                      // [0x995690] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthSamplePlayer.SetPitch
+	// void SetPitch(float InPitch, float TimeSec);                                                                             // [0x994d80] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthSamplePlayer.SeekToTime
+	// void SeekToTime(float TimeSec, ESamplePlayerSeekType SeekType, bool bWrap);                                              // [0x9939f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthSamplePlayer.IsLoaded
+	// bool IsLoaded();                                                                                                         // [0x9935c0] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// Function /Script/Synthesis.SynthSamplePlayer.GetSampleDuration
+	// float GetSampleDuration();                                                                                               // [0x993560] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// Function /Script/Synthesis.SynthSamplePlayer.GetCurrentPlaybackProgressTime
+	// float GetCurrentPlaybackProgressTime();                                                                                  // [0x992f80] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// Function /Script/Synthesis.SynthSamplePlayer.GetCurrentPlaybackProgressPercent
+	// float GetCurrentPlaybackProgressPercent();                                                                               // [0x992f50] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+};
+
+/// Class /Script/Synthesis.SynthesisUtilitiesBlueprintFunctionLibrary
+/// Size: 0x0000 (0x000028 - 0x000028)
+class USynthesisUtilitiesBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 40;
+
+public:
+
+
+	/// Functions
+	// Function /Script/Synthesis.SynthesisUtilitiesBlueprintFunctionLibrary.GetLogFrequency
+	// float GetLogFrequency(float InLinearValue, float InDomainMin, float InDomainMax, float InRangeMin, float InRangeMax);    // [0x993310] Final|Native|Static|Private|BlueprintCallable 
+	// Function /Script/Synthesis.SynthesisUtilitiesBlueprintFunctionLibrary.GetLinearFrequency
+	// float GetLinearFrequency(float InLogFrequencyValue, float InDomainMin, float InDomainMax, float InRangeMin, float InRangeMax); // [0x993160] Final|Native|Static|Private|BlueprintCallable 
 };
 
 /// Struct /Script/Synthesis.SynthKnobStyle
-/// Size: 0x0318 (0x000008 - 0x000320)
+/// Size: 0x0230 (0x000008 - 0x000238)
 class FSynthKnobStyle : public FSlateWidgetStyle
 { 
 	friend MDKHandler;
 	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 800;
+	static inline constexpr uint64_t __MDKClassSize = 568;
 
 public:
-	SMember(FSlateBrush)                               LargeKnob                                                   OFFSET(getStruct<T>, {0x10, 192, 0, 0})
-	SMember(FSlateBrush)                               LargeKnobOverlay                                            OFFSET(getStruct<T>, {0xD0, 192, 0, 0})
-	SMember(FSlateBrush)                               MediumKnob                                                  OFFSET(getStruct<T>, {0x190, 192, 0, 0})
-	SMember(FSlateBrush)                               MediumKnobOverlay                                           OFFSET(getStruct<T>, {0x250, 192, 0, 0})
-	DMember(float)                                     MinValueAngle                                               OFFSET(get<float>, {0x310, 4, 0, 0})
-	DMember(float)                                     MaxValueAngle                                               OFFSET(get<float>, {0x314, 4, 0, 0})
-	CMember(ESynthKnobSize)                            KnobSize                                                    OFFSET(get<T>, {0x318, 1, 0, 0})
+	SMember(FSlateBrush)                               LargeKnob                                                   OFFSET(getStruct<T>, {0x8, 136, 0, 0})
+	SMember(FSlateBrush)                               LargeKnobOverlay                                            OFFSET(getStruct<T>, {0x90, 136, 0, 0})
+	SMember(FSlateBrush)                               MediumKnob                                                  OFFSET(getStruct<T>, {0x118, 136, 0, 0})
+	SMember(FSlateBrush)                               MediumKnobOverlay                                           OFFSET(getStruct<T>, {0x1A0, 136, 0, 0})
+	DMember(float)                                     MinValueAngle                                               OFFSET(get<float>, {0x228, 4, 0, 0})
+	DMember(float)                                     MaxValueAngle                                               OFFSET(get<float>, {0x22C, 4, 0, 0})
+	CMember(ESynthKnobSize)                            KnobSize                                                    OFFSET(get<T>, {0x230, 1, 0, 0})
+};
+
+/// Class /Script/Synthesis.SynthKnob
+/// Size: 0x02F8 (0x000108 - 0x000400)
+class USynthKnob : public UWidget
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 1024;
+
+public:
+	DMember(float)                                     Value                                                       OFFSET(get<float>, {0x108, 4, 0, 0})
+	DMember(float)                                     StepSize                                                    OFFSET(get<float>, {0x10C, 4, 0, 0})
+	DMember(float)                                     MouseSpeed                                                  OFFSET(get<float>, {0x110, 4, 0, 0})
+	DMember(float)                                     MouseFineTuneSpeed                                          OFFSET(get<float>, {0x114, 4, 0, 0})
+	DMember(bool)                                      ShowTooltipInfo                                             OFFSET(get<bool>, {0x118, 1, 1, 0})
+	SMember(FText)                                     ParameterName                                               OFFSET(getStruct<T>, {0x120, 24, 0, 0})
+	SMember(FText)                                     ParameterUnits                                              OFFSET(getStruct<T>, {0x138, 24, 0, 0})
+	SMember(FDelegateProperty)                         ValueDelegate                                               OFFSET(getStruct<T>, {0x150, 16, 0, 0})
+	SMember(FSynthKnobStyle)                           WidgetStyle                                                 OFFSET(getStruct<T>, {0x160, 568, 0, 0})
+	DMember(bool)                                      Locked                                                      OFFSET(get<bool>, {0x398, 1, 0, 0})
+	DMember(bool)                                      IsFocusable                                                 OFFSET(get<bool>, {0x399, 1, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnMouseCaptureBegin                                         OFFSET(getStruct<T>, {0x3A0, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnMouseCaptureEnd                                           OFFSET(getStruct<T>, {0x3B0, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnControllerCaptureBegin                                    OFFSET(getStruct<T>, {0x3C0, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnControllerCaptureEnd                                      OFFSET(getStruct<T>, {0x3D0, 16, 0, 0})
+	SMember(FMulticastInlineDelegate)                  OnValueChanged                                              OFFSET(getStruct<T>, {0x3E0, 16, 0, 0})
+
+
+	/// Functions
+	// Function /Script/Synthesis.SynthKnob.SetValue
+	// void SetValue(float InValue);                                                                                            // [0x996370] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthKnob.SetStepSize
+	// void SetStepSize(float InValue);                                                                                         // [0x9962f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthKnob.SetLocked
+	// void SetLocked(bool InValue);                                                                                            // [0x996260] Final|Native|Public|BlueprintCallable 
+	// Function /Script/Synthesis.SynthKnob.GetValue
+	// float GetValue();                                                                                                        // [0x996230] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+};
+
+/// Struct /Script/Synthesis.PatchId
+/// Size: 0x0004 (0x000000 - 0x000004)
+class FPatchId : public MDKBase
+{ 
+	friend MDKHandler;
+	friend MDKBase;
+	static inline constexpr uint64_t __MDKClassSize = 4;
+
+public:
+	DMember(int32_t)                                   ID                                                          OFFSET(get<int32_t>, {0x0, 4, 0, 0})
+};
+
+/// Struct /Script/Synthesis.SourceEffectBitCrusherBaseSettings
+/// Size: 0x0008 (0x000000 - 0x000008)
+class FSourceEffectBitCrusherBaseSettings : public MDKBase
+{ 
+	friend MDKHandler;
+	friend MDKBase;
+	static inline constexpr uint64_t __MDKClassSize = 8;
+
+public:
+	DMember(float)                                     SampleRate                                                  OFFSET(get<float>, {0x0, 4, 0, 0})
+	DMember(float)                                     BitDepth                                                    OFFSET(get<float>, {0x4, 4, 0, 0})
+};
+
+/// Struct /Script/Synthesis.SourceEffectChorusBaseSettings
+/// Size: 0x0018 (0x000000 - 0x000018)
+class FSourceEffectChorusBaseSettings : public MDKBase
+{ 
+	friend MDKHandler;
+	friend MDKBase;
+	static inline constexpr uint64_t __MDKClassSize = 24;
+
+public:
+	DMember(float)                                     Depth                                                       OFFSET(get<float>, {0x0, 4, 0, 0})
+	DMember(float)                                     Frequency                                                   OFFSET(get<float>, {0x4, 4, 0, 0})
+	DMember(float)                                     Feedback                                                    OFFSET(get<float>, {0x8, 4, 0, 0})
+	DMember(float)                                     WetLevel                                                    OFFSET(get<float>, {0xC, 4, 0, 0})
+	DMember(float)                                     DryLevel                                                    OFFSET(get<float>, {0x10, 4, 0, 0})
+	DMember(float)                                     Spread                                                      OFFSET(get<float>, {0x14, 4, 0, 0})
 };
 
 /// Struct /Script/Synthesis.SynthSlateStyle
@@ -1713,475 +1552,380 @@ public:
 	CMember(ESynthSlateColorStyle)                     ColorStyle                                                  OFFSET(get<T>, {0x9, 1, 0, 0})
 };
 
-/// Enum /Script/Synthesis.ESynth1OscType
-/// Size: 0x07
-enum ESynth1OscType : uint8_t
+/// Enum /Script/Synthesis.ESynth1PatchDestination
+/// Size: 0x15
+enum class ESynth1PatchDestination : uint8_t
 {
-	ESynth1OscType__Sine0                                                            = 0,
-	ESynth1OscType__Saw1                                                             = 1,
-	ESynth1OscType__Triangle2                                                        = 2,
-	ESynth1OscType__Square3                                                          = 3,
-	ESynth1OscType__Noise4                                                           = 4,
-	ESynth1OscType__Count5                                                           = 5,
-	ESynth1OscType__ESynth1OscType_MAX6                                              = 6
-};
-
-/// Enum /Script/Synthesis.ESynthLFOType
-/// Size: 0x09
-enum ESynthLFOType : uint8_t
-{
-	ESynthLFOType__Sine0                                                             = 0,
-	ESynthLFOType__UpSaw1                                                            = 1,
-	ESynthLFOType__DownSaw2                                                          = 2,
-	ESynthLFOType__Square3                                                           = 3,
-	ESynthLFOType__Triangle4                                                         = 4,
-	ESynthLFOType__Exponential5                                                      = 5,
-	ESynthLFOType__RandomSampleHold6                                                 = 6,
-	ESynthLFOType__Count7                                                            = 7,
-	ESynthLFOType__ESynthLFOType_MAX8                                                = 8
-};
-
-/// Enum /Script/Synthesis.ESynthLFOMode
-/// Size: 0x05
-enum ESynthLFOMode : uint8_t
-{
-	ESynthLFOMode__Sync0                                                             = 0,
-	ESynthLFOMode__OneShot1                                                          = 1,
-	ESynthLFOMode__Free2                                                             = 2,
-	ESynthLFOMode__Count3                                                            = 3,
-	ESynthLFOMode__ESynthLFOMode_MAX4                                                = 4
-};
-
-/// Enum /Script/Synthesis.ESynthLFOPatchType
-/// Size: 0x11
-enum ESynthLFOPatchType : uint8_t
-{
-	ESynthLFOPatchType__PatchToNone0                                                 = 0,
-	ESynthLFOPatchType__PatchToGain1                                                 = 1,
-	ESynthLFOPatchType__PatchToOscFreq2                                              = 2,
-	ESynthLFOPatchType__PatchToFilterFreq3                                           = 3,
-	ESynthLFOPatchType__PatchToFilterQ4                                              = 4,
-	ESynthLFOPatchType__PatchToOscPulseWidth5                                        = 5,
-	ESynthLFOPatchType__PatchToOscPan6                                               = 6,
-	ESynthLFOPatchType__PatchLFO1ToLFO2Frequency7                                    = 7,
-	ESynthLFOPatchType__PatchLFO1ToLFO2Gain8                                         = 8,
-	ESynthLFOPatchType__Count9                                                       = 9,
-	ESynthLFOPatchType__ESynthLFOPatchType_MAX10                                     = 10
-};
-
-/// Enum /Script/Synthesis.ESynthModEnvPatch
-/// Size: 0x10
-enum ESynthModEnvPatch : uint8_t
-{
-	ESynthModEnvPatch__PatchToNone0                                                  = 0,
-	ESynthModEnvPatch__PatchToOscFreq1                                               = 1,
-	ESynthModEnvPatch__PatchToFilterFreq2                                            = 2,
-	ESynthModEnvPatch__PatchToFilterQ3                                               = 3,
-	ESynthModEnvPatch__PatchToLFO1Gain4                                              = 4,
-	ESynthModEnvPatch__PatchToLFO2Gain5                                              = 5,
-	ESynthModEnvPatch__PatchToLFO1Freq6                                              = 6,
-	ESynthModEnvPatch__PatchToLFO2Freq7                                              = 7,
-	ESynthModEnvPatch__Count8                                                        = 8,
-	ESynthModEnvPatch__ESynthModEnvPatch_MAX9                                        = 9
-};
-
-/// Enum /Script/Synthesis.ESynthModEnvBiasPatch
-/// Size: 0x10
-enum ESynthModEnvBiasPatch : uint8_t
-{
-	ESynthModEnvBiasPatch__PatchToNone0                                              = 0,
-	ESynthModEnvBiasPatch__PatchToOscFreq1                                           = 1,
-	ESynthModEnvBiasPatch__PatchToFilterFreq2                                        = 2,
-	ESynthModEnvBiasPatch__PatchToFilterQ3                                           = 3,
-	ESynthModEnvBiasPatch__PatchToLFO1Gain4                                          = 4,
-	ESynthModEnvBiasPatch__PatchToLFO2Gain5                                          = 5,
-	ESynthModEnvBiasPatch__PatchToLFO1Freq6                                          = 6,
-	ESynthModEnvBiasPatch__PatchToLFO2Freq7                                          = 7,
-	ESynthModEnvBiasPatch__Count8                                                    = 8,
-	ESynthModEnvBiasPatch__ESynthModEnvBiasPatch_MAX9                                = 9
-};
-
-/// Enum /Script/Synthesis.ESynthFilterType
-/// Size: 0x06
-enum ESynthFilterType : uint8_t
-{
-	ESynthFilterType__LowPass0                                                       = 0,
-	ESynthFilterType__HighPass1                                                      = 1,
-	ESynthFilterType__BandPass2                                                      = 2,
-	ESynthFilterType__BandStop3                                                      = 3,
-	ESynthFilterType__Count4                                                         = 4,
-	ESynthFilterType__ESynthFilterType_MAX5                                          = 5
-};
-
-/// Enum /Script/Synthesis.ESynthFilterAlgorithm
-/// Size: 0x05
-enum ESynthFilterAlgorithm : uint8_t
-{
-	ESynthFilterAlgorithm__OnePole0                                                  = 0,
-	ESynthFilterAlgorithm__StateVariable1                                            = 1,
-	ESynthFilterAlgorithm__Ladder2                                                   = 2,
-	ESynthFilterAlgorithm__Count3                                                    = 3,
-	ESynthFilterAlgorithm__ESynthFilterAlgorithm_MAX4                                = 4
-};
-
-/// Enum /Script/Synthesis.ESynthStereoDelayMode
-/// Size: 0x05
-enum ESynthStereoDelayMode : uint8_t
-{
-	ESynthStereoDelayMode__Normal0                                                   = 0,
-	ESynthStereoDelayMode__Cross1                                                    = 1,
-	ESynthStereoDelayMode__PingPong2                                                 = 2,
-	ESynthStereoDelayMode__Count3                                                    = 3,
-	ESynthStereoDelayMode__ESynthStereoDelayMode_MAX4                                = 4
+	ESynth1PatchDestination__Osc1Gain                                                = 0,
+	ESynth1PatchDestination__Osc1Frequency                                           = 1,
+	ESynth1PatchDestination__Osc1Pulsewidth                                          = 2,
+	ESynth1PatchDestination__Osc2Gain                                                = 3,
+	ESynth1PatchDestination__Osc2Frequency                                           = 4,
+	ESynth1PatchDestination__Osc2Pulsewidth                                          = 5,
+	ESynth1PatchDestination__FilterFrequency                                         = 6,
+	ESynth1PatchDestination__FilterQ                                                 = 7,
+	ESynth1PatchDestination__Gain                                                    = 8,
+	ESynth1PatchDestination__Pan                                                     = 9,
+	ESynth1PatchDestination__LFO1Frequency                                           = 10,
+	ESynth1PatchDestination__LFO1Gain                                                = 11,
+	ESynth1PatchDestination__LFO2Frequency                                           = 12,
+	ESynth1PatchDestination__LFO2Gain                                                = 13,
+	ESynth1PatchDestination__Count                                                   = 14
 };
 
 /// Enum /Script/Synthesis.ESynth1PatchSource
-/// Size: 0x06
-enum ESynth1PatchSource : uint8_t
+/// Size: 0x05
+enum class ESynth1PatchSource : uint8_t
 {
-	ESynth1PatchSource__LFO10                                                        = 0,
-	ESynth1PatchSource__LFO21                                                        = 1,
-	ESynth1PatchSource__Envelope2                                                    = 2,
-	ESynth1PatchSource__BiasEnvelope3                                                = 3,
-	ESynth1PatchSource__Count4                                                       = 4,
-	ESynth1PatchSource__ESynth1PatchSource_MAX5                                      = 5
+	ESynth1PatchSource__LFO1                                                         = 0,
+	ESynth1PatchSource__LFO2                                                         = 1,
+	ESynth1PatchSource__Envelope                                                     = 2,
+	ESynth1PatchSource__BiasEnvelope                                                 = 3,
+	ESynth1PatchSource__Count                                                        = 4
 };
 
-/// Enum /Script/Synthesis.ESynth1PatchDestination
-/// Size: 0x16
-enum ESynth1PatchDestination : uint8_t
-{
-	ESynth1PatchDestination__Osc1Gain0                                               = 0,
-	ESynth1PatchDestination__Osc1Frequency1                                          = 1,
-	ESynth1PatchDestination__Osc1Pulsewidth2                                         = 2,
-	ESynth1PatchDestination__Osc2Gain3                                               = 3,
-	ESynth1PatchDestination__Osc2Frequency4                                          = 4,
-	ESynth1PatchDestination__Osc2Pulsewidth5                                         = 5,
-	ESynth1PatchDestination__FilterFrequency6                                        = 6,
-	ESynth1PatchDestination__FilterQ7                                                = 7,
-	ESynth1PatchDestination__Gain8                                                   = 8,
-	ESynth1PatchDestination__Pan9                                                    = 9,
-	ESynth1PatchDestination__LFO1Frequency10                                         = 10,
-	ESynth1PatchDestination__LFO1Gain11                                              = 11,
-	ESynth1PatchDestination__LFO2Frequency12                                         = 12,
-	ESynth1PatchDestination__LFO2Gain13                                              = 13,
-	ESynth1PatchDestination__Count14                                                 = 14,
-	ESynth1PatchDestination__ESynth1PatchDestination_MAX15                           = 15
-};
-
-/// Enum /Script/Synthesis.ESubmixEffectConvolutionReverbBlockSize
+/// Enum /Script/Synthesis.ESynthStereoDelayMode
 /// Size: 0x04
-enum ESubmixEffectConvolutionReverbBlockSize : uint8_t
+enum class ESynthStereoDelayMode : uint8_t
 {
-	ESubmixEffectConvolutionReverbBlockSize__BlockSize2560                           = 0,
-	ESubmixEffectConvolutionReverbBlockSize__BlockSize5121                           = 1,
-	ESubmixEffectConvolutionReverbBlockSize__BlockSize10242                          = 2,
-	ESubmixEffectConvolutionReverbBlockSize__ESubmixEffectConvolutionReverbBlockSize_MAX3 = 3
+	ESynthStereoDelayMode__Normal                                                    = 0,
+	ESynthStereoDelayMode__Cross                                                     = 1,
+	ESynthStereoDelayMode__PingPong                                                  = 2,
+	ESynthStereoDelayMode__Count                                                     = 3
 };
 
-/// Enum /Script/Synthesis.ESourceEffectDynamicsProcessorType
-/// Size: 0x07
-enum ESourceEffectDynamicsProcessorType : uint8_t
+/// Enum /Script/Synthesis.ESynthFilterAlgorithm
+/// Size: 0x04
+enum class ESynthFilterAlgorithm : uint8_t
 {
-	ESourceEffectDynamicsProcessorType__Compressor0                                  = 0,
-	ESourceEffectDynamicsProcessorType__Limiter1                                     = 1,
-	ESourceEffectDynamicsProcessorType__Expander2                                    = 2,
-	ESourceEffectDynamicsProcessorType__Gate3                                        = 3,
-	ESourceEffectDynamicsProcessorType__UpwardsCompressor4                           = 4,
-	ESourceEffectDynamicsProcessorType__Count5                                       = 5,
-	ESourceEffectDynamicsProcessorType__ESourceEffectDynamicsProcessorType_MAX6      = 6
+	ESynthFilterAlgorithm__OnePole                                                   = 0,
+	ESynthFilterAlgorithm__StateVariable                                             = 1,
+	ESynthFilterAlgorithm__Ladder                                                    = 2,
+	ESynthFilterAlgorithm__Count                                                     = 3
+};
+
+/// Enum /Script/Synthesis.ESynthFilterType
+/// Size: 0x05
+enum class ESynthFilterType : uint8_t
+{
+	ESynthFilterType__LowPass                                                        = 0,
+	ESynthFilterType__HighPass                                                       = 1,
+	ESynthFilterType__BandPass                                                       = 2,
+	ESynthFilterType__BandStop                                                       = 3,
+	ESynthFilterType__Count                                                          = 4
+};
+
+/// Enum /Script/Synthesis.ESynthModEnvBiasPatch
+/// Size: 0x09
+enum class ESynthModEnvBiasPatch : uint8_t
+{
+	ESynthModEnvBiasPatch__PatchToNone                                               = 0,
+	ESynthModEnvBiasPatch__PatchToOscFreq                                            = 1,
+	ESynthModEnvBiasPatch__PatchToFilterFreq                                         = 2,
+	ESynthModEnvBiasPatch__PatchToFilterQ                                            = 3,
+	ESynthModEnvBiasPatch__PatchToLFO1Gain                                           = 4,
+	ESynthModEnvBiasPatch__PatchToLFO2Gain                                           = 5,
+	ESynthModEnvBiasPatch__PatchToLFO1Freq                                           = 6,
+	ESynthModEnvBiasPatch__PatchToLFO2Freq                                           = 7,
+	ESynthModEnvBiasPatch__Count                                                     = 8
+};
+
+/// Enum /Script/Synthesis.ESynthModEnvPatch
+/// Size: 0x09
+enum class ESynthModEnvPatch : uint8_t
+{
+	ESynthModEnvPatch__PatchToNone                                                   = 0,
+	ESynthModEnvPatch__PatchToOscFreq                                                = 1,
+	ESynthModEnvPatch__PatchToFilterFreq                                             = 2,
+	ESynthModEnvPatch__PatchToFilterQ                                                = 3,
+	ESynthModEnvPatch__PatchToLFO1Gain                                               = 4,
+	ESynthModEnvPatch__PatchToLFO2Gain                                               = 5,
+	ESynthModEnvPatch__PatchToLFO1Freq                                               = 6,
+	ESynthModEnvPatch__PatchToLFO2Freq                                               = 7,
+	ESynthModEnvPatch__Count                                                         = 8
+};
+
+/// Enum /Script/Synthesis.ESynthLFOPatchType
+/// Size: 0x10
+enum class ESynthLFOPatchType : uint8_t
+{
+	ESynthLFOPatchType__PatchToNone                                                  = 0,
+	ESynthLFOPatchType__PatchToGain                                                  = 1,
+	ESynthLFOPatchType__PatchToOscFreq                                               = 2,
+	ESynthLFOPatchType__PatchToFilterFreq                                            = 3,
+	ESynthLFOPatchType__PatchToFilterQ                                               = 4,
+	ESynthLFOPatchType__PatchToOscPulseWidth                                         = 5,
+	ESynthLFOPatchType__PatchToOscPan                                                = 6,
+	ESynthLFOPatchType__PatchLFO1ToLFO2Frequency                                     = 7,
+	ESynthLFOPatchType__PatchLFO1ToLFO2Gain                                          = 8,
+	ESynthLFOPatchType__Count                                                        = 9
+};
+
+/// Enum /Script/Synthesis.ESynthLFOMode
+/// Size: 0x04
+enum class ESynthLFOMode : uint8_t
+{
+	ESynthLFOMode__Sync                                                              = 0,
+	ESynthLFOMode__OneShot                                                           = 1,
+	ESynthLFOMode__Free                                                              = 2,
+	ESynthLFOMode__Count                                                             = 3
+};
+
+/// Enum /Script/Synthesis.ESynthLFOType
+/// Size: 0x08
+enum class ESynthLFOType : uint8_t
+{
+	ESynthLFOType__Sine                                                              = 0,
+	ESynthLFOType__UpSaw                                                             = 1,
+	ESynthLFOType__DownSaw                                                           = 2,
+	ESynthLFOType__Square                                                            = 3,
+	ESynthLFOType__Triangle                                                          = 4,
+	ESynthLFOType__Exponential                                                       = 5,
+	ESynthLFOType__RandomSampleHold                                                  = 6,
+	ESynthLFOType__Count                                                             = 7
+};
+
+/// Enum /Script/Synthesis.ESynth1OscType
+/// Size: 0x06
+enum class ESynth1OscType : uint8_t
+{
+	ESynth1OscType__Sine                                                             = 0,
+	ESynth1OscType__Saw                                                              = 1,
+	ESynth1OscType__Triangle                                                         = 2,
+	ESynth1OscType__Square                                                           = 3,
+	ESynth1OscType__Noise                                                            = 4,
+	ESynth1OscType__Count                                                            = 5
 };
 
 /// Enum /Script/Synthesis.ESourceEffectDynamicsPeakMode
-/// Size: 0x05
-enum ESourceEffectDynamicsPeakMode : uint8_t
+/// Size: 0x04
+enum class ESourceEffectDynamicsPeakMode : uint8_t
 {
-	ESourceEffectDynamicsPeakMode__MeanSquared0                                      = 0,
-	ESourceEffectDynamicsPeakMode__RootMeanSquared1                                  = 1,
-	ESourceEffectDynamicsPeakMode__Peak2                                             = 2,
-	ESourceEffectDynamicsPeakMode__Count3                                            = 3,
-	ESourceEffectDynamicsPeakMode__ESourceEffectDynamicsPeakMode_MAX4                = 4
+	ESourceEffectDynamicsPeakMode__MeanSquared                                       = 0,
+	ESourceEffectDynamicsPeakMode__RootMeanSquared                                   = 1,
+	ESourceEffectDynamicsPeakMode__Peak                                              = 2,
+	ESourceEffectDynamicsPeakMode__Count                                             = 3
+};
+
+/// Enum /Script/Synthesis.ESourceEffectDynamicsProcessorType
+/// Size: 0x05
+enum class ESourceEffectDynamicsProcessorType : uint8_t
+{
+	ESourceEffectDynamicsProcessorType__Compressor                                   = 0,
+	ESourceEffectDynamicsProcessorType__Limiter                                      = 1,
+	ESourceEffectDynamicsProcessorType__Expander                                     = 2,
+	ESourceEffectDynamicsProcessorType__Gate                                         = 3,
+	ESourceEffectDynamicsProcessorType__Count                                        = 4
 };
 
 /// Enum /Script/Synthesis.EEnvelopeFollowerPeakMode
-/// Size: 0x05
-enum EEnvelopeFollowerPeakMode : uint8_t
+/// Size: 0x04
+enum class EEnvelopeFollowerPeakMode : uint8_t
 {
-	EEnvelopeFollowerPeakMode__MeanSquared0                                          = 0,
-	EEnvelopeFollowerPeakMode__RootMeanSquared1                                      = 1,
-	EEnvelopeFollowerPeakMode__Peak2                                                 = 2,
-	EEnvelopeFollowerPeakMode__Count3                                                = 3,
-	EEnvelopeFollowerPeakMode__EEnvelopeFollowerPeakMode_MAX4                        = 4
-};
-
-/// Enum /Script/Synthesis.ESourceEffectFilterCircuit
-/// Size: 0x05
-enum ESourceEffectFilterCircuit : uint8_t
-{
-	ESourceEffectFilterCircuit__OnePole0                                             = 0,
-	ESourceEffectFilterCircuit__StateVariable1                                       = 1,
-	ESourceEffectFilterCircuit__Ladder2                                              = 2,
-	ESourceEffectFilterCircuit__Count3                                               = 3,
-	ESourceEffectFilterCircuit__ESourceEffectFilterCircuit_MAX4                      = 4
-};
-
-/// Enum /Script/Synthesis.ESourceEffectFilterType
-/// Size: 0x06
-enum ESourceEffectFilterType : uint8_t
-{
-	ESourceEffectFilterType__LowPass0                                                = 0,
-	ESourceEffectFilterType__HighPass1                                               = 1,
-	ESourceEffectFilterType__BandPass2                                               = 2,
-	ESourceEffectFilterType__BandStop3                                               = 3,
-	ESourceEffectFilterType__Count4                                                  = 4,
-	ESourceEffectFilterType__ESourceEffectFilterType_MAX5                            = 5
+	EEnvelopeFollowerPeakMode__MeanSquared                                           = 0,
+	EEnvelopeFollowerPeakMode__RootMeanSquared                                       = 1,
+	EEnvelopeFollowerPeakMode__Peak                                                  = 2,
+	EEnvelopeFollowerPeakMode__Count                                                 = 3
 };
 
 /// Enum /Script/Synthesis.ESourceEffectFilterParam
-/// Size: 0x04
-enum ESourceEffectFilterParam : uint8_t
+/// Size: 0x03
+enum class ESourceEffectFilterParam : uint8_t
 {
-	ESourceEffectFilterParam__FilterFrequency0                                       = 0,
-	ESourceEffectFilterParam__FilterResonance1                                       = 1,
-	ESourceEffectFilterParam__Count2                                                 = 2,
-	ESourceEffectFilterParam__ESourceEffectFilterParam_MAX3                          = 3
+	ESourceEffectFilterParam__FilterFrequency                                        = 0,
+	ESourceEffectFilterParam__FilterResonance                                        = 1,
+	ESourceEffectFilterParam__Count                                                  = 2
+};
+
+/// Enum /Script/Synthesis.ESourceEffectFilterType
+/// Size: 0x05
+enum class ESourceEffectFilterType : uint8_t
+{
+	ESourceEffectFilterType__LowPass                                                 = 0,
+	ESourceEffectFilterType__HighPass                                                = 1,
+	ESourceEffectFilterType__BandPass                                                = 2,
+	ESourceEffectFilterType__BandStop                                                = 3,
+	ESourceEffectFilterType__Count                                                   = 4
+};
+
+/// Enum /Script/Synthesis.ESourceEffectFilterCircuit
+/// Size: 0x04
+enum class ESourceEffectFilterCircuit : uint8_t
+{
+	ESourceEffectFilterCircuit__OnePole                                              = 0,
+	ESourceEffectFilterCircuit__StateVariable                                        = 1,
+	ESourceEffectFilterCircuit__Ladder                                               = 2,
+	ESourceEffectFilterCircuit__Count                                                = 3
 };
 
 /// Enum /Script/Synthesis.EStereoChannelMode
-/// Size: 0x04
-enum EStereoChannelMode : uint8_t
+/// Size: 0x03
+enum class EStereoChannelMode : uint8_t
 {
-	EStereoChannelMode__MidSide0                                                     = 0,
-	EStereoChannelMode__LeftRight1                                                   = 1,
-	EStereoChannelMode__count2                                                       = 2,
-	EStereoChannelMode__EStereoChannelMode_MAX3                                      = 3
-};
-
-/// Enum /Script/Synthesis.ESourceEffectMotionFilterModSource
-/// Size: 0x07
-enum ESourceEffectMotionFilterModSource : uint8_t
-{
-	ESourceEffectMotionFilterModSource__DistanceFromListener0                        = 0,
-	ESourceEffectMotionFilterModSource__SpeedRelativeToListener1                     = 1,
-	ESourceEffectMotionFilterModSource__SpeedOfSourceEmitter2                        = 2,
-	ESourceEffectMotionFilterModSource__SpeedOfListener3                             = 3,
-	ESourceEffectMotionFilterModSource__SpeedOfAngleDelta4                           = 4,
-	ESourceEffectMotionFilterModSource__Count5                                       = 5,
-	ESourceEffectMotionFilterModSource__ESourceEffectMotionFilterModSource_MAX6      = 6
-};
-
-/// Enum /Script/Synthesis.ESourceEffectMotionFilterModDestination
-/// Size: 0x09
-enum ESourceEffectMotionFilterModDestination : uint8_t
-{
-	ESourceEffectMotionFilterModDestination__FilterACutoffFrequency0                 = 0,
-	ESourceEffectMotionFilterModDestination__FilterAResonance1                       = 1,
-	ESourceEffectMotionFilterModDestination__FilterAOutputVolumeDB2                  = 2,
-	ESourceEffectMotionFilterModDestination__FilterBCutoffFrequency3                 = 3,
-	ESourceEffectMotionFilterModDestination__FilterBResonance4                       = 4,
-	ESourceEffectMotionFilterModDestination__FilterBOutputVolumeDB5                  = 5,
-	ESourceEffectMotionFilterModDestination__FilterMix6                              = 6,
-	ESourceEffectMotionFilterModDestination__Count7                                  = 7,
-	ESourceEffectMotionFilterModDestination__ESourceEffectMotionFilterModDestination_MAX8 = 8
-};
-
-/// Enum /Script/Synthesis.ESourceEffectMotionFilterTopology
-/// Size: 0x04
-enum ESourceEffectMotionFilterTopology : uint8_t
-{
-	ESourceEffectMotionFilterTopology__SerialMode0                                   = 0,
-	ESourceEffectMotionFilterTopology__ParallelMode1                                 = 1,
-	ESourceEffectMotionFilterTopology__Count2                                        = 2,
-	ESourceEffectMotionFilterTopology__ESourceEffectMotionFilterTopology_MAX3        = 3
-};
-
-/// Enum /Script/Synthesis.ESourceEffectMotionFilterCircuit
-/// Size: 0x05
-enum ESourceEffectMotionFilterCircuit : uint8_t
-{
-	ESourceEffectMotionFilterCircuit__OnePole0                                       = 0,
-	ESourceEffectMotionFilterCircuit__StateVariable1                                 = 1,
-	ESourceEffectMotionFilterCircuit__Ladder2                                        = 2,
-	ESourceEffectMotionFilterCircuit__Count3                                         = 3,
-	ESourceEffectMotionFilterCircuit__ESourceEffectMotionFilterCircuit_MAX4          = 4
-};
-
-/// Enum /Script/Synthesis.ESourceEffectMotionFilterType
-/// Size: 0x06
-enum ESourceEffectMotionFilterType : uint8_t
-{
-	ESourceEffectMotionFilterType__LowPass0                                          = 0,
-	ESourceEffectMotionFilterType__HighPass1                                         = 1,
-	ESourceEffectMotionFilterType__BandPass2                                         = 2,
-	ESourceEffectMotionFilterType__BandStop3                                         = 3,
-	ESourceEffectMotionFilterType__Count4                                            = 4,
-	ESourceEffectMotionFilterType__ESourceEffectMotionFilterType_MAX5                = 5
+	EStereoChannelMode__MidSide                                                      = 0,
+	EStereoChannelMode__LeftRight                                                    = 1,
+	EStereoChannelMode__count                                                        = 2
 };
 
 /// Enum /Script/Synthesis.EPhaserLFOType
-/// Size: 0x09
-enum EPhaserLFOType : uint8_t
+/// Size: 0x08
+enum class EPhaserLFOType : uint8_t
 {
-	EPhaserLFOType__Sine0                                                            = 0,
-	EPhaserLFOType__UpSaw1                                                           = 1,
-	EPhaserLFOType__DownSaw2                                                         = 2,
-	EPhaserLFOType__Square3                                                          = 3,
-	EPhaserLFOType__Triangle4                                                        = 4,
-	EPhaserLFOType__Exponential5                                                     = 5,
-	EPhaserLFOType__RandomSampleHold6                                                = 6,
-	EPhaserLFOType__Count7                                                           = 7,
-	EPhaserLFOType__EPhaserLFOType_MAX8                                              = 8
+	EPhaserLFOType__Sine                                                             = 0,
+	EPhaserLFOType__UpSaw                                                            = 1,
+	EPhaserLFOType__DownSaw                                                          = 2,
+	EPhaserLFOType__Square                                                           = 3,
+	EPhaserLFOType__Triangle                                                         = 4,
+	EPhaserLFOType__Exponential                                                      = 5,
+	EPhaserLFOType__RandomSampleHold                                                 = 6,
+	EPhaserLFOType__Count                                                            = 7
 };
 
 /// Enum /Script/Synthesis.ERingModulatorTypeSourceEffect
-/// Size: 0x06
-enum ERingModulatorTypeSourceEffect : uint8_t
-{
-	ERingModulatorTypeSourceEffect__Sine0                                            = 0,
-	ERingModulatorTypeSourceEffect__Saw1                                             = 1,
-	ERingModulatorTypeSourceEffect__Triangle2                                        = 2,
-	ERingModulatorTypeSourceEffect__Square3                                          = 3,
-	ERingModulatorTypeSourceEffect__Count4                                           = 4,
-	ERingModulatorTypeSourceEffect__ERingModulatorTypeSourceEffect_MAX5              = 5
-};
-
-/// Enum /Script/Synthesis.EStereoDelaySourceEffect
 /// Size: 0x05
-enum EStereoDelaySourceEffect : uint8_t
+enum class ERingModulatorTypeSourceEffect : uint8_t
 {
-	EStereoDelaySourceEffect__Normal0                                                = 0,
-	EStereoDelaySourceEffect__Cross1                                                 = 1,
-	EStereoDelaySourceEffect__PingPong2                                              = 2,
-	EStereoDelaySourceEffect__Count3                                                 = 3,
-	EStereoDelaySourceEffect__EStereoDelaySourceEffect_MAX4                          = 4
+	ERingModulatorTypeSourceEffect__Sine                                             = 0,
+	ERingModulatorTypeSourceEffect__Saw                                              = 1,
+	ERingModulatorTypeSourceEffect__Triangle                                         = 2,
+	ERingModulatorTypeSourceEffect__Square                                           = 3,
+	ERingModulatorTypeSourceEffect__Count                                            = 4
 };
 
 /// Enum /Script/Synthesis.EStereoDelayFiltertype
-/// Size: 0x06
-enum EStereoDelayFiltertype : uint8_t
+/// Size: 0x05
+enum class EStereoDelayFiltertype : uint8_t
 {
-	EStereoDelayFiltertype__Lowpass0                                                 = 0,
-	EStereoDelayFiltertype__Highpass1                                                = 1,
-	EStereoDelayFiltertype__Bandpass2                                                = 2,
-	EStereoDelayFiltertype__Notch3                                                   = 3,
-	EStereoDelayFiltertype__Count4                                                   = 4,
-	EStereoDelayFiltertype__EStereoDelayFiltertype_MAX5                              = 5
+	EStereoDelayFiltertype__Lowpass                                                  = 0,
+	EStereoDelayFiltertype__Highpass                                                 = 1,
+	EStereoDelayFiltertype__Bandpass                                                 = 2,
+	EStereoDelayFiltertype__Notch                                                    = 3,
+	EStereoDelayFiltertype__Count                                                    = 4
 };
 
-/// Enum /Script/Synthesis.ESubmixFilterType
-/// Size: 0x06
-enum ESubmixFilterType : uint8_t
+/// Enum /Script/Synthesis.EStereoDelaySourceEffect
+/// Size: 0x04
+enum class EStereoDelaySourceEffect : uint8_t
 {
-	ESubmixFilterType__LowPass0                                                      = 0,
-	ESubmixFilterType__HighPass1                                                     = 1,
-	ESubmixFilterType__BandPass2                                                     = 2,
-	ESubmixFilterType__BandStop3                                                     = 3,
-	ESubmixFilterType__Count4                                                        = 4,
-	ESubmixFilterType__ESubmixFilterType_MAX5                                        = 5
+	EStereoDelaySourceEffect__Normal                                                 = 0,
+	EStereoDelaySourceEffect__Cross                                                  = 1,
+	EStereoDelaySourceEffect__PingPong                                               = 2,
+	EStereoDelaySourceEffect__Count                                                  = 3
+};
+
+/// Enum /Script/Synthesis.ESubmixEffectConvolutionReverbBlockSize
+/// Size: 0x03
+enum class ESubmixEffectConvolutionReverbBlockSize : uint8_t
+{
+	ESubmixEffectConvolutionReverbBlockSize__BlockSize256                            = 0,
+	ESubmixEffectConvolutionReverbBlockSize__BlockSize512                            = 1,
+	ESubmixEffectConvolutionReverbBlockSize__BlockSize1024                           = 2
 };
 
 /// Enum /Script/Synthesis.ESubmixFilterAlgorithm
-/// Size: 0x05
-enum ESubmixFilterAlgorithm : uint8_t
+/// Size: 0x04
+enum class ESubmixFilterAlgorithm : uint8_t
 {
-	ESubmixFilterAlgorithm__OnePole0                                                 = 0,
-	ESubmixFilterAlgorithm__StateVariable1                                           = 1,
-	ESubmixFilterAlgorithm__Ladder2                                                  = 2,
-	ESubmixFilterAlgorithm__Count3                                                   = 3,
-	ESubmixFilterAlgorithm__ESubmixFilterAlgorithm_MAX4                              = 4
+	ESubmixFilterAlgorithm__OnePole                                                  = 0,
+	ESubmixFilterAlgorithm__StateVariable                                            = 1,
+	ESubmixFilterAlgorithm__Ladder                                                   = 2,
+	ESubmixFilterAlgorithm__Count                                                    = 3
+};
+
+/// Enum /Script/Synthesis.ESubmixFilterType
+/// Size: 0x05
+enum class ESubmixFilterType : uint8_t
+{
+	ESubmixFilterType__LowPass                                                       = 0,
+	ESubmixFilterType__HighPass                                                      = 1,
+	ESubmixFilterType__BandPass                                                      = 2,
+	ESubmixFilterType__BandStop                                                      = 3,
+	ESubmixFilterType__Count                                                         = 4
 };
 
 /// Enum /Script/Synthesis.ETapLineMode
-/// Size: 0x04
-enum ETapLineMode : uint8_t
+/// Size: 0x03
+enum class ETapLineMode : uint8_t
 {
-	ETapLineMode__SendToChannel0                                                     = 0,
-	ETapLineMode__Panning1                                                           = 1,
-	ETapLineMode__Disabled2                                                          = 2,
-	ETapLineMode__ETapLineMode_MAX3                                                  = 3
-};
-
-/// Enum /Script/Synthesis.EGranularSynthEnvelopeType
-/// Size: 0x16
-enum EGranularSynthEnvelopeType : uint8_t
-{
-	EGranularSynthEnvelopeType__Rectangular0                                         = 0,
-	EGranularSynthEnvelopeType__Triangle1                                            = 1,
-	EGranularSynthEnvelopeType__DownwardTriangle2                                    = 2,
-	EGranularSynthEnvelopeType__UpwardTriangle3                                      = 3,
-	EGranularSynthEnvelopeType__ExponentialDecay4                                    = 4,
-	EGranularSynthEnvelopeType__ExponentialIncrease5                                 = 5,
-	EGranularSynthEnvelopeType__Gaussian6                                            = 6,
-	EGranularSynthEnvelopeType__Hanning7                                             = 7,
-	EGranularSynthEnvelopeType__Lanczos8                                             = 8,
-	EGranularSynthEnvelopeType__Cosine9                                              = 9,
-	EGranularSynthEnvelopeType__CosineSquared10                                      = 10,
-	EGranularSynthEnvelopeType__Welch11                                              = 11,
-	EGranularSynthEnvelopeType__Blackman12                                           = 12,
-	EGranularSynthEnvelopeType__BlackmanHarris13                                     = 13,
-	EGranularSynthEnvelopeType__Count14                                              = 14,
-	EGranularSynthEnvelopeType__EGranularSynthEnvelopeType_MAX15                     = 15
+	ETapLineMode__SendToChannel                                                      = 0,
+	ETapLineMode__Panning                                                            = 1,
+	ETapLineMode__Disabled                                                           = 2
 };
 
 /// Enum /Script/Synthesis.EGranularSynthSeekType
-/// Size: 0x04
-enum EGranularSynthSeekType : uint8_t
+/// Size: 0x03
+enum class EGranularSynthSeekType : uint8_t
 {
-	EGranularSynthSeekType__FromBeginning0                                           = 0,
-	EGranularSynthSeekType__FromCurrentPosition1                                     = 1,
-	EGranularSynthSeekType__Count2                                                   = 2,
-	EGranularSynthSeekType__EGranularSynthSeekType_MAX3                              = 3
+	EGranularSynthSeekType__FromBeginning                                            = 0,
+	EGranularSynthSeekType__FromCurrentPosition                                      = 1,
+	EGranularSynthSeekType__Count                                                    = 2
+};
+
+/// Enum /Script/Synthesis.EGranularSynthEnvelopeType
+/// Size: 0x15
+enum class EGranularSynthEnvelopeType : uint8_t
+{
+	EGranularSynthEnvelopeType__Rectangular                                          = 0,
+	EGranularSynthEnvelopeType__Triangle                                             = 1,
+	EGranularSynthEnvelopeType__DownwardTriangle                                     = 2,
+	EGranularSynthEnvelopeType__UpwardTriangle                                       = 3,
+	EGranularSynthEnvelopeType__ExponentialDecay                                     = 4,
+	EGranularSynthEnvelopeType__ExponentialIncrease                                  = 5,
+	EGranularSynthEnvelopeType__Gaussian                                             = 6,
+	EGranularSynthEnvelopeType__Hanning                                              = 7,
+	EGranularSynthEnvelopeType__Lanczos                                              = 8,
+	EGranularSynthEnvelopeType__Cosine                                               = 9,
+	EGranularSynthEnvelopeType__CosineSquared                                        = 10,
+	EGranularSynthEnvelopeType__Welch                                                = 11,
+	EGranularSynthEnvelopeType__Blackman                                             = 12,
+	EGranularSynthEnvelopeType__BlackmanHarris                                       = 13,
+	EGranularSynthEnvelopeType__Count                                                = 14
 };
 
 /// Enum /Script/Synthesis.CurveInterpolationType
-/// Size: 0x04
-enum CurveInterpolationType : uint8_t
+/// Size: 0x03
+enum class CurveInterpolationType : uint8_t
 {
-	CurveInterpolationType__AUTOINTERP0                                              = 0,
-	CurveInterpolationType__LINEAR1                                                  = 1,
-	CurveInterpolationType__CONSTANT2                                                = 2,
-	CurveInterpolationType__CurveInterpolationType_MAX3                              = 3
+	CurveInterpolationType__AUTOINTERP                                               = 0,
+	CurveInterpolationType__LINEAR                                                   = 1,
+	CurveInterpolationType__CONSTANT                                                 = 2
 };
 
 /// Enum /Script/Synthesis.ESamplePlayerSeekType
-/// Size: 0x05
-enum ESamplePlayerSeekType : uint8_t
+/// Size: 0x04
+enum class ESamplePlayerSeekType : uint8_t
 {
-	ESamplePlayerSeekType__FromBeginning0                                            = 0,
-	ESamplePlayerSeekType__FromCurrentPosition1                                      = 1,
-	ESamplePlayerSeekType__FromEnd2                                                  = 2,
-	ESamplePlayerSeekType__Count3                                                    = 3,
-	ESamplePlayerSeekType__ESamplePlayerSeekType_MAX4                                = 4
+	ESamplePlayerSeekType__FromBeginning                                             = 0,
+	ESamplePlayerSeekType__FromCurrentPosition                                       = 1,
+	ESamplePlayerSeekType__FromEnd                                                   = 2,
+	ESamplePlayerSeekType__Count                                                     = 3
 };
 
 /// Enum /Script/Synthesis.ESynthKnobSize
-/// Size: 0x04
-enum ESynthKnobSize : uint8_t
+/// Size: 0x03
+enum class ESynthKnobSize : uint8_t
 {
-	ESynthKnobSize__Medium0                                                          = 0,
-	ESynthKnobSize__Large1                                                           = 1,
-	ESynthKnobSize__Count2                                                           = 2,
-	ESynthKnobSize__ESynthKnobSize_MAX3                                              = 3
-};
-
-/// Enum /Script/Synthesis.ESynthSlateSizeType
-/// Size: 0x05
-enum ESynthSlateSizeType : uint8_t
-{
-	ESynthSlateSizeType__Small0                                                      = 0,
-	ESynthSlateSizeType__Medium1                                                     = 1,
-	ESynthSlateSizeType__Large2                                                      = 2,
-	ESynthSlateSizeType__Count3                                                      = 3,
-	ESynthSlateSizeType__ESynthSlateSizeType_MAX4                                    = 4
+	ESynthKnobSize__Medium                                                           = 0,
+	ESynthKnobSize__Large                                                            = 1,
+	ESynthKnobSize__Count                                                            = 2
 };
 
 /// Enum /Script/Synthesis.ESynthSlateColorStyle
-/// Size: 0x04
-enum ESynthSlateColorStyle : uint8_t
+/// Size: 0x03
+enum class ESynthSlateColorStyle : uint8_t
 {
-	ESynthSlateColorStyle__Light0                                                    = 0,
-	ESynthSlateColorStyle__Dark1                                                     = 1,
-	ESynthSlateColorStyle__Count2                                                    = 2,
-	ESynthSlateColorStyle__ESynthSlateColorStyle_MAX3                                = 3
+	ESynthSlateColorStyle__Light                                                     = 0,
+	ESynthSlateColorStyle__Dark                                                      = 1,
+	ESynthSlateColorStyle__Count                                                     = 2
+};
+
+/// Enum /Script/Synthesis.ESynthSlateSizeType
+/// Size: 0x04
+enum class ESynthSlateSizeType : uint8_t
+{
+	ESynthSlateSizeType__Small                                                       = 0,
+	ESynthSlateSizeType__Medium                                                      = 1,
+	ESynthSlateSizeType__Large                                                       = 2,
+	ESynthSlateSizeType__Count                                                       = 3
 };
 

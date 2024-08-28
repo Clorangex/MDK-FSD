@@ -5,30 +5,10 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: CoreUObject
+/// dependency: GeometryCache
 /// dependency: MovieScene
-
-/// Class /Script/GeometryCacheTracks.MovieSceneGeometryCacheSection
-/// Size: 0x0040 (0x0000F0 - 0x000130)
-class UMovieSceneGeometryCacheSection : public UMovieSceneSection
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 304;
-
-public:
-	SMember(FMovieSceneGeometryCacheParams)            Params                                                      OFFSET(getStruct<T>, {0xF0, 64, 0, 0})
-};
-
-/// Class /Script/GeometryCacheTracks.MovieSceneGeometryCacheTrack
-/// Size: 0x0018 (0x000098 - 0x0000B0)
-class UMovieSceneGeometryCacheTrack : public UMovieSceneNameableTrack
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 176;
-
-public:
-	CMember(TArray<UMovieSceneSection*>)               AnimationSections                                           OFFSET(get<T>, {0xA0, 16, 0, 0})
-};
 
 /// Struct /Script/GeometryCacheTracks.MovieSceneGeometryCacheParams
 /// Size: 0x0040 (0x000000 - 0x000040)
@@ -39,7 +19,7 @@ class FMovieSceneGeometryCacheParams : public MDKBase
 	static inline constexpr uint64_t __MDKClassSize = 64;
 
 public:
-	CMember(UGeometryCache*)                           GeometryCacheAsset                                          OFFSET(get<T>, {0x0, 8, 0, 0})
+	CMember(class UGeometryCache*)                     GeometryCacheAsset                                          OFFSET(get<T>, {0x0, 8, 0, 0})
 	SMember(FFrameNumber)                              FirstLoopStartFrameOffset                                   OFFSET(getStruct<T>, {0x8, 4, 0, 0})
 	SMember(FFrameNumber)                              StartFrameOffset                                            OFFSET(getStruct<T>, {0xC, 4, 0, 0})
 	SMember(FFrameNumber)                              EndFrameOffset                                              OFFSET(getStruct<T>, {0x10, 4, 0, 0})
@@ -48,6 +28,28 @@ public:
 	DMember(float)                                     StartOffset                                                 OFFSET(get<float>, {0x1C, 4, 0, 0})
 	DMember(float)                                     EndOffset                                                   OFFSET(get<float>, {0x20, 4, 0, 0})
 	SMember(FSoftObjectPath)                           GeometryCache                                               OFFSET(getStruct<T>, {0x28, 24, 0, 0})
+};
+
+/// Class /Script/GeometryCacheTracks.MovieSceneGeometryCacheSection
+/// Size: 0x0040 (0x0000E8 - 0x000128)
+class UMovieSceneGeometryCacheSection : public UMovieSceneSection
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 296;
+
+public:
+	SMember(FMovieSceneGeometryCacheParams)            Params                                                      OFFSET(getStruct<T>, {0xE8, 64, 0, 0})
+};
+
+/// Class /Script/GeometryCacheTracks.MovieSceneGeometryCacheTrack
+/// Size: 0x0018 (0x000090 - 0x0000A8)
+class UMovieSceneGeometryCacheTrack : public UMovieSceneNameableTrack
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 168;
+
+public:
+	CMember(TArray<class UMovieSceneSection*>)         AnimationSections                                           OFFSET(get<T>, {0x98, 16, 0, 0})
 };
 
 /// Struct /Script/GeometryCacheTracks.MovieSceneGeometryCacheSectionTemplateParameters

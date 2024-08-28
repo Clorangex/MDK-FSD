@@ -5,6 +5,7 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: CoreUObject
 
 /// Class /Script/InputCore.InputCoreTypes
@@ -26,75 +27,70 @@ class FKey : public MDKBase
 	static inline constexpr uint64_t __MDKClassSize = 24;
 
 public:
-	SMember(FName)                                     KeyName                                                     OFFSET(getStruct<T>, {0x0, 4, 0, 0})
+	SMember(FName)                                     KeyName                                                     OFFSET(getStruct<T>, {0x0, 8, 0, 0})
 };
 
 /// Enum /Script/InputCore.ETouchIndex
-/// Size: 0x13
-enum ETouchIndex : uint8_t
+/// Size: 0x12
+enum class ETouchIndex : uint8_t
 {
-	ETouchIndex__Touch10                                                             = 0,
-	ETouchIndex__Touch21                                                             = 1,
-	ETouchIndex__Touch32                                                             = 2,
-	ETouchIndex__Touch43                                                             = 3,
-	ETouchIndex__Touch54                                                             = 4,
-	ETouchIndex__Touch65                                                             = 5,
-	ETouchIndex__Touch76                                                             = 6,
-	ETouchIndex__Touch87                                                             = 7,
-	ETouchIndex__Touch98                                                             = 8,
-	ETouchIndex__Touch109                                                            = 9,
-	ETouchIndex__CursorPointerIndex10                                                = 10,
-	ETouchIndex__MAX_TOUCHES11                                                       = 11,
-	ETouchIndex__ETouchIndex_MAX12                                                   = 12
+	ETouchIndex__Touch1                                                              = 0,
+	ETouchIndex__Touch2                                                              = 1,
+	ETouchIndex__Touch3                                                              = 2,
+	ETouchIndex__Touch4                                                              = 3,
+	ETouchIndex__Touch5                                                              = 4,
+	ETouchIndex__Touch6                                                              = 5,
+	ETouchIndex__Touch7                                                              = 6,
+	ETouchIndex__Touch8                                                              = 7,
+	ETouchIndex__Touch9                                                              = 8,
+	ETouchIndex__Touch10                                                             = 9,
+	ETouchIndex__CursorPointerIndex                                                  = 10,
+	ETouchIndex__MAX_TOUCHES                                                         = 11
 };
 
 /// Enum /Script/InputCore.EControllerHand
-/// Size: 0x20
-enum EControllerHand : uint8_t
+/// Size: 0x18
+enum class EControllerHand : uint8_t
 {
-	EControllerHand__Left0                                                           = 0,
-	EControllerHand__Right1                                                          = 1,
-	EControllerHand__AnyHand2                                                        = 2,
-	EControllerHand__Pad3                                                            = 3,
-	EControllerHand__ExternalCamera4                                                 = 4,
-	EControllerHand__Gun5                                                            = 5,
-	EControllerHand__HMD6                                                            = 6,
-	EControllerHand__Chest7                                                          = 7,
-	EControllerHand__LeftShoulder8                                                   = 8,
-	EControllerHand__RightShoulder9                                                  = 9,
-	EControllerHand__LeftElbow10                                                     = 10,
-	EControllerHand__RightElbow11                                                    = 11,
-	EControllerHand__Waist12                                                         = 12,
-	EControllerHand__LeftKnee13                                                      = 13,
-	EControllerHand__RightKnee14                                                     = 14,
-	EControllerHand__LeftFoot15                                                      = 15,
-	EControllerHand__RightFoot16                                                     = 16,
-	EControllerHand__Special17                                                       = 17,
-	EControllerHand__ControllerHand_Count18                                          = 18,
-	EControllerHand__EControllerHand_MAX19                                           = 19
-};
-
-/// Enum /Script/InputCore.EConsoleForGamepadLabels
-/// Size: 0x04
-enum EConsoleForGamepadLabels : uint8_t
-{
-	EConsoleForGamepadLabels__None0                                                  = 0,
-	EConsoleForGamepadLabels__XBoxOne1                                               = 1,
-	EConsoleForGamepadLabels__PS42                                                   = 2,
-	EConsoleForGamepadLabels__EConsoleForGamepadLabels_MAX3                          = 3
+	EControllerHand__Left                                                            = 0,
+	EControllerHand__Right                                                           = 1,
+	EControllerHand__AnyHand                                                         = 2,
+	EControllerHand__Pad                                                             = 3,
+	EControllerHand__ExternalCamera                                                  = 4,
+	EControllerHand__Gun                                                             = 5,
+	EControllerHand__Special                                                         = 6,
+	EControllerHand__Special8                                                        = 7,
+	EControllerHand__Special9                                                        = 8,
+	EControllerHand__Special10                                                       = 9,
+	EControllerHand__Special11                                                       = 10,
+	EControllerHand__Special12                                                       = 11,
+	EControllerHand__Special13                                                       = 12,
+	EControllerHand__Special14                                                       = 13,
+	EControllerHand__Special15                                                       = 14,
+	EControllerHand__Special16                                                       = 15,
+	EControllerHand__Special17                                                       = 16,
+	EControllerHand__ControllerHand_Count                                            = 17
 };
 
 /// Enum /Script/InputCore.ETouchType
-/// Size: 0x08
-enum ETouchType : uint8_t
+/// Size: 0x07
+enum class ETouchType : uint8_t
 {
-	ETouchType__Began0                                                               = 0,
-	ETouchType__Moved1                                                               = 1,
-	ETouchType__Stationary2                                                          = 2,
-	ETouchType__ForceChanged3                                                        = 3,
-	ETouchType__FirstMove4                                                           = 4,
-	ETouchType__Ended5                                                               = 5,
-	ETouchType__NumTypes6                                                            = 6,
-	ETouchType__ETouchType_MAX7                                                      = 7
+	ETouchType__Began                                                                = 0,
+	ETouchType__Moved                                                                = 1,
+	ETouchType__Stationary                                                           = 2,
+	ETouchType__ForceChanged                                                         = 3,
+	ETouchType__FirstMove                                                            = 4,
+	ETouchType__Ended                                                                = 5,
+	ETouchType__NumTypes                                                             = 6
+};
+
+/// Enum /Script/InputCore.EConsoleForGamepadLabels
+/// Size: 0x03
+enum class EConsoleForGamepadLabels : uint8_t
+{
+	EConsoleForGamepadLabels__None                                                   = 0,
+	EConsoleForGamepadLabels__XBoxOne                                                = 1,
+	EConsoleForGamepadLabels__PS4                                                    = 2
 };
 

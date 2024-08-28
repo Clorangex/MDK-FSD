@@ -5,6 +5,7 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: CoreUObject
 
 /// Class /Script/MoviePlayer.MoviePlayerSettings
@@ -21,12 +22,11 @@ public:
 };
 
 /// Enum /Script/MoviePlayer.EMoviePlaybackType
-/// Size: 0x04
-enum EMoviePlaybackType : uint8_t
+/// Size: 0x03
+enum class EMoviePlaybackType : uint8_t
 {
-	MT_Normal0                                                                       = 0,
-	MT_Looped1                                                                       = 1,
-	MT_LoadingLoop2                                                                  = 2,
-	MT_MAX3                                                                          = 3
+	MT_Normal                                                                        = 0,
+	MT_Looped                                                                        = 1,
+	MT_LoadingLoop                                                                   = 2
 };
 

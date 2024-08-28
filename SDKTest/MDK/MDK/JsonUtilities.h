@@ -5,6 +5,7 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: CoreUObject
 
 /// Class /Script/JsonUtilities.JsonUtilitiesDummyObject

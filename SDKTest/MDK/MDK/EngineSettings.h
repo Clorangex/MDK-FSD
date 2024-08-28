@@ -5,7 +5,21 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: CoreUObject
+
+/// Struct /Script/EngineSettings.AutoCompleteCommand
+/// Size: 0x0028 (0x000000 - 0x000028)
+class FAutoCompleteCommand : public MDKBase
+{ 
+	friend MDKHandler;
+	friend MDKBase;
+	static inline constexpr uint64_t __MDKClassSize = 40;
+
+public:
+	SMember(FString)                                   Command                                                     OFFSET(getStruct<T>, {0x0, 16, 0, 0})
+	SMember(FString)                                   Desc                                                        OFFSET(getStruct<T>, {0x10, 16, 0, 0})
+};
 
 /// Class /Script/EngineSettings.ConsoleSettings
 /// Size: 0x0048 (0x000028 - 0x000070)
@@ -26,6 +40,19 @@ public:
 	SMember(FColor)                                    AutoCompleteCommandColor                                    OFFSET(getStruct<T>, {0x60, 4, 0, 0})
 	SMember(FColor)                                    AutoCompleteCVarColor                                       OFFSET(getStruct<T>, {0x64, 4, 0, 0})
 	SMember(FColor)                                    AutoCompleteFadedColor                                      OFFSET(getStruct<T>, {0x68, 4, 0, 0})
+};
+
+/// Struct /Script/EngineSettings.GameModeName
+/// Size: 0x0028 (0x000000 - 0x000028)
+class FGameModeName : public MDKBase
+{ 
+	friend MDKHandler;
+	friend MDKBase;
+	static inline constexpr uint64_t __MDKClassSize = 40;
+
+public:
+	SMember(FString)                                   Name                                                        OFFSET(getStruct<T>, {0x0, 16, 0, 0})
+	SMember(FSoftClassPath)                            GameMode                                                    OFFSET(getStruct<T>, {0x10, 24, 0, 0})
 };
 
 /// Class /Script/EngineSettings.GameMapsSettings
@@ -54,11 +81,11 @@ public:
 
 	/// Functions
 	// Function /Script/EngineSettings.GameMapsSettings.SetSkipAssigningGamepadToPlayer1
-	// void SetSkipAssigningGamepadToPlayer1(bool bSkipFirstPlayer);                                                            // [0x4baa008] Final|RequiredAPI|Native|Public|BlueprintCallable 
+	// void SetSkipAssigningGamepadToPlayer1(bool bSkipFirstPlayer);                                                            // [0x25c7e50] Final|Native|Public|BlueprintCallable 
 	// Function /Script/EngineSettings.GameMapsSettings.GetSkipAssigningGamepadToPlayer1
-	// bool GetSkipAssigningGamepadToPlayer1();                                                                                 // [0x4ba9ff4] Final|RequiredAPI|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// bool GetSkipAssigningGamepadToPlayer1();                                                                                 // [0x25c7e20] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
 	// Function /Script/EngineSettings.GameMapsSettings.GetGameMapsSettings
-	// UGameMapsSettings* GetGameMapsSettings();                                                                                // [0x4ba9fc4] Final|RequiredAPI|Native|Static|Public|BlueprintCallable|BlueprintPure 
+	// class UGameMapsSettings* GetGameMapsSettings();                                                                          // [0x25c7df0] Final|Native|Static|Public|BlueprintCallable|BlueprintPure 
 };
 
 /// Class /Script/EngineSettings.GameNetworkManagerSettings
@@ -106,11 +133,11 @@ public:
 };
 
 /// Class /Script/EngineSettings.GeneralProjectSettings
-/// Size: 0x00F0 (0x000028 - 0x000118)
+/// Size: 0x00E8 (0x000028 - 0x000110)
 class UGeneralProjectSettings : public UObject
 { 
 	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 280;
+	static inline constexpr uint64_t __MDKClassSize = 272;
 
 public:
 	SMember(FString)                                   CompanyName                                                 OFFSET(getStruct<T>, {0x28, 16, 0, 0})
@@ -133,8 +160,6 @@ public:
 	DMember(bool)                                      bAllowClose                                                 OFFSET(get<bool>, {0x10C, 1, 0, 0})
 	DMember(bool)                                      bAllowMaximize                                              OFFSET(get<bool>, {0x10D, 1, 0, 0})
 	DMember(bool)                                      bAllowMinimize                                              OFFSET(get<bool>, {0x10E, 1, 0, 0})
-	DMember(float)                                     EyeOffsetForFakeStereoRenderingDevice                       OFFSET(get<float>, {0x110, 4, 0, 0})
-	DMember(float)                                     FOVForFakeStereoRenderingDevice                             OFFSET(get<float>, {0x114, 4, 0, 0})
 };
 
 /// Class /Script/EngineSettings.HudSettings
@@ -149,82 +174,38 @@ public:
 	CMember(TArray<FName>)                             DebugDisplay                                                OFFSET(get<T>, {0x30, 16, 0, 0})
 };
 
-/// Struct /Script/EngineSettings.AutoCompleteCommand
-/// Size: 0x0028 (0x000000 - 0x000028)
-class FAutoCompleteCommand : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 40;
-
-public:
-	SMember(FString)                                   Command                                                     OFFSET(getStruct<T>, {0x0, 16, 0, 0})
-	SMember(FString)                                   Desc                                                        OFFSET(getStruct<T>, {0x10, 16, 0, 0})
-};
-
-/// Struct /Script/EngineSettings.GameModeName
-/// Size: 0x0028 (0x000000 - 0x000028)
-class FGameModeName : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 40;
-
-public:
-	SMember(FString)                                   Name                                                        OFFSET(getStruct<T>, {0x0, 16, 0, 0})
-	SMember(FSoftClassPath)                            GameMode                                                    OFFSET(getStruct<T>, {0x10, 24, 0, 0})
-};
-
-/// Struct /Script/EngineSettings.TemplateMapInfoOverride
-/// Size: 0x0048 (0x000000 - 0x000048)
-class FTemplateMapInfoOverride : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 72;
-
-public:
-	SMember(FSoftObjectPath)                           Thumbnail                                                   OFFSET(getStruct<T>, {0x0, 24, 0, 0})
-	SMember(FSoftObjectPath)                           Map                                                         OFFSET(getStruct<T>, {0x18, 24, 0, 0})
-	SMember(FText)                                     DisplayName                                                 OFFSET(getStruct<T>, {0x30, 24, 0, 0})
-};
-
-/// Enum /Script/EngineSettings.ETwoPlayerSplitScreenType
-/// Size: 0x03
-enum ETwoPlayerSplitScreenType : uint8_t
+/// Enum /Script/EngineSettings.ESubLevelStripMode
+/// Size: 0x02
+enum class ESubLevelStripMode : uint8_t
 {
-	ETwoPlayerSplitScreenType__Horizontal0                                           = 0,
-	ETwoPlayerSplitScreenType__Vertical1                                             = 1,
-	ETwoPlayerSplitScreenType__ETwoPlayerSplitScreenType_MAX2                        = 2
-};
-
-/// Enum /Script/EngineSettings.EThreePlayerSplitScreenType
-/// Size: 0x05
-enum EThreePlayerSplitScreenType : uint8_t
-{
-	EThreePlayerSplitScreenType__FavorTop0                                           = 0,
-	EThreePlayerSplitScreenType__FavorBottom1                                        = 1,
-	EThreePlayerSplitScreenType__Vertical2                                           = 2,
-	EThreePlayerSplitScreenType__Horizontal3                                         = 3,
-	EThreePlayerSplitScreenType__EThreePlayerSplitScreenType_MAX4                    = 4
+	ESubLevelStripMode__ExactClass                                                   = 0,
+	ESubLevelStripMode__IsChildOf                                                    = 1
 };
 
 /// Enum /Script/EngineSettings.EFourPlayerSplitScreenType
-/// Size: 0x04
-enum EFourPlayerSplitScreenType : uint8_t
+/// Size: 0x03
+enum class EFourPlayerSplitScreenType : uint8_t
 {
-	EFourPlayerSplitScreenType__Grid0                                                = 0,
-	EFourPlayerSplitScreenType__Vertical1                                            = 1,
-	EFourPlayerSplitScreenType__Horizontal2                                          = 2,
-	EFourPlayerSplitScreenType__EFourPlayerSplitScreenType_MAX3                      = 3
+	EFourPlayerSplitScreenType__Grid                                                 = 0,
+	EFourPlayerSplitScreenType__Vertical                                             = 1,
+	EFourPlayerSplitScreenType__Horizontal                                           = 2
 };
 
-/// Enum /Script/EngineSettings.ESubLevelStripMode
-/// Size: 0x03
-enum ESubLevelStripMode : uint8_t
+/// Enum /Script/EngineSettings.EThreePlayerSplitScreenType
+/// Size: 0x04
+enum class EThreePlayerSplitScreenType : uint8_t
 {
-	ESubLevelStripMode__ExactClass0                                                  = 0,
-	ESubLevelStripMode__IsChildOf1                                                   = 1,
-	ESubLevelStripMode__ESubLevelStripMode_MAX2                                      = 2
+	EThreePlayerSplitScreenType__FavorTop                                            = 0,
+	EThreePlayerSplitScreenType__FavorBottom                                         = 1,
+	EThreePlayerSplitScreenType__Vertical                                            = 2,
+	EThreePlayerSplitScreenType__Horizontal                                          = 3
+};
+
+/// Enum /Script/EngineSettings.ETwoPlayerSplitScreenType
+/// Size: 0x02
+enum class ETwoPlayerSplitScreenType : uint8_t
+{
+	ETwoPlayerSplitScreenType__Horizontal                                            = 0,
+	ETwoPlayerSplitScreenType__Vertical                                              = 1
 };
 

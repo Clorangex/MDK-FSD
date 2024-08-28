@@ -5,88 +5,71 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: CoreUObject
 /// dependency: Engine
 
-/// Class /Script/AnimationSharing.AnimationSharingStateProcessor
-/// Size: 0x0020 (0x000028 - 0x000048)
-class UAnimationSharingStateProcessor : public UObject
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 72;
-
-public:
-	CMember(TWeakObjectPtr<UEnum*>)                    AnimationStateEnum                                          OFFSET(get<T>, {0x28, 32, 0, 0})
-
-
-	/// Functions
-	// Function /Script/AnimationSharing.AnimationSharingStateProcessor.ProcessActorState
-	// void ProcessActorState(int32_t& OutState, AActor* InActor, char CurrentState, char OnDemandState, bool& bShouldProcess); // [0x7410ec0] Native|Event|Public|HasOutParms|BlueprintEvent 
-	// Function /Script/AnimationSharing.AnimationSharingStateProcessor.GetAnimationStateEnum
-	// UEnum* GetAnimationStateEnum();                                                                                          // [0x7410dbc] Native|Event|Public|BlueprintEvent 
-};
-
 /// Class /Script/AnimationSharing.AnimSharingStateInstance
-/// Size: 0x0020 (0x000350 - 0x000370)
+/// Size: 0x0028 (0x0002B8 - 0x0002E0)
 class UAnimSharingStateInstance : public UAnimInstance
 { 
 	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 880;
+	static inline constexpr uint64_t __MDKClassSize = 736;
 
 public:
-	CMember(UAnimSequence*)                            AnimationToPlay                                             OFFSET(get<T>, {0x348, 8, 0, 0})
-	DMember(float)                                     PermutationTimeOffset                                       OFFSET(get<float>, {0x350, 4, 0, 0})
-	DMember(float)                                     PlayRate                                                    OFFSET(get<float>, {0x354, 4, 0, 0})
-	DMember(bool)                                      bStateBool                                                  OFFSET(get<bool>, {0x358, 1, 0, 0})
-	CMember(UAnimSharingInstance*)                     Instance                                                    OFFSET(get<T>, {0x360, 8, 0, 0})
+	CMember(class UAnimSequence*)                      AnimationToPlay                                             OFFSET(get<T>, {0x2B8, 8, 0, 0})
+	DMember(float)                                     PermutationTimeOffset                                       OFFSET(get<float>, {0x2C0, 4, 0, 0})
+	DMember(float)                                     PlayRate                                                    OFFSET(get<float>, {0x2C4, 4, 0, 0})
+	DMember(bool)                                      bStateBool                                                  OFFSET(get<bool>, {0x2C8, 1, 0, 0})
+	CMember(class UAnimSharingInstance*)               instance                                                    OFFSET(get<T>, {0x2D0, 8, 0, 0})
 
 
 	/// Functions
 	// Function /Script/AnimationSharing.AnimSharingStateInstance.GetInstancedActors
-	// void GetInstancedActors(TArray<AActor*>& Actors);                                                                        // [0x7410de4] Final|Native|Protected|HasOutParms|BlueprintCallable 
+	// void GetInstancedActors(TArray<AActor*>& Actors);                                                                        // [0x1177040] Final|Native|Protected|HasOutParms|BlueprintCallable 
 };
 
 /// Class /Script/AnimationSharing.AnimSharingTransitionInstance
-/// Size: 0x0010 (0x000350 - 0x000360)
+/// Size: 0x0018 (0x0002B8 - 0x0002D0)
 class UAnimSharingTransitionInstance : public UAnimInstance
 { 
 	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 864;
+	static inline constexpr uint64_t __MDKClassSize = 720;
 
 public:
-	CMember(TWeakObjectPtr<USkeletalMeshComponent*>)   FromComponent                                               OFFSET(get<T>, {0x348, 8, 0, 0})
-	CMember(TWeakObjectPtr<USkeletalMeshComponent*>)   ToComponent                                                 OFFSET(get<T>, {0x350, 8, 0, 0})
-	DMember(float)                                     BlendTime                                                   OFFSET(get<float>, {0x358, 4, 0, 0})
-	DMember(bool)                                      bBlendBool                                                  OFFSET(get<bool>, {0x35C, 1, 0, 0})
+	CMember(TWeakObjectPtr<class USkeletalMeshComponent*>) FromComponent                                           OFFSET(get<T>, {0x2B8, 8, 0, 0})
+	CMember(TWeakObjectPtr<class USkeletalMeshComponent*>) ToComponent                                             OFFSET(get<T>, {0x2C0, 8, 0, 0})
+	DMember(float)                                     BlendTime                                                   OFFSET(get<float>, {0x2C8, 4, 0, 0})
+	DMember(bool)                                      bBlendBool                                                  OFFSET(get<bool>, {0x2CC, 1, 0, 0})
 };
 
 /// Class /Script/AnimationSharing.AnimSharingAdditiveInstance
-/// Size: 0x0010 (0x000350 - 0x000360)
+/// Size: 0x0018 (0x0002B8 - 0x0002D0)
 class UAnimSharingAdditiveInstance : public UAnimInstance
 { 
 	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 864;
+	static inline constexpr uint64_t __MDKClassSize = 720;
 
 public:
-	CMember(TWeakObjectPtr<USkeletalMeshComponent*>)   BaseComponent                                               OFFSET(get<T>, {0x348, 8, 0, 0})
-	CMember(TWeakObjectPtr<UAnimSequence*>)            AdditiveAnimation                                           OFFSET(get<T>, {0x350, 8, 0, 0})
-	DMember(float)                                     Alpha                                                       OFFSET(get<float>, {0x358, 4, 0, 0})
-	DMember(bool)                                      bStateBool                                                  OFFSET(get<bool>, {0x35C, 1, 0, 0})
+	CMember(TWeakObjectPtr<class USkeletalMeshComponent*>) BaseComponent                                           OFFSET(get<T>, {0x2B8, 8, 0, 0})
+	CMember(TWeakObjectPtr<class UAnimSequence*>)      AdditiveAnimation                                           OFFSET(get<T>, {0x2C0, 8, 0, 0})
+	DMember(float)                                     alpha                                                       OFFSET(get<float>, {0x2C8, 4, 0, 0})
+	DMember(bool)                                      bStateBool                                                  OFFSET(get<bool>, {0x2CC, 1, 0, 0})
 };
 
 /// Class /Script/AnimationSharing.AnimSharingInstance
-/// Size: 0x00F8 (0x000028 - 0x000120)
+/// Size: 0x00F0 (0x000028 - 0x000118)
 class UAnimSharingInstance : public UObject
 { 
 	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 288;
+	static inline constexpr uint64_t __MDKClassSize = 280;
 
 public:
-	CMember(TArray<AActor*>)                           RegisteredActors                                            OFFSET(get<T>, {0x28, 16, 0, 0})
-	CMember(UAnimationSharingStateProcessor*)          StateProcessor                                              OFFSET(get<T>, {0x88, 8, 0, 0})
-	CMember(TArray<UAnimSequence*>)                    UsedAnimationSequences                                      OFFSET(get<T>, {0xC8, 16, 0, 0})
-	CMember(UEnum*)                                    StateEnum                                                   OFFSET(get<T>, {0xE8, 8, 0, 0})
-	CMember(AActor*)                                   SharingActor                                                OFFSET(get<T>, {0xF0, 8, 0, 0})
+	CMember(TArray<class AActor*>)                     RegisteredActors                                            OFFSET(get<T>, {0x28, 16, 0, 0})
+	CMember(class UAnimationSharingStateProcessor*)    StateProcessor                                              OFFSET(get<T>, {0x88, 8, 0, 0})
+	CMember(TArray<class UAnimSequence*>)              UsedAnimationSequences                                      OFFSET(get<T>, {0xC8, 16, 0, 0})
+	CMember(class UEnum*)                              StateEnum                                                   OFFSET(get<T>, {0xE8, 8, 0, 0})
+	CMember(class AActor*)                             SharingActor                                                OFFSET(get<T>, {0xF0, 8, 0, 0})
 };
 
 /// Class /Script/AnimationSharing.AnimationSharingManager
@@ -97,31 +80,19 @@ class UAnimationSharingManager : public UObject
 	static inline constexpr uint64_t __MDKClassSize = 136;
 
 public:
-	CMember(TArray<USkeleton*>)                        Skeletons                                                   OFFSET(get<T>, {0x28, 16, 0, 0})
-	CMember(TArray<UAnimSharingInstance*>)             PerSkeletonData                                             OFFSET(get<T>, {0x38, 16, 0, 0})
+	CMember(TArray<class USkeleton*>)                  Skeletons                                                   OFFSET(get<T>, {0x28, 16, 0, 0})
+	CMember(TArray<class UAnimSharingInstance*>)       PerSkeletonData                                             OFFSET(get<T>, {0x38, 16, 0, 0})
 
 
 	/// Functions
 	// Function /Script/AnimationSharing.AnimationSharingManager.RegisterActorWithSkeletonBP
-	// void RegisterActorWithSkeletonBP(AActor* InActor, USkeleton* SharingSkeleton);                                           // [0x74110f4] Final|Native|Public|BlueprintCallable 
+	// void RegisterActorWithSkeletonBP(class AActor* InActor, class USkeleton* SharingSkeleton);                               // [0x11772b0] Final|Native|Public|BlueprintCallable 
 	// Function /Script/AnimationSharing.AnimationSharingManager.GetAnimationSharingManager
-	// UAnimationSharingManager* GetAnimationSharingManager(UObject* WorldContextObject);                                       // [0x7410d3c] Final|Native|Static|Public|BlueprintCallable 
+	// class UAnimationSharingManager* GetAnimationSharingManager(class UObject* WorldContextObject);                           // [0x1176f80] Final|Native|Static|Public|BlueprintCallable 
 	// Function /Script/AnimationSharing.AnimationSharingManager.CreateAnimationSharingManager
-	// bool CreateAnimationSharingManager(UObject* WorldContextObject, UAnimationSharingSetup* Setup);                          // [0x7410bfc] Final|Native|Static|Public|BlueprintCallable 
+	// bool CreateAnimationSharingManager(class UObject* WorldContextObject, class UAnimationSharingSetup* Setup);              // [0x1176eb0] Final|Native|Static|Public|BlueprintCallable 
 	// Function /Script/AnimationSharing.AnimationSharingManager.AnimationSharingEnabled
-	// bool AnimationSharingEnabled();                                                                                          // [0x7410be0] Final|Native|Static|Public|BlueprintCallable|BlueprintPure 
-};
-
-/// Class /Script/AnimationSharing.AnimationSharingSetup
-/// Size: 0x0020 (0x000028 - 0x000048)
-class UAnimationSharingSetup : public UObject
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 72;
-
-public:
-	CMember(TArray<FPerSkeletonAnimationSharingSetup>) SkeletonSetups                                              OFFSET(get<T>, {0x28, 16, 0, 0})
-	SMember(FAnimationSharingScalability)              ScalabilitySettings                                         OFFSET(getStruct<T>, {0x38, 16, 0, 0})
+	// bool AnimationSharingEnabled();                                                                                          // [0x1176e80] Final|Native|Static|Public|BlueprintCallable|BlueprintPure 
 };
 
 /// Struct /Script/AnimationSharing.AnimationSetup
@@ -133,8 +104,8 @@ class FAnimationSetup : public MDKBase
 	static inline constexpr uint64_t __MDKClassSize = 24;
 
 public:
-	CMember(UAnimSequence*)                            AnimSequence                                                OFFSET(get<T>, {0x0, 8, 0, 0})
-	CMember(UClass*)                                   AnimBlueprint                                               OFFSET(get<T>, {0x8, 8, 0, 0})
+	CMember(class UAnimSequence*)                      AnimSequence                                                OFFSET(get<T>, {0x0, 8, 0, 0})
+	CMember(class UClass*)                             AnimBlueprint                                               OFFSET(get<T>, {0x8, 8, 0, 0})
 	SMember(FPerPlatformInt)                           NumRandomizedInstances                                      OFFSET(getStruct<T>, {0x10, 4, 0, 0})
 	SMember(FPerPlatformBool)                          Enabled                                                     OFFSET(getStruct<T>, {0x14, 1, 0, 0})
 };
@@ -170,11 +141,11 @@ class FPerSkeletonAnimationSharingSetup : public MDKBase
 	static inline constexpr uint64_t __MDKClassSize = 56;
 
 public:
-	CMember(USkeleton*)                                Skeleton                                                    OFFSET(get<T>, {0x0, 8, 0, 0})
-	CMember(USkeletalMesh*)                            SkeletalMesh                                                OFFSET(get<T>, {0x8, 8, 0, 0})
-	CMember(UClass*)                                   BlendAnimBlueprint                                          OFFSET(get<T>, {0x10, 8, 0, 0})
-	CMember(UClass*)                                   AdditiveAnimBlueprint                                       OFFSET(get<T>, {0x18, 8, 0, 0})
-	CMember(UClass*)                                   StateProcessorClass                                         OFFSET(get<T>, {0x20, 8, 0, 0})
+	CMember(class USkeleton*)                          Skeleton                                                    OFFSET(get<T>, {0x0, 8, 0, 0})
+	CMember(class USkeletalMesh*)                      SkeletalMesh                                                OFFSET(get<T>, {0x8, 8, 0, 0})
+	CMember(class UClass*)                             BlendAnimBlueprint                                          OFFSET(get<T>, {0x10, 8, 0, 0})
+	CMember(class UClass*)                             AdditiveAnimBlueprint                                       OFFSET(get<T>, {0x18, 8, 0, 0})
+	CMember(class UClass*)                             StateProcessorClass                                         OFFSET(get<T>, {0x20, 8, 0, 0})
 	CMember(TArray<FAnimationStateEntry>)              AnimationStates                                             OFFSET(get<T>, {0x28, 16, 0, 0})
 };
 
@@ -191,6 +162,36 @@ public:
 	SMember(FPerPlatformFloat)                         BlendSignificanceValue                                      OFFSET(getStruct<T>, {0x4, 4, 0, 0})
 	SMember(FPerPlatformInt)                           MaximumNumberConcurrentBlends                               OFFSET(getStruct<T>, {0x8, 4, 0, 0})
 	SMember(FPerPlatformFloat)                         TickSignificanceValue                                       OFFSET(getStruct<T>, {0xC, 4, 0, 0})
+};
+
+/// Class /Script/AnimationSharing.AnimationSharingSetup
+/// Size: 0x0020 (0x000028 - 0x000048)
+class UAnimationSharingSetup : public UObject
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 72;
+
+public:
+	CMember(TArray<FPerSkeletonAnimationSharingSetup>) SkeletonSetups                                              OFFSET(get<T>, {0x28, 16, 0, 0})
+	SMember(FAnimationSharingScalability)              ScalabilitySettings                                         OFFSET(getStruct<T>, {0x38, 16, 0, 0})
+};
+
+/// Class /Script/AnimationSharing.AnimationSharingStateProcessor
+/// Size: 0x0028 (0x000028 - 0x000050)
+class UAnimationSharingStateProcessor : public UObject
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 80;
+
+public:
+	CMember(TWeakObjectPtr<class UEnum*>)              AnimationStateEnum                                          OFFSET(get<T>, {0x28, 8, 0, 0})
+
+
+	/// Functions
+	// Function /Script/AnimationSharing.AnimationSharingStateProcessor.ProcessActorState
+	// void ProcessActorState(int32_t& OutState, class AActor* InActor, char CurrentState, char OnDemandState, bool& bShouldProcess); // [0x11770f0] Native|Event|Public|HasOutParms|BlueprintEvent 
+	// Function /Script/AnimationSharing.AnimationSharingStateProcessor.GetAnimationStateEnum
+	// class UEnum* GetAnimationStateEnum();                                                                                    // [0x1177010] Native|Event|Public|BlueprintEvent 
 };
 
 /// Struct /Script/AnimationSharing.TickAnimationSharingFunction

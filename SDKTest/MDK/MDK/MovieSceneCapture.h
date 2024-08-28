@@ -5,7 +5,10 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: CoreUObject
+/// dependency: Engine
+/// dependency: ImageWriteQueue
 
 /// Class /Script/MovieSceneCapture.MovieSceneCaptureProtocolBase
 /// Size: 0x0030 (0x000028 - 0x000058)
@@ -20,9 +23,9 @@ public:
 
 	/// Functions
 	// Function /Script/MovieSceneCapture.MovieSceneCaptureProtocolBase.IsCapturing
-	// bool IsCapturing();                                                                                                      // [0x57f3ac4] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// bool IsCapturing();                                                                                                      // [0x3230f70] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
 	// Function /Script/MovieSceneCapture.MovieSceneCaptureProtocolBase.GetState
-	// EMovieSceneCaptureProtocolState GetState();                                                                              // [0x57f3a7c] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// EMovieSceneCaptureProtocolState GetState();                                                                              // [0x2b40ef0] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
 };
 
 /// Class /Script/MovieSceneCapture.MovieSceneAudioCaptureProtocolBase
@@ -66,6 +69,18 @@ class UMovieSceneImageCaptureProtocolBase : public UMovieSceneCaptureProtocolBas
 public:
 };
 
+/// Struct /Script/MovieSceneCapture.CompositionGraphCapturePasses
+/// Size: 0x0010 (0x000000 - 0x000010)
+class FCompositionGraphCapturePasses : public MDKBase
+{ 
+	friend MDKHandler;
+	friend MDKBase;
+	static inline constexpr uint64_t __MDKClassSize = 16;
+
+public:
+	CMember(TArray<FString>)                           Value                                                       OFFSET(get<T>, {0x0, 16, 0, 0})
+};
+
 /// Class /Script/MovieSceneCapture.CompositionGraphCaptureProtocol
 /// Size: 0x0068 (0x000058 - 0x0000C0)
 class UCompositionGraphCaptureProtocol : public UMovieSceneImageCaptureProtocolBase
@@ -80,17 +95,7 @@ public:
 	CMember(TEnumAsByte<EHDRCaptureGamut>)             CaptureGamut                                                OFFSET(get<T>, {0x70, 1, 0, 0})
 	SMember(FSoftObjectPath)                           PostProcessingMaterial                                      OFFSET(getStruct<T>, {0x78, 24, 0, 0})
 	DMember(bool)                                      bDisableScreenPercentage                                    OFFSET(get<bool>, {0x90, 1, 0, 0})
-	CMember(UMaterialInterface*)                       PostProcessingMaterialPtr                                   OFFSET(get<T>, {0x98, 8, 0, 0})
-};
-
-/// Class /Script/MovieSceneCapture.MovieSceneCaptureInterface
-/// Size: 0x0000 (0x000028 - 0x000028)
-class UMovieSceneCaptureInterface : public UInterface
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 40;
-
-public:
+	CMember(class UMaterialInterface*)                 PostProcessingMaterialPtr                                   OFFSET(get<T>, {0x98, 8, 0, 0})
 };
 
 /// Class /Script/MovieSceneCapture.FrameGrabberProtocol
@@ -166,148 +171,14 @@ public:
 	CMember(TEnumAsByte<EHDRCaptureGamut>)             CaptureGamut                                                OFFSET(get<T>, {0xD9, 1, 0, 0})
 };
 
-/// Class /Script/MovieSceneCapture.MovieSceneCapture
-/// Size: 0x0200 (0x000028 - 0x000228)
-class UMovieSceneCapture : public UObject
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 552;
-
-public:
-	SMember(FSoftClassPath)                            ImageCaptureProtocolType                                    OFFSET(getStruct<T>, {0x38, 24, 0, 0})
-	SMember(FSoftClassPath)                            AudioCaptureProtocolType                                    OFFSET(getStruct<T>, {0x50, 24, 0, 0})
-	CMember(UMovieSceneImageCaptureProtocolBase*)      ImageCaptureProtocol                                        OFFSET(get<T>, {0x68, 8, 0, 0})
-	CMember(UMovieSceneAudioCaptureProtocolBase*)      AudioCaptureProtocol                                        OFFSET(get<T>, {0x70, 8, 0, 0})
-	SMember(FMovieSceneCaptureSettings)                Settings                                                    OFFSET(getStruct<T>, {0x78, 112, 0, 0})
-	DMember(bool)                                      bUseSeparateProcess                                         OFFSET(get<bool>, {0xE8, 1, 0, 0})
-	DMember(bool)                                      bCloseEditorWhenCaptureStarts                               OFFSET(get<bool>, {0xE9, 1, 0, 0})
-	SMember(FString)                                   AdditionalCommandLineArguments                              OFFSET(getStruct<T>, {0xF0, 16, 0, 0})
-	SMember(FString)                                   InheritedCommandLineArguments                               OFFSET(getStruct<T>, {0x100, 16, 0, 0})
-
-
-	/// Functions
-	// Function /Script/MovieSceneCapture.MovieSceneCapture.SetImageCaptureProtocolType
-	// void SetImageCaptureProtocolType(UClass* ProtocolType);                                                                  // [0x57f3cdc] Final|RequiredAPI|Native|Public|BlueprintCallable 
-	// Function /Script/MovieSceneCapture.MovieSceneCapture.SetAudioCaptureProtocolType
-	// void SetAudioCaptureProtocolType(UClass* ProtocolType);                                                                  // [0x57f3c48] Final|RequiredAPI|Native|Public|BlueprintCallable 
-	// Function /Script/MovieSceneCapture.MovieSceneCapture.GetImageCaptureProtocol
-	// UMovieSceneCaptureProtocolBase* GetImageCaptureProtocol();                                                               // [0x57f3a64] Final|Native|Public|BlueprintCallable 
-	// Function /Script/MovieSceneCapture.MovieSceneCapture.GetAudioCaptureProtocol
-	// UMovieSceneCaptureProtocolBase* GetAudioCaptureProtocol();                                                               // [0x57f39c4] Final|Native|Public|BlueprintCallable 
-};
-
-/// Class /Script/MovieSceneCapture.LevelCapture
-/// Size: 0x0020 (0x000228 - 0x000248)
-class ULevelCapture : public UMovieSceneCapture
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 584;
-
-public:
-	DMember(bool)                                      bAutoStartCapture                                           OFFSET(get<bool>, {0x228, 1, 0, 0})
-	SMember(FGuid)                                     PrerequisiteActorId                                         OFFSET(getStruct<T>, {0x234, 16, 0, 0})
-};
-
-/// Class /Script/MovieSceneCapture.MovieSceneCaptureEnvironment
+/// Class /Script/MovieSceneCapture.MovieSceneCaptureInterface
 /// Size: 0x0000 (0x000028 - 0x000028)
-class UMovieSceneCaptureEnvironment : public UObject
+class UMovieSceneCaptureInterface : public UInterface
 { 
 	friend MDKHandler;
 	static inline constexpr uint64_t __MDKClassSize = 40;
 
 public:
-};
-
-/// Class /Script/MovieSceneCapture.UserDefinedCaptureProtocol
-/// Size: 0x0080 (0x000058 - 0x0000D8)
-class UUserDefinedCaptureProtocol : public UMovieSceneImageCaptureProtocolBase
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 216;
-
-public:
-	CMember(UWorld*)                                   World                                                       OFFSET(get<T>, {0x58, 8, 0, 0})
-
-
-	/// Functions
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.StopCapturingFinalPixels
-	// void StopCapturingFinalPixels();                                                                                         // [0x57f3e64] Final|RequiredAPI|Native|Public|BlueprintCallable 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.StartCapturingFinalPixels
-	// void StartCapturingFinalPixels(FCapturedPixelsID& StreamID);                                                             // [0x57f3d70] Final|RequiredAPI|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.ResolveBuffer
-	// void ResolveBuffer(UTexture* Buffer, FCapturedPixelsID& BufferID);                                                       // [0x57f3b34] Final|RequiredAPI|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnWarmUp
-	// void OnWarmUp();                                                                                                         // [0x101681c] RequiredAPI|Event|Protected|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnTick
-	// void OnTick();                                                                                                           // [0x101681c] RequiredAPI|Event|Protected|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnStartCapture
-	// void OnStartCapture();                                                                                                   // [0x101681c] RequiredAPI|Event|Protected|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnSetup
-	// bool OnSetup();                                                                                                          // [0x57f3b0c] RequiredAPI|Native|Event|Protected|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnPreTick
-	// void OnPreTick();                                                                                                        // [0x101681c] RequiredAPI|Event|Protected|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnPixelsReceived
-	// void OnPixelsReceived(FCapturedPixels& Pixels, FCapturedPixelsID& ID, FFrameMetrics FrameMetrics);                       // [0x101681c] RequiredAPI|Event|Protected|HasOutParms|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnPauseCapture
-	// void OnPauseCapture();                                                                                                   // [0x101681c] RequiredAPI|Event|Protected|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnFinalize
-	// void OnFinalize();                                                                                                       // [0x101681c] RequiredAPI|Event|Protected|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnCaptureFrame
-	// void OnCaptureFrame();                                                                                                   // [0x101681c] RequiredAPI|Event|Protected|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnCanFinalize
-	// bool OnCanFinalize();                                                                                                    // [0x57f3ae4] RequiredAPI|Native|Event|Protected|BlueprintEvent|Const 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnBeginFinalize
-	// void OnBeginFinalize();                                                                                                  // [0x101681c] RequiredAPI|Event|Protected|BlueprintEvent 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.GetCurrentFrameMetrics
-	// FFrameMetrics GetCurrentFrameMetrics();                                                                                  // [0x57f3a4c] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
-	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.GenerateFilename
-	// FString GenerateFilename(FFrameMetrics& InFrameMetrics);                                                                 // [0x57f3788] RequiredAPI|Native|Public|HasOutParms|BlueprintCallable|BlueprintPure|Const 
-};
-
-/// Class /Script/MovieSceneCapture.UserDefinedImageCaptureProtocol
-/// Size: 0x0008 (0x0000D8 - 0x0000E0)
-class UUserDefinedImageCaptureProtocol : public UUserDefinedCaptureProtocol
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 224;
-
-public:
-	CMember(EDesiredImageFormat)                       Format                                                      OFFSET(get<T>, {0xD8, 1, 0, 0})
-	DMember(bool)                                      bEnableCompression                                          OFFSET(get<bool>, {0xD9, 1, 0, 0})
-	DMember(int32_t)                                   CompressionQuality                                          OFFSET(get<int32_t>, {0xDC, 4, 0, 0})
-
-
-	/// Functions
-	// Function /Script/MovieSceneCapture.UserDefinedImageCaptureProtocol.WriteImageToDisk
-	// void WriteImageToDisk(FCapturedPixels& PixelData, FCapturedPixelsID& StreamID, FFrameMetrics& FrameMetrics, bool bCopyImageData); // [0x57f3e78] Final|RequiredAPI|Native|Public|HasOutParms|BlueprintCallable 
-	// Function /Script/MovieSceneCapture.UserDefinedImageCaptureProtocol.GenerateFilenameForCurrentFrame
-	// FString GenerateFilenameForCurrentFrame();                                                                               // [0x57f3978] Final|RequiredAPI|Native|Public|BlueprintCallable 
-	// Function /Script/MovieSceneCapture.UserDefinedImageCaptureProtocol.GenerateFilenameForBuffer
-	// FString GenerateFilenameForBuffer(UTexture* Buffer, FCapturedPixelsID& StreamID);                                        // [0x57f3848] Final|RequiredAPI|Native|Public|HasOutParms|BlueprintCallable 
-};
-
-/// Class /Script/MovieSceneCapture.VideoCaptureProtocol
-/// Size: 0x0018 (0x000068 - 0x000080)
-class UVideoCaptureProtocol : public UFrameGrabberProtocol
-{ 
-	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 128;
-
-public:
-	DMember(bool)                                      bUseCompression                                             OFFSET(get<bool>, {0x68, 1, 0, 0})
-	DMember(float)                                     CompressionQuality                                          OFFSET(get<float>, {0x6C, 4, 0, 0})
-};
-
-/// Struct /Script/MovieSceneCapture.CompositionGraphCapturePasses
-/// Size: 0x0010 (0x000000 - 0x000010)
-class FCompositionGraphCapturePasses : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 16;
-
-public:
-	CMember(TArray<FString>)                           Value                                                       OFFSET(get<T>, {0x0, 16, 0, 0})
 };
 
 /// Struct /Script/MovieSceneCapture.CaptureResolution
@@ -333,7 +204,7 @@ class FMovieSceneCaptureSettings : public MDKBase
 
 public:
 	SMember(FDirectoryPath)                            OutputDirectory                                             OFFSET(getStruct<T>, {0x0, 16, 0, 0})
-	CMember(UClass*)                                   GameModeOverride                                            OFFSET(get<T>, {0x10, 8, 0, 0})
+	CMember(class UClass*)                             GameModeOverride                                            OFFSET(get<T>, {0x10, 8, 0, 0})
 	SMember(FString)                                   OutputFormat                                                OFFSET(getStruct<T>, {0x18, 16, 0, 0})
 	DMember(bool)                                      bOverwriteExisting                                          OFFSET(get<bool>, {0x28, 1, 0, 0})
 	DMember(bool)                                      bUseRelativeFrameNumbers                                    OFFSET(get<bool>, {0x29, 1, 0, 0})
@@ -355,6 +226,151 @@ public:
 	DMember(int32_t)                                   PathTracerSamplePerPixel                                    OFFSET(get<int32_t>, {0x68, 4, 0, 0})
 };
 
+/// Class /Script/MovieSceneCapture.MovieSceneCapture
+/// Size: 0x01F8 (0x000028 - 0x000220)
+class UMovieSceneCapture : public UObject
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 544;
+
+public:
+	SMember(FSoftClassPath)                            ImageCaptureProtocolType                                    OFFSET(getStruct<T>, {0x38, 24, 0, 0})
+	SMember(FSoftClassPath)                            AudioCaptureProtocolType                                    OFFSET(getStruct<T>, {0x50, 24, 0, 0})
+	CMember(class UMovieSceneImageCaptureProtocolBase*) ImageCaptureProtocol                                       OFFSET(get<T>, {0x68, 8, 0, 0})
+	CMember(class UMovieSceneAudioCaptureProtocolBase*) AudioCaptureProtocol                                       OFFSET(get<T>, {0x70, 8, 0, 0})
+	SMember(FMovieSceneCaptureSettings)                Settings                                                    OFFSET(getStruct<T>, {0x78, 112, 0, 0})
+	DMember(bool)                                      bUseSeparateProcess                                         OFFSET(get<bool>, {0xE8, 1, 0, 0})
+	DMember(bool)                                      bCloseEditorWhenCaptureStarts                               OFFSET(get<bool>, {0xE9, 1, 0, 0})
+	SMember(FString)                                   AdditionalCommandLineArguments                              OFFSET(getStruct<T>, {0xF0, 16, 0, 0})
+	SMember(FString)                                   InheritedCommandLineArguments                               OFFSET(getStruct<T>, {0x100, 16, 0, 0})
+
+
+	/// Functions
+	// Function /Script/MovieSceneCapture.MovieSceneCapture.SetImageCaptureProtocolType
+	// void SetImageCaptureProtocolType(class UClass* ProtocolType);                                                            // [0x3231220] Final|Native|Public|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.MovieSceneCapture.SetAudioCaptureProtocolType
+	// void SetAudioCaptureProtocolType(class UClass* ProtocolType);                                                            // [0x3231190] Final|Native|Public|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.MovieSceneCapture.GetImageCaptureProtocol
+	// class UMovieSceneCaptureProtocolBase* GetImageCaptureProtocol();                                                         // [0x183c1a0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.MovieSceneCapture.GetAudioCaptureProtocol
+	// class UMovieSceneCaptureProtocolBase* GetAudioCaptureProtocol();                                                         // [0x183c180] Final|Native|Public|BlueprintCallable 
+};
+
+/// Class /Script/MovieSceneCapture.LevelCapture
+/// Size: 0x0020 (0x000220 - 0x000240)
+class ULevelCapture : public UMovieSceneCapture
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 576;
+
+public:
+	DMember(bool)                                      bAutoStartCapture                                           OFFSET(get<bool>, {0x220, 1, 0, 0})
+	SMember(FGuid)                                     PrerequisiteActorId                                         OFFSET(getStruct<T>, {0x22C, 16, 0, 0})
+};
+
+/// Class /Script/MovieSceneCapture.MovieSceneCaptureEnvironment
+/// Size: 0x0000 (0x000028 - 0x000028)
+class UMovieSceneCaptureEnvironment : public UObject
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 40;
+
+public:
+
+
+	/// Functions
+	// Function /Script/MovieSceneCapture.MovieSceneCaptureEnvironment.IsCaptureInProgress
+	// bool IsCaptureInProgress();                                                                                              // [0x3230f40] Final|Native|Static|Public|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.MovieSceneCaptureEnvironment.GetCaptureFrameNumber
+	// int32_t GetCaptureFrameNumber();                                                                                         // [0x3230ef0] Final|Native|Static|Public|BlueprintCallable|BlueprintPure 
+	// Function /Script/MovieSceneCapture.MovieSceneCaptureEnvironment.GetCaptureElapsedTime
+	// float GetCaptureElapsedTime();                                                                                           // [0x3230ec0] Final|Native|Static|Public|BlueprintCallable|BlueprintPure 
+	// Function /Script/MovieSceneCapture.MovieSceneCaptureEnvironment.FindImageCaptureProtocol
+	// class UMovieSceneImageCaptureProtocolBase* FindImageCaptureProtocol();                                                   // [0x3230b60] Final|Native|Static|Public|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.MovieSceneCaptureEnvironment.FindAudioCaptureProtocol
+	// class UMovieSceneAudioCaptureProtocolBase* FindAudioCaptureProtocol();                                                   // [0x3230b30] Final|Native|Static|Public|BlueprintCallable 
+};
+
+/// Class /Script/MovieSceneCapture.UserDefinedCaptureProtocol
+/// Size: 0x0080 (0x000058 - 0x0000D8)
+class UUserDefinedCaptureProtocol : public UMovieSceneImageCaptureProtocolBase
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 216;
+
+public:
+	CMember(class UWorld*)                             World                                                       OFFSET(get<T>, {0x58, 8, 0, 0})
+
+
+	/// Functions
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.StopCapturingFinalPixels
+	// void StopCapturingFinalPixels();                                                                                         // [0x32313f0] Final|Native|Public|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.StartCapturingFinalPixels
+	// void StartCapturingFinalPixels(FCapturedPixelsID& StreamID);                                                             // [0x32312b0] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.ResolveBuffer
+	// void ResolveBuffer(class UTexture* Buffer, FCapturedPixelsID& BufferID);                                                 // [0x3231010] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnWarmUp
+	// void OnWarmUp();                                                                                                         // [0x1d6f900] Event|Protected|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnTick
+	// void OnTick();                                                                                                           // [0x1d6f900] Event|Protected|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnStartCapture
+	// void OnStartCapture();                                                                                                   // [0x1d6f900] Event|Protected|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnSetup
+	// bool OnSetup();                                                                                                          // [0x3230fe0] Native|Event|Protected|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnPreTick
+	// void OnPreTick();                                                                                                        // [0x1d6f900] Event|Protected|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnPixelsReceived
+	// void OnPixelsReceived(FCapturedPixels& Pixels, FCapturedPixelsID& ID, FFrameMetrics FrameMetrics);                       // [0x1d6f900] Event|Protected|HasOutParms|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnPauseCapture
+	// void OnPauseCapture();                                                                                                   // [0x1d6f900] Event|Protected|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnFinalize
+	// void OnFinalize();                                                                                                       // [0x1d6f900] Event|Protected|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnCaptureFrame
+	// void OnCaptureFrame();                                                                                                   // [0x1d6f900] Event|Protected|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnCanFinalize
+	// bool OnCanFinalize();                                                                                                    // [0x3230fb0] Native|Event|Protected|BlueprintEvent|Const 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.OnBeginFinalize
+	// void OnBeginFinalize();                                                                                                  // [0x1d6f900] Event|Protected|BlueprintEvent 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.GetCurrentFrameMetrics
+	// FFrameMetrics GetCurrentFrameMetrics();                                                                                  // [0x3230f20] Final|Native|Public|BlueprintCallable|BlueprintPure|Const 
+	// Function /Script/MovieSceneCapture.UserDefinedCaptureProtocol.GenerateFilename
+	// FString GenerateFilename(FFrameMetrics& InFrameMetrics);                                                                 // [0x3230b90] Native|Public|HasOutParms|BlueprintCallable|BlueprintPure|Const 
+};
+
+/// Class /Script/MovieSceneCapture.UserDefinedImageCaptureProtocol
+/// Size: 0x0008 (0x0000D8 - 0x0000E0)
+class UUserDefinedImageCaptureProtocol : public UUserDefinedCaptureProtocol
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 224;
+
+public:
+	CMember(EDesiredImageFormat)                       Format                                                      OFFSET(get<T>, {0xD8, 1, 0, 0})
+	DMember(bool)                                      bEnableCompression                                          OFFSET(get<bool>, {0xD9, 1, 0, 0})
+	DMember(int32_t)                                   CompressionQuality                                          OFFSET(get<int32_t>, {0xDC, 4, 0, 0})
+
+
+	/// Functions
+	// Function /Script/MovieSceneCapture.UserDefinedImageCaptureProtocol.WriteImageToDisk
+	// void WriteImageToDisk(FCapturedPixels& PixelData, FCapturedPixelsID& StreamID, FFrameMetrics& FrameMetrics, bool bCopyImageData); // [0x3231410] Final|Native|Public|HasOutParms|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.UserDefinedImageCaptureProtocol.GenerateFilenameForCurrentFrame
+	// FString GenerateFilenameForCurrentFrame();                                                                               // [0x3230e40] Final|Native|Public|BlueprintCallable 
+	// Function /Script/MovieSceneCapture.UserDefinedImageCaptureProtocol.GenerateFilenameForBuffer
+	// FString GenerateFilenameForBuffer(class UTexture* Buffer, FCapturedPixelsID& StreamID);                                  // [0x3230c80] Final|Native|Public|HasOutParms|BlueprintCallable 
+};
+
+/// Class /Script/MovieSceneCapture.VideoCaptureProtocol
+/// Size: 0x0018 (0x000068 - 0x000080)
+class UVideoCaptureProtocol : public UFrameGrabberProtocol
+{ 
+	friend MDKHandler;
+	static inline constexpr uint64_t __MDKClassSize = 128;
+
+public:
+	DMember(bool)                                      bUseCompression                                             OFFSET(get<bool>, {0x68, 1, 0, 0})
+	DMember(float)                                     CompressionQuality                                          OFFSET(get<float>, {0x6C, 4, 0, 0})
+};
+
 /// Struct /Script/MovieSceneCapture.FrameMetrics
 /// Size: 0x0010 (0x000000 - 0x000010)
 class FFrameMetrics : public MDKBase
@@ -370,6 +386,17 @@ public:
 	DMember(int32_t)                                   NumDroppedFrames                                            OFFSET(get<int32_t>, {0xC, 4, 0, 0})
 };
 
+/// Struct /Script/MovieSceneCapture.CapturedPixels
+/// Size: 0x0010 (0x000000 - 0x000010)
+class FCapturedPixels : public MDKBase
+{ 
+	friend MDKHandler;
+	friend MDKBase;
+	static inline constexpr uint64_t __MDKClassSize = 16;
+
+public:
+};
+
 /// Struct /Script/MovieSceneCapture.CapturedPixelsID
 /// Size: 0x0050 (0x000000 - 0x000050)
 class FCapturedPixelsID : public MDKBase
@@ -382,38 +409,25 @@ public:
 	CMember(TMap<FName, FName>)                        Identifiers                                                 OFFSET(get<T>, {0x0, 80, 0, 0})
 };
 
-/// Struct /Script/MovieSceneCapture.CapturedPixels
-/// Size: 0x0010 (0x000000 - 0x000010)
-class FCapturedPixels : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 16;
-
-public:
-};
-
 /// Enum /Script/MovieSceneCapture.EHDRCaptureGamut
-/// Size: 0x07
-enum EHDRCaptureGamut : uint8_t
+/// Size: 0x06
+enum class EHDRCaptureGamut : uint8_t
 {
-	HCGM_Rec7090                                                                     = 0,
-	HCGM_P3DCI1                                                                      = 1,
-	HCGM_Rec20202                                                                    = 2,
-	HCGM_ACES3                                                                       = 3,
-	HCGM_ACEScg4                                                                     = 4,
-	HCGM_Linear5                                                                     = 5,
-	HCGM_MAX6                                                                        = 6
+	HCGM_Rec709                                                                      = 0,
+	HCGM_P3DCI                                                                       = 1,
+	HCGM_Rec2020                                                                     = 2,
+	HCGM_ACES                                                                        = 3,
+	HCGM_ACEScg                                                                      = 4,
+	HCGM_Linear                                                                      = 5
 };
 
 /// Enum /Script/MovieSceneCapture.EMovieSceneCaptureProtocolState
-/// Size: 0x05
-enum EMovieSceneCaptureProtocolState : uint8_t
+/// Size: 0x04
+enum class EMovieSceneCaptureProtocolState : uint8_t
 {
-	EMovieSceneCaptureProtocolState__Idle0                                           = 0,
-	EMovieSceneCaptureProtocolState__Initialized1                                    = 1,
-	EMovieSceneCaptureProtocolState__Capturing2                                      = 2,
-	EMovieSceneCaptureProtocolState__Finalizing3                                     = 3,
-	EMovieSceneCaptureProtocolState__EMovieSceneCaptureProtocolState_MAX4            = 4
+	EMovieSceneCaptureProtocolState__Idle                                            = 0,
+	EMovieSceneCaptureProtocolState__Initialized                                     = 1,
+	EMovieSceneCaptureProtocolState__Capturing                                       = 2,
+	EMovieSceneCaptureProtocolState__Finalizing                                      = 3
 };
 

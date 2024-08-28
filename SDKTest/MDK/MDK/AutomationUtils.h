@@ -5,6 +5,7 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: CoreUObject
 /// dependency: Engine
 
@@ -16,5 +17,10 @@ class UAutomationUtilsBlueprintLibrary : public UBlueprintFunctionLibrary
 	static inline constexpr uint64_t __MDKClassSize = 40;
 
 public:
+
+
+	/// Functions
+	// Function /Script/AutomationUtils.AutomationUtilsBlueprintLibrary.TakeGameplayAutomationScreenshot
+	// void TakeGameplayAutomationScreenshot(FString ScreenshotName, float MaxGlobalError, float MaxLocalError, FString MapNameOverride); // [0x11afb80] Final|Native|Static|Public|BlueprintCallable 
 };
 

@@ -5,6 +5,7 @@
 *                                                       *
 ********************************************************/
 
+/// dependency: BasicType
 /// dependency: CoreUObject
 /// dependency: Engine
 
@@ -19,27 +20,24 @@ public:
 };
 
 /// Class /Script/TimeManagement.GenlockedCustomTimeStep
-/// Size: 0x0008 (0x000028 - 0x000030)
+/// Size: 0x0000 (0x000028 - 0x000028)
 class UGenlockedCustomTimeStep : public UFixedFrameRateCustomTimeStep
 { 
 	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 48;
+	static inline constexpr uint64_t __MDKClassSize = 40;
 
 public:
-	DMember(bool)                                      bAutoDetectFormat                                           OFFSET(get<bool>, {0x28, 1, 0, 0})
 };
 
 /// Class /Script/TimeManagement.GenlockedFixedRateCustomTimeStep
-/// Size: 0x0020 (0x000030 - 0x000050)
+/// Size: 0x0020 (0x000028 - 0x000048)
 class UGenlockedFixedRateCustomTimeStep : public UGenlockedCustomTimeStep
 { 
 	friend MDKHandler;
-	static inline constexpr uint64_t __MDKClassSize = 80;
+	static inline constexpr uint64_t __MDKClassSize = 72;
 
 public:
-	SMember(FFrameRate)                                FrameRate                                                   OFFSET(getStruct<T>, {0x30, 8, 0, 0})
-	DMember(bool)                                      bShouldBlock                                                OFFSET(get<bool>, {0x38, 1, 0, 0})
-	DMember(bool)                                      bForceSingleFrameDeltaTime                                  OFFSET(get<bool>, {0x39, 1, 0, 0})
+	SMember(FFrameRate)                                FrameRate                                                   OFFSET(getStruct<T>, {0x28, 8, 0, 0})
 };
 
 /// Class /Script/TimeManagement.GenlockedTimecodeProvider
@@ -61,6 +59,43 @@ class UTimeManagementBlueprintLibrary : public UBlueprintFunctionLibrary
 	static inline constexpr uint64_t __MDKClassSize = 40;
 
 public:
+
+
+	/// Functions
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.TransformTime
+	// FFrameTime TransformTime(FFrameTime& SourceTime, FFrameRate& SourceRate, FFrameRate& DestinationRate);                   // [0x2de0b30] Final|Native|Static|Public|HasOutParms|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Subtract_FrameNumberInteger
+	// FFrameNumber Subtract_FrameNumberInteger(FFrameNumber A, int32_t B);                                                     // [0x2de0a70] Final|Native|Static|Public|HasDefaults|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Subtract_FrameNumberFrameNumber
+	// FFrameNumber Subtract_FrameNumberFrameNumber(FFrameNumber A, FFrameNumber B);                                            // [0x2de09b0] Final|Native|Static|Public|HasDefaults|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.SnapFrameTimeToRate
+	// FFrameTime SnapFrameTimeToRate(FFrameTime& SourceTime, FFrameRate& SourceRate, FFrameRate& SnapToRate);                  // [0x2de0860] Final|Native|Static|Public|HasOutParms|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Multiply_SecondsFrameRate
+	// FFrameTime Multiply_SecondsFrameRate(float TimeInSeconds, FFrameRate& FrameRate);                                        // [0x2de0780] Final|Native|Static|Public|HasOutParms|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Multiply_FrameNumberInteger
+	// FFrameNumber Multiply_FrameNumberInteger(FFrameNumber A, int32_t B);                                                     // [0x2de06c0] Final|Native|Static|Public|HasDefaults|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.IsValid_MultipleOf
+	// bool IsValid_MultipleOf(FFrameRate& InFrameRate, FFrameRate& OtherFramerate);                                            // [0x2de05c0] Final|Native|Static|Public|HasOutParms|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.IsValid_Framerate
+	// bool IsValid_Framerate(FFrameRate& InFrameRate);                                                                         // [0x2de0520] Final|Native|Static|Public|HasOutParms|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.GetTimecodeFrameRate
+	// FFrameRate GetTimecodeFrameRate();                                                                                       // [0x2de04e0] Final|Native|Static|Public|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.GetTimecode
+	// FTimecode GetTimecode();                                                                                                 // [0x2de04a0] Final|Native|Static|Public|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Divide_FrameNumberInteger
+	// FFrameNumber Divide_FrameNumberInteger(FFrameNumber A, int32_t B);                                                       // [0x2de03e0] Final|Native|Static|Public|HasDefaults|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Conv_TimecodeToString
+	// FString Conv_TimecodeToString(FTimecode& InTimecode, bool bForceSignDisplay);                                            // [0x2de02b0] Final|Native|Static|Public|HasOutParms|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Conv_QualifiedFrameTimeToSeconds
+	// float Conv_QualifiedFrameTimeToSeconds(FQualifiedFrameTime& InFrameTime);                                                // [0x2de0200] Final|Native|Static|Public|HasOutParms|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Conv_FrameRateToSeconds
+	// float Conv_FrameRateToSeconds(FFrameRate& InFrameRate);                                                                  // [0x2de0160] Final|Native|Static|Public|HasOutParms|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Conv_FrameNumberToInteger
+	// int32_t Conv_FrameNumberToInteger(FFrameNumber& InFrameNumber);                                                          // [0x2de00d0] Final|Native|Static|Public|HasOutParms|HasDefaults|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Add_FrameNumberInteger
+	// FFrameNumber Add_FrameNumberInteger(FFrameNumber A, int32_t B);                                                          // [0x2de0010] Final|Native|Static|Public|HasDefaults|BlueprintCallable|BlueprintPure 
+	// Function /Script/TimeManagement.TimeManagementBlueprintLibrary.Add_FrameNumberFrameNumber
+	// FFrameNumber Add_FrameNumberFrameNumber(FFrameNumber A, FFrameNumber B);                                                 // [0x2ddff50] Final|Native|Static|Public|HasDefaults|BlueprintCallable|BlueprintPure 
 };
 
 /// Class /Script/TimeManagement.TimeSynchronizationSource
@@ -73,17 +108,6 @@ class UTimeSynchronizationSource : public UObject
 public:
 	DMember(bool)                                      bUseForSynchronization                                      OFFSET(get<bool>, {0x28, 1, 0, 0})
 	DMember(int32_t)                                   FrameOffset                                                 OFFSET(get<int32_t>, {0x2C, 4, 0, 0})
-};
-
-/// Struct /Script/TimeManagement.TimedDataChannelSampleTime
-/// Size: 0x0018 (0x000000 - 0x000018)
-class FTimedDataChannelSampleTime : public MDKBase
-{ 
-	friend MDKHandler;
-	friend MDKBase;
-	static inline constexpr uint64_t __MDKClassSize = 24;
-
-public:
 };
 
 /// Struct /Script/TimeManagement.TimedDataInputEvaluationData
@@ -99,35 +123,43 @@ public:
 	DMember(float)                                     DistanceToOldestSampleSeconds                               OFFSET(get<float>, {0x4, 4, 0, 0})
 };
 
-/// Enum /Script/TimeManagement.EFrameNumberDisplayFormats
-/// Size: 0x06
-enum EFrameNumberDisplayFormats : uint8_t
-{
-	EFrameNumberDisplayFormats__NonDropFrameTimecode0                                = 0,
-	EFrameNumberDisplayFormats__DropFrameTimecode1                                   = 1,
-	EFrameNumberDisplayFormats__Seconds2                                             = 2,
-	EFrameNumberDisplayFormats__Frames3                                              = 3,
-	EFrameNumberDisplayFormats__MAX_Count4                                           = 4,
-	EFrameNumberDisplayFormats__EFrameNumberDisplayFormats_MAX5                      = 5
+/// Struct /Script/TimeManagement.TimedDataChannelSampleTime
+/// Size: 0x0018 (0x000000 - 0x000018)
+class FTimedDataChannelSampleTime : public MDKBase
+{ 
+	friend MDKHandler;
+	friend MDKBase;
+	static inline constexpr uint64_t __MDKClassSize = 24;
+
+public:
 };
 
-/// Enum /Script/TimeManagement.ETimedDataInputEvaluationType
-/// Size: 0x04
-enum ETimedDataInputEvaluationType : uint8_t
+/// Enum /Script/TimeManagement.EFrameNumberDisplayFormats
+/// Size: 0x05
+enum class EFrameNumberDisplayFormats : uint8_t
 {
-	ETimedDataInputEvaluationType__None0                                             = 0,
-	ETimedDataInputEvaluationType__Timecode1                                         = 1,
-	ETimedDataInputEvaluationType__PlatformTime2                                     = 2,
-	ETimedDataInputEvaluationType__ETimedDataInputEvaluationType_MAX3                = 3
+	EFrameNumberDisplayFormats__NonDropFrameTimecode                                 = 0,
+	EFrameNumberDisplayFormats__DropFrameTimecode                                    = 1,
+	EFrameNumberDisplayFormats__Seconds                                              = 2,
+	EFrameNumberDisplayFormats__Frames                                               = 3,
+	EFrameNumberDisplayFormats__MAX_Count                                            = 4
 };
 
 /// Enum /Script/TimeManagement.ETimedDataInputState
-/// Size: 0x04
-enum ETimedDataInputState : uint8_t
+/// Size: 0x03
+enum class ETimedDataInputState : uint8_t
 {
-	ETimedDataInputState__Connected0                                                 = 0,
-	ETimedDataInputState__Unresponsive1                                              = 1,
-	ETimedDataInputState__Disconnected2                                              = 2,
-	ETimedDataInputState__ETimedDataInputState_MAX3                                  = 3
+	ETimedDataInputState__Connected                                                  = 0,
+	ETimedDataInputState__Unresponsive                                               = 1,
+	ETimedDataInputState__Disconnected                                               = 2
+};
+
+/// Enum /Script/TimeManagement.ETimedDataInputEvaluationType
+/// Size: 0x03
+enum class ETimedDataInputEvaluationType : uint8_t
+{
+	ETimedDataInputEvaluationType__None                                              = 0,
+	ETimedDataInputEvaluationType__Timecode                                          = 1,
+	ETimedDataInputEvaluationType__PlatformTime                                      = 2
 };
 
