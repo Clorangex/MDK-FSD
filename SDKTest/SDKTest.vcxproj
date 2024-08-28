@@ -130,12 +130,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="MDK.cpp" />
     <ClCompile Include="Memory.cpp" />
     <ClCompile Include="SDKTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="driver.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="MDK.h" />
     <ClInclude Include="Memory.h" />
   </ItemGroup>
